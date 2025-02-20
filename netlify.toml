@@ -29,13 +29,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = """
       default-src 'self' https://*.supabase.co;
-      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      script-src 'self' 'unsafe-inline' https://*.supabase.co https://o4508848989929472.ingest.us.sentry.io;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https://*.unsplash.com https://*.supabase.co https://storage.googleapis.com;
-      connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com;
-      frame-ancestors 'none';
+      img-src 'self' data: https://*.unsplash.com https://*.supabase.co https://storage.googleapis.com https://*.netlify.app https://o4508848989929472.ingest.us.sentry.io;
+      connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://o4508848989929472.ingest.us.sentry.io;
+      frame-ancestors 'self';
     """
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Cross-Origin-Embedder-Policy = "require-corp"
     Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "cross-origin"
