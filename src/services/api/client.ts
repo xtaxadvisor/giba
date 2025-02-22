@@ -16,8 +16,6 @@ export class APIClient {
       baseURL: import.meta.env.VITE_API_URL,
       timeout: 10000,
       adapter: retryAdapterEnhancer(cache.adapter, { 
-        retries: 3,
-        retryDelay: retryCount => retryCount * 1000
       })
     });
 
@@ -76,3 +74,63 @@ export class APIClient {
 }
 
 export const apiClient = APIClient.getInstance();
+
+export function getById(clientId: string): any {
+  // Implement the function using clientId
+  return apiClient.get(`/clients/${clientId}`);
+}
+export function update(clientId: string, data: any): Promise<unknown> {
+  return apiClient.put(`/clients/${clientId}`, data);
+}
+
+
+export function deleteClient(clientId: string): Promise<unknown> {
+  return apiClient.delete(`/clients/${clientId}`);
+}
+
+export function deleteClientById(clientId: string): Promise<unknown> {
+  return apiClient.delete(`/clients/${clientId}`);
+}
+
+// Removed duplicate clientService function
+
+export function deleteClientByIdV2(): Promise<unknown> {
+  throw new Error('Function not implemented.');
+}
+
+export function deleteClientByIdV3(): Promise<unknown> {
+  throw new Error('Function not implemented.');
+}
+
+export const clientService = {
+  getById: async (clientId: string) => {
+    const response = await fetch(`/api/clients/${clientId}`);
+    return response.json();
+  },
+  update: async (clientId: string, data: any) => {
+    const response = await fetch(`/api/clients/${clientId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json();
+  },
+  delete: async (clientId: string) => {
+    const response = await fetch(`/api/clients/${clientId}`, {
+      method: 'DELETE',
+    });
+    return response.json();
+  },
+};
+
+export function deleteClientByIdV4(): Promise<unknown> {
+  throw new Error('Function not implemented.');
+}
+
+
+export function deleteClientByIdV5(clientId: string): Promise<unknown> {
+  return apiClient.delete(`/clients/${clientId}`);
+}
+

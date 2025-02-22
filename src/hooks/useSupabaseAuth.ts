@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase/client';
 import { userService } from '../services/database/users';
-import type { User } from '../types';
 
 export function useSupabaseAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -22,7 +22,7 @@ export function useSupabaseAuth() {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (_, session) => {
         if (session?.user) {
           try {
             const user = await userService.getByAuthId(session.user.id);

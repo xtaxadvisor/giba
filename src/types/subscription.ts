@@ -1,4 +1,3 @@
-```typescript
 export interface SubscriptionPlan {
   id: string;
   name: string;
@@ -18,4 +17,3 @@ export interface Subscription {
   currentPeriodEnd: string;
   cancelAtPeriodEnd: boolean;
 }
-```

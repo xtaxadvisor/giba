@@ -45,8 +45,21 @@ export interface InvoiceStats {
 }
 
 export const billingService = {
-  getInvoices: (params?: { status?: string; clientId?: string }) => 
-    api.get<Invoice[]>('/invoices', { params }),
+  getInvoices: async (params?: { status?: string; clientId?: string }) => {
+    let url = '/api/invoices';
+    if (params) {
+      const queryParams = new URLSearchParams(params as any).toString();
+      url += `?${queryParams}`;
+    }
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  },
 
   getInvoiceById: (id: string) => 
     api.get<Invoice>(`/invoices/${id}`),
@@ -67,8 +80,7 @@ export const billingService = {
     api.put<Invoice>(`/invoices/${id}/paid`),
 
   downloadInvoice: (id: string, format: 'pdf' | 'csv' = 'pdf') => 
-    api.get<Blob>(`/invoices/${id}/download`, {
-      params: { format },
+    api.get<Blob>(`/invoices/${id}/download?format=${format}`, {
       headers: { Accept: 'application/octet-stream' }
     }),
 
@@ -83,4 +95,25 @@ export const billingService = {
       date: string;
       method: string;
     }>>(`/clients/${clientId}/payments`),
+
+  processPayment: async (paymentDetails: any) => {
+    const response = await fetch('/api/payments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(paymentDetails),
+    });
+    return response.json();
+  },
+
+  refundPayment: async (paymentId: string) => {
+    const response = await fetch(`/api/payments/${paymentId}/refund`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  },
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';

@@ -1,14 +1,20 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '../services/api';
 import { useNotificationStore } from '../lib/store';
-import type { User } from '../types';
 
 interface CreateUserDTO {
   name: string;
   email: string;
   role: string;
 }
+// other type definitions
 
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
 interface UpdateUserDTO extends Partial<CreateUserDTO> {
   id: string;
 }
@@ -61,8 +67,8 @@ export function useUsers() {
     createUser: createUserMutation.mutate,
     updateUser: updateUserMutation.mutate,
     deleteUser: deleteUserMutation.mutate,
-    isCreating: createUserMutation.isLoading,
-    isUpdating: updateUserMutation.isLoading,
-    isDeleting: deleteUserMutation.isLoading
+    isCreating: createUserMutation.status === 'pending',
+    isUpdating: updateUserMutation.status === 'pending',
+    isDeleting: deleteUserMutation.status === 'pending'
   };
 }

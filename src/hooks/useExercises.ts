@@ -1,7 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { exerciseService } from '../services/api/exercise';
 import { useNotificationStore } from '../lib/store';
-import type { Exercise } from '../types/student';
 
 export function useExercises() {
   const queryClient = useQueryClient();

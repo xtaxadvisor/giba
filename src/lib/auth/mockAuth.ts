@@ -1,47 +1,19 @@
-import type { User, AuthCredentials, RegisterData } from './types';
+import type { AuthCredentials, RegisterData } from './types';
 import { storeUser, clearStoredUser } from './storage';
 import { validateLoginCredentials, validateRegistrationData } from './validation';
 
-const users: Array<User & { password: string }> = [
-  {
-    id: '1',
-    name: 'John Client',
-    email: 'client@example.com',
-    password: 'client123',
-    role: 'client'
-  },
-  {
-    id: '2',
-    name: 'Sarah Student',
-    email: 'student@example.com',
-    password: 'student123',
-    role: 'student'
-  },
-  {
-    id: '3',
-    name: 'Sarah Investor',
-    email: 'investor@example.com',
-    password: 'investor123',
-    role: 'investor'
-  },
-  {
-    id: '4',
-    name: 'Michael Professional',
-    email: 'professional@example.com',
-    password: 'professional123',
-    role: 'professional'
-  },
-  {
-    id: '5',
-    name: 'Admin User',
-    email: 'admin@example.com',
-    password: 'admin123',
-    role: 'admin',
-    isAdmin: true
-  }
+export interface LocalUser {
+  id: string;
+  email: string;
+  role: 'user' | 'admin';
+  isAdmin: boolean;
+}
+
+const users: Array<LocalUser & { password: string }> = [
+ // other type definitions
 ];
 
-export async function mockLogin(credentials: AuthCredentials): Promise<User> {
+export async function mockLogin(credentials: AuthCredentials): Promise<LocalUser> {
   await new Promise(resolve => setTimeout(resolve, 500));
   
   const errors = validateLoginCredentials(credentials);
@@ -89,9 +61,11 @@ export async function mockRegister(data: RegisterData): Promise<void> {
     throw new Error('Invalid role specified');
   }
 
-  const newUser = {
+  const newUser: LocalUser & { password: string } = {
     id: String(users.length + 1),
-    ...data,
+    email: data.email,
+    password: data.password,
+    role: data.role as 'user' | 'admin',
     isAdmin: false
   };
 

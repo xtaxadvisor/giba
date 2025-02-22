@@ -18,7 +18,7 @@ export async function checkSupabaseConnection() {
     const response = await fetch('/.netlify/functions/test-connection', {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabase.auth.session()?.access_token}`
+        'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
       }
     });
 
@@ -66,7 +66,7 @@ export function validateSupabaseConfig() {
     new URL(url);
     
     // Validate key format (basic JWT structure)
-    if (!key.split('.').length === 3) {
+    if (key.split('.').length !== 3) {
       throw new Error('Invalid API key format');
     }
 

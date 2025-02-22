@@ -1,36 +1,42 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { clientService } from '../services/api/client';
-import { useNotificationStore } from '../lib/store';
-import type { Client } from '../types';
+
+const queryClient = useQueryClient();
 
 export function useClient(clientId: string) {
-  const queryClient = useQueryClient();
-  const { addNotification } = useNotificationStore();
 
   const { data: client, isLoading } = useQuery({
     queryKey: ['client', clientId],
     queryFn: () => clientService.getById(clientId),
   });
 
-  const updateClientMutation = useMutation({
-    mutationFn: clientService.update,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['client', clientId] });
-      addNotification('Client updated successfully', 'success');
-    },
-    onError: () => {
-      addNotification('Failed to update client', 'error');
-    },
-  });
+  if (isLoading) {
+    console.log('Loading client data...');
+  }
+
+  if (client) {
+    console.log('Client data:', client);
+  }
+
+const updateClientMutation = useMutation({
+  mutationFn: (data) => clientService.update(clientId, data),
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['client', clientId] });
+    new Notification('Client updated successfully', { body: 'success' });
+  },
+  onError: () => {
+    new Notification('Failed to update client', { body: 'error' });
+  },
+});
 
   const deleteClientMutation = useMutation({
-    mutationFn: clientService.delete,
+    mutationFn: () => clientService.delete(clientId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['clients'] });
-      addNotification('Client deleted successfully', 'success');
+      new Notification('Client deleted successfully', { body: 'success' });
     },
     onError: () => {
-      addNotification('Failed to delete client', 'error');
+      new Notification('Failed to delete client', { body: 'error' });
     },
   });
 
@@ -40,4 +46,23 @@ export function useClient(clientId: string) {
     updateClient: updateClientMutation.mutate,
     deleteClient: deleteClientMutation.mutate,
   };
+}
+
+export async function deleteClient(clientId: string): Promise<void> {
+  try {
+    await clientService.delete(clientId);
+    console.log(`Client with ID ${clientId} deleted successfully.`);
+  } catch (error) {
+    console.error(`Failed to delete client with ID ${clientId}:`, error);
+    throw error;
+  }
+}
+export async function deleteClientById(clientId: string): Promise<void> {
+  try {
+    await clientService.delete(clientId);
+    console.log(`Client with ID ${clientId} deleted successfully.`);
+  } catch (error) {
+    console.error(`Failed to delete client with ID ${clientId}:`, error);
+    throw error;
+  }
 }

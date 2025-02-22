@@ -1,4 +1,9 @@
-import type { AnalyticsTrend } from '../../types/analytics';
+export type AnalyticsTrend = {
+  value: number;
+  change: number;
+  direction: 'up' | 'down' | 'stable';
+  strength: 'strong' | 'moderate' | 'weak';
+};
 
 export function calculateTrend(history: Array<{ date: string; value: number }>): number {
   if (history.length < 2) return 0;

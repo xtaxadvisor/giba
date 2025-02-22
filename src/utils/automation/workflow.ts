@@ -1,4 +1,4 @@
-import type { Workflow, WorkflowStep } from '../../types/automation';
+import type { Workflow } from '../../types/automation';
 
 export function validateWorkflow(workflow: Workflow): string[] {
   const errors: string[] = [];

@@ -1,5 +1,20 @@
 import { api } from '../api';
-import type { Consultation } from '../../types';
+import { ReactNode } from 'react';
+// import type { Consultation } from '../../types';
+
+export interface Consultation {
+  [x: string]: any;
+  status: string;
+  type: ReactNode;
+  startTime: string | number | Date;
+  // Define the properties of the Consultation interface here
+}
+export interface ScheduleConsultationDTO {
+  date: string;
+  time: string;
+  clientId: string;
+  consultantId: string;
+}
 
 export const consultationService = {
   getAll: () => 

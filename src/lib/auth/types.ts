@@ -13,12 +13,20 @@ export interface AuthResponse {
   token: string;
 }
 
+
+  // other type definitions
 export interface User {
   id: string;
-  name: string;
   email: string;
-  role: UserRole;
-  isAdmin?: boolean;
+  // add other fields as necessary
+}
+// Ensure MetricComparison is defined and exported
+export interface MetricComparison {
+  current: number;
+  previous: number;
+  absoluteChange: number;
+  percentageChange: number;
+  trend: 'up' | 'down' | 'stable';
 }
 
 export type UserRole = 'client' | 'student' | 'investor' | 'professional' | 'admin';

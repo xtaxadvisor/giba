@@ -1,9 +1,9 @@
-import { io, Socket } from 'socket.io-client';
+import io from 'socket.io-client';
 import { useNotificationStore } from '../lib/store';
 
-class SocketService {
-  private socket: Socket | null = null;
-  private readonly API_URL = import.meta.env.VITE_API_URL || '/api';
+  class SocketService {
+    private socket: Socket | null = null;
+    private readonly API_URL = import.meta.env.VITE_API_URL || '/api';
 
   connect(consultationId: string) {
     if (this.socket) return;
@@ -13,7 +13,7 @@ class SocketService {
       transports: ['websocket']
     });
 
-    this.socket.on('connect_error', (error) => {
+    this.socket.on('connect_error', (error: any) => {
       console.error('Socket connection error:', error);
       useNotificationStore.getState().addNotification(
         'Connection error. Please try reconnecting.',
@@ -48,7 +48,7 @@ class SocketService {
   }
 
   off(event: string, callback?: (data: any) => void) {
-    if (this.socket) {
+    if (this.socket && callback) {
       this.socket.off(event, callback);
     }
   }

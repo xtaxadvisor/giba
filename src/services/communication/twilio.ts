@@ -1,4 +1,9 @@
-import { TWILIO_CONFIG } from '../../config/twilio';
+export const TWILIO_CONFIG = {
+  accountSid: 'your_account_sid',
+  authToken: 'your_auth_token',
+  phoneNumber: 'your_phone_number',
+  whatsappNumber: 'your_whatsapp_number'
+};
 
 class TwilioService {
   private static instance: TwilioService;

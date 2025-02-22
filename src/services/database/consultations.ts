@@ -1,5 +1,6 @@
 import { DatabaseService } from './index';
 import type { Database } from '../../lib/supabase/types';
+import { supabase } from '@/lib/supabase/client';
 
 type Consultation = Database['public']['Tables']['consultations']['Row'];
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Video, Calendar, Clock, FileText, MessageSquare } from 'lucide-react';
 import { Button } from '../ui/Button';

@@ -1,4 +1,4 @@
-import { User } from '../types';
+import { User } from '../types/UserProfile';
 
 const DEV_AUTH_ENABLED = import.meta.env.DEV && import.meta.env.VITE_DEV_BYPASS_AUTH === 'true';
 
@@ -34,6 +34,12 @@ const DEV_USERS: Record<string, User> = {
     role: 'client'
   }
 };
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
 
 export function isDevAuthEnabled(): boolean {
   return DEV_AUTH_ENABLED;

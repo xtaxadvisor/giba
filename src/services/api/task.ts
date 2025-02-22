@@ -1,6 +1,5 @@
 import { api } from '../api';
-import type { Task } from '../../types';
-
+// Define CreateTaskDTO if it does not exist in '../../types'
 export interface CreateTaskDTO {
   title: string;
   description: string;
@@ -10,6 +9,16 @@ export interface CreateTaskDTO {
   clientId?: string;
 }
 
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  dueDate: string;
+  priority: 'high' | 'medium' | 'low';
+  assignedTo?: string;
+  clientId?: string;
+  status: 'pending' | 'in-progress' | 'completed';
+}
 export interface UpdateTaskDTO extends Partial<CreateTaskDTO> {
   id: string;
   status?: 'pending' | 'in-progress' | 'completed';

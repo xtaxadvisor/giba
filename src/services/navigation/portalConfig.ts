@@ -1,4 +1,4 @@
-import { Shield, Users, Database, TrendingUp, MessageSquare, BookOpen } from 'lucide-react';
+import { Shield, TrendingUp, MessageSquare, BookOpen } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface PortalConfig {

@@ -1,11 +1,21 @@
-import React from 'react';
-import { Users, UserPlus, UserMinus, Activity } from 'lucide-react';
+import { Users, UserPlus, Activity } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { LineChart } from '../charts/LineChart';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 
+export interface AnalyticsMetrics {
+  totalUsers: number;
+  newUsers: number;
+  activeUsers: number;
+  // other properties
+  totalRevenue: number;
+  avgTransaction: number;
+  growthRate: number;
+  pendingTransactions: number;
+  // other properties
+}
 export function UserAnalytics() {
-  const { metrics, isLoading } = useAnalytics('month');
+  const { metrics } = useAnalytics('month');
 
   const stats = [
     {
@@ -26,13 +36,8 @@ export function UserAnalytics() {
       change: '+8%',
       icon: Activity
     },
-    {
-      title: 'Churn Rate',
-      value: `${metrics?.churnRate || 0}%`,
-      change: '-2%',
-      icon: UserMinus
-    }
   ];
+
 
   return (
     <div className="space-y-6">

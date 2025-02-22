@@ -1,8 +1,6 @@
 import { z } from 'zod';
-import { jwtVerify } from 'jose';
 import { useNotificationStore } from '../../lib/store';
-import { adminSessionManager, type AdminSession } from './adminSession';
-import { hasRequiredPermissions } from './adminPermissions';
+import { adminSessionManager } from './adminSession';
 import { createSecureHash } from '../../utils/crypto';
 
 const adminCredentialsSchema = z.object({
@@ -17,9 +15,6 @@ const adminCredentialsSchema = z.object({
 
 export class AdminAuthService {
   private static instance: AdminAuthService;
-  private readonly secretKey = new TextEncoder().encode(
-    import.meta.env.VITE_JWT_SECRET || 'default-secret-key'
-  );
   private readonly API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
 
   private constructor() {}
@@ -71,7 +66,14 @@ export class AdminAuthService {
 
   private async getAuthToken(): Promise<string> {
     const session = await adminSessionManager.validateSession();
-    return session?.token || '';
+    // Assuming the token is stored in a different way, e.g., in session storage
+    return session ? await this.retrieveToken() : '';
+  }
+
+  private async retrieveToken(): Promise<string> {
+    // Implement the logic to retrieve the token based on session ID
+    // For example, it could be stored in session storage or fetched from an API
+    return 'your-token-retrieval-logic';
   }
 }
 

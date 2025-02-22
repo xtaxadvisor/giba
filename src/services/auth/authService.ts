@@ -5,7 +5,6 @@ import type { AuthError } from '@supabase/supabase-js';
 
 export class AuthService {
   private static readonly MAX_RETRIES = 3;
-  private static retryCount = 0;
 
   static async signIn(email: string, password: string) {
     try {
@@ -70,7 +69,7 @@ export class AuthService {
           return profile;
         } catch (error) {
           lastError = error as AuthError;
-          if (error.message !== 'Failed to fetch') {
+          if ((error as AuthError).message !== 'Failed to fetch') {
             break; // Don't retry if it's not a network error
           }
           await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));

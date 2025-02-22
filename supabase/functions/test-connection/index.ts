@@ -1,50 +1,44 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import express from "express";
+import { createClient } from "@supabase/supabase-js";
+import dotenv from "dotenv";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-}
+// Load environment variables
+dotenv.config();
 
-serve(async (req) => {
-  // Handle CORS
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
-  }
+const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Enable CORS
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "authorization, x-client-info, apikey, content-type"
+  );
+  next();
+});
+
+// Supabase Client Setup
+const supabaseUrl = process.env.SUPABASE_URL as string;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY as string;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// API Route to Test Supabase Connection
+app.get("/test-connection", async (req, res) => {
   try {
-    // Create Supabase client
-    const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? ''
-    )
+    const { data, error } = await supabase.rpc("test_connection");
 
-    // Test connection using RPC
-    const { data, error } = await supabaseClient.rpc('test_connection')
+    if (error) throw error;
 
-    if (error) {
-      throw error
-    }
-
-    return new Response(
-      JSON.stringify({ success: true, data }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 200,
-      }
-    )
+    res.json({ success: true, data });
   } catch (error) {
-    console.error('Connection test error:', error)
-    
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: error.message || 'Connection test failed'
-      }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 500,
-      }
-    )
+    console.error("Connection test error:", error);
+    res.status(500).json({ success: false, error: error.message });
   }
-})
+});
+
+// Start Server (for local development)
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

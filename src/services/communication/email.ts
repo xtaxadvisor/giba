@@ -1,4 +1,3 @@
-import { AWS_CONFIG } from '../../config/aws';
 
 class EmailService {
   private static instance: EmailService;

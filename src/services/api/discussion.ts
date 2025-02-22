@@ -1,11 +1,12 @@
 import { db } from '../../lib/firebase';
-import { collection, query, where, orderBy, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, query, where, orderBy, getDocs, addDoc, updateDoc, deleteDoc, doc, QueryDocumentSnapshot } from 'firebase/firestore';
 import type { Thread, ThreadFilters } from '../../types/discussion';
 
 export const discussionService = {
   async getThreads(filters?: ThreadFilters) {
     try {
-      let q = collection(db, 'threads');
+      const threadsCollection = collection(db, 'threads');
+      let q = query(threadsCollection);
 
       if (filters?.category) {
         q = query(q, where('category', '==', filters.category));
@@ -15,24 +16,27 @@ export const discussionService = {
         q = query(q, where('location', '==', filters.location));
       }
 
-      if (filters?.tags?.length) {
+      if (filters?.tags) {
         q = query(q, where('tags', 'array-contains-any', filters.tags));
       }
 
       // Add sorting based on filter preferences
-      switch (filters?.sortBy) {
-        case 'popular':
-          q = query(q, orderBy('likes', 'desc'));
-          break;
-        case 'unanswered':
-          q = query(q, where('replies', '==', 0));
-          break;
-        default:
-          q = query(q, orderBy('createdAt', 'desc'));
+      if (filters?.sortBy) {
+        switch (filters.sortBy) {
+          case 'popular':
+            q = query(q, orderBy('likes', 'desc'));
+            break;
+          case 'unanswered':
+            q = query(q, where('replies', '==', 0));
+            break;
+          case 'recent':
+            q = query(threadsCollection, orderBy('createdAt', 'desc'));
+            break;
+        }
       }
 
       const snapshot = await getDocs(q);
-      return snapshot.docs.map(doc => ({
+      return snapshot.docs.map((doc: QueryDocumentSnapshot) => ({
         id: doc.id,
         ...doc.data()
       })) as Thread[];

@@ -31,10 +31,12 @@ export function sanitizeInput(input: string): string {
 
 // Object sanitization with type safety
 export function sanitizeObject<T extends Record<string, unknown>>(obj: T): T {
-  const sanitized = { ...obj };
-  Object.entries(sanitized).forEach(([key, value]) => {
+  const sanitized: T = {} as T;
+  Object.entries(obj).forEach(([key, value]) => {
     if (typeof value === 'string') {
-      sanitized[key] = sanitizeInput(value) as unknown;
+      sanitized[key as keyof T] = sanitizeInput(value) as unknown as T[keyof T];
+    } else {
+      sanitized[key as keyof T] = value as T[keyof T];
     }
   });
   return sanitized;

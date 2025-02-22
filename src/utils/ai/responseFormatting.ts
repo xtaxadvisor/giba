@@ -1,6 +1,6 @@
 import type { AIContext } from '../../types/ai';
 
-export function formatResponse(response: string, context: AIContext): string {
+export function formatResponse(response: string): string {
   // Add bullet points for lists
   const formattedText = response.replace(/^-\s/gm, '• ');
 
@@ -42,7 +42,7 @@ export function extractActionItems(response: string): string[] {
   return actionItems;
 }
 
-export function generateFollowUpQuestions(response: string, context: AIContext): string[] {
+export function generateFollowUpQuestions(context: AIContext): string[] {
   const questions: string[] = [];
   
   switch (context) {

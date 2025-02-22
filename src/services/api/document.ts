@@ -1,6 +1,14 @@
 import { api } from '../api';
-import type { Document } from '../../types';
+// other type definitions
 
+export interface Document {
+  id: string;
+  title: string;
+  clientId: string;
+  type: string;
+  content: string;
+  tags?: string[];
+}
 export interface CreateDocumentDTO {
   title: string;
   clientId: string;
@@ -33,5 +41,5 @@ export const documentService = {
     api.delete<void>(`/documents/${id}`),
 
   search: (query: string) => 
-    api.get<Document[]>('/documents/search', { params: { query } }),
+    api.get<Document[]>(`/documents/search?query=${encodeURIComponent(query)}`),
 };

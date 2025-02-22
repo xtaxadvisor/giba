@@ -1,4 +1,3 @@
-```typescript
 export class APIError extends Error {
   constructor(
     public status: number,
@@ -23,4 +22,3 @@ export class APIError extends Error {
 export function isAPIError(error: any): error is APIError {
   return error instanceof APIError;
 }
-```

@@ -1,6 +1,15 @@
-```typescript
 import { api } from '../api';
-import type { SubscriptionPlan, Subscription } from '../../types/subscription';
+export interface SubscriptionPlan {
+  id: string;
+  name: string;
+  price: number;
+}
+
+export interface Subscription {
+  id: string;
+  plan: SubscriptionPlan;
+  status: string;
+};
 
 export const subscriptionService = {
   getPlans: () => 
@@ -21,4 +30,3 @@ export const subscriptionService = {
   resumeSubscription: (subscriptionId: string) => 
     api.post<Subscription>(`/subscriptions/${subscriptionId}/resume`)
 };
-```

@@ -1,8 +1,16 @@
 import { supabase } from '../../lib/supabase';
-import type { User } from '../../types';
+
+export interface User {
+  id: string;
+    name: string;
+    email: string;
+    role: 'admin' | 'user' | 'guest'; // Define UserRole as a union type
+    isAdmin?: boolean;// Define the properties of UserProfile here
+}
 
 class UserService {
-  async getByAuthId(authId: string) {
+  async getByAuthId(authId: string) 
+  {
     const { data, error } = await supabase
       .from('users')
       .select('*')

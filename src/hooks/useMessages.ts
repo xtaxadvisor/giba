@@ -1,7 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { messageService } from '../services/api/message';
 import { useNotificationStore } from '../lib/store';
-import type { Message } from '../types';
 
 export function useMessages() {
   const queryClient = useQueryClient();
@@ -35,6 +34,7 @@ export function useMessages() {
     isLoading,
     sendMessage: sendMessageMutation.mutate,
     markAsRead: markAsReadMutation.mutate,
-    isSending: sendMessageMutation.isLoading
+    isSendingMessage: sendMessageMutation.status === 'pending',
+    isLoadingMarkAsRead: markAsReadMutation.status === 'pending'
   };
 }

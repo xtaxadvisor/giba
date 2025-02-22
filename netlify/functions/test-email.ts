@@ -19,6 +19,10 @@ export const handler = async (event) => {
     }
 
     // Configure AWS SES
+    if (!process.env.VITE_AWS_REGION || !process.env.VITE_AWS_SMTP_USERNAME || !process.env.VITE_AWS_SMTP_PASSWORD) {
+      throw new Error('Missing AWS SES configuration');
+    }
+
     const ses = new SESClient({
       region: process.env.VITE_AWS_REGION,
       credentials: {
@@ -31,7 +35,7 @@ export const handler = async (event) => {
     const command = new SendEmailCommand({
       Source: process.env.VITE_AWS_SMTP_FROM,
       Destination: {
-        ToAddresses: [process.env.VITE_AWS_SMTP_FROM]
+        ToAddresses: [process.env.VITE_AWS_SMTP_FROM || '']
       },
       Message: {
         Subject: { Data: 'Test Email' },

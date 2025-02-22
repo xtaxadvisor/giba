@@ -1,4 +1,3 @@
-import React from 'react';
 import { DollarSign, TrendingUp, CreditCard, AlertCircle } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { BarChart } from '../charts/BarChart';
@@ -6,7 +5,7 @@ import { formatCurrency } from '../../../utils/format';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 
 export function RevenueAnalytics() {
-  const { metrics, isLoading } = useAnalytics('month');
+  const { metrics } = useAnalytics('month');
 
   const stats = [
     {
@@ -23,7 +22,7 @@ export function RevenueAnalytics() {
     },
     {
       title: 'Growth Rate',
-      value: `${metrics?.growthRate || 0}%`,
+      value: `${metrics?.growth || 0}%`,
       change: '+5%',
       icon: TrendingUp
     },

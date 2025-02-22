@@ -1,4 +1,3 @@
-typescript
 import { Handler } from '@netlify/functions';
 import { handleCors, getCorsHeaders } from './utils/cors';
 import { createErrorResponse, createSuccessResponse } from './utils/response';

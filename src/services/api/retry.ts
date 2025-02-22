@@ -1,7 +1,8 @@
-```typescript
-import { retryAdapterEnhancer } from 'axios-extensions';
+import axios, { AxiosAdapter } from 'axios';
+import { retryAdapterEnhancer, Options } from 'axios-extensions';
 
-export const retryConfig = {
+
+const retryConfig: Options = {
   retries: 3,
   retryCondition: (error: any) => {
     // Retry on network errors and 5xx responses
@@ -13,8 +14,5 @@ export const retryConfig = {
   }
 };
 
-export const retryAdapter = retryAdapterEnhancer(
-  axios => axios,
-  retryConfig
-);
-```
+const enhancedAdapter = retryAdapterEnhancer(axios.defaults.adapter as AxiosAdapter, retryConfig);
+axios.defaults.adapter = enhancedAdapter;

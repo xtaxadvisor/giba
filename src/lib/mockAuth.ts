@@ -1,5 +1,10 @@
-import type { User } from '../types';
-import { createSecureHash } from '../utils/crypto';
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  isAdmin?: boolean;
+};
 
 // Mock user storage with enhanced admin validation
 const users = [

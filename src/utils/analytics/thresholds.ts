@@ -1,4 +1,8 @@
-import type { MetricThreshold, PerformanceMetrics } from '../../types/analytics';
+export type MetricThreshold = {
+  warning: number;
+  critical: number;
+};
+import { predictTrend } from './trends';
 
 export function checkThresholdViolation(
   value: number,
@@ -19,12 +23,13 @@ export function getThresholdColor(status: 'normal' | 'warning' | 'critical'): st
       return 'text-green-600';
   }
 }
+export { predictTrend };
 
 export function calculateMetricStatus(
-  metrics: PerformanceMetrics
+  metrics: PerformanceEntry
 ): Record<string, 'normal' | 'warning' | 'critical'> {
   return Object.entries(metrics).reduce((acc, [key, metric]) => ({
     ...acc,
-    [key]: checkThresholdViolation(metric.current, metric.thresholds)
+    [key]: checkThresholdViolation((metric as { current: number }).current, (metric as PerformanceEntry).thresholds)
   }), {});
 }

@@ -1,11 +1,17 @@
-import React from 'react';
 import { FileText } from 'lucide-react';
-import { Recommendation } from '../../../../types/documents';
 
 interface DocumentRecommendationsProps {
   recommendations: Recommendation[];
 }
-
+// existing exports
+export interface Finding {
+  type: 'success' | 'warning';
+  message: string;
+}
+// existing exports
+export interface Recommendation {
+  message: string;
+}
 export function DocumentRecommendations({ recommendations }: DocumentRecommendationsProps) {
   return (
     <div className="border rounded-lg p-4">

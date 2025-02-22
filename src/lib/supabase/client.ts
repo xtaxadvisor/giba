@@ -45,7 +45,7 @@ export async function testConnection(retries = 3, delay = 1000): Promise<boolean
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       // First try a simple query that doesn't require auth
-      const { data: publicData, error: publicError } = await supabase
+      const { error: publicError } = await supabase
         .from('public_data')
         .select('count')
         .single();

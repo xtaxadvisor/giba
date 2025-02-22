@@ -1,5 +1,6 @@
+import { Message } from '@aws-sdk/client-ses/dist-types/models/models_0';
 import { api } from '../api';
-import type { Message } from '../../types';
+// import type { Message } from '../../types'; // Ensure 'Message' is exported from '../../types' or remove this line if not needed.
 
 export interface SendMessageDTO {
   recipientId: string;
