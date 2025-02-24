@@ -1,4 +1,3 @@
-import React from 'react';
 import { Users, FileText, Clock, TrendingUp } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { AdminMetrics } from './AdminMetrics';

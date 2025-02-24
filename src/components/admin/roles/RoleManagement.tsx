@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Shield, Edit2, Trash2, Plus } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Modal } from '../../ui/Modal';
 import { RoleForm } from './RoleForm';
-import { useRoles } from '../../../hooks/useRoles';
+import { useRoles } from '../../../hooks/useRoles'; // Ensure this path is correct or update it to the correct path
 
 export function RoleManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState<any>(null);
-  const { roles, createRole, updateRole, deleteRole, isLoading } = useRoles();
+  const { roles, createRole, updateRole, deleteRole } = useRoles();
+
+  interface Role {
+    id: string;
+    name: string;
+    permissions: string[];
+    userCount: number;
+  }
 
   const handleSubmit = async (data: any) => {
     if (selectedRole) {
@@ -48,6 +55,7 @@ export function RoleManagement() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Users
                   </th>
+                {roles?.map((role: Role) => (
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>

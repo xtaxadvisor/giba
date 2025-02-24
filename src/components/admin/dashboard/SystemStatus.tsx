@@ -1,4 +1,3 @@
-import React from 'react';
 import { Server, Database, Cloud, Globe } from 'lucide-react';
 
 export function SystemStatus() {

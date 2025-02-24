@@ -6,6 +6,7 @@ import { useAnalytics } from '../../../hooks/useAnalytics';
 export interface AnalyticsMetrics {
   totalUsers: number;
   newUsers: number;
+  // other properties
   activeUsers: number;
   // other properties
   totalRevenue: number;

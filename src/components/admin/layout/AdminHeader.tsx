@@ -1,6 +1,4 @@
-import React from 'react';
-import { Bell, Shield, LogOut } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Bell, Shield } from 'lucide-react';
 import type { User } from '../../../types';
 
 interface AdminHeaderProps {

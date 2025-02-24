@@ -1,5 +1,4 @@
-import React from 'react';
-import { FileText, Users, Settings, Shield } from 'lucide-react';
+import { FileText, Users, Settings } from 'lucide-react';
 
 export function RecentActivity() {
   const activities = [

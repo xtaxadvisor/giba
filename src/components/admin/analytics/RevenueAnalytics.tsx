@@ -22,7 +22,7 @@ export function RevenueAnalytics() {
     },
     {
       title: 'Growth Rate',
-      value: `${metrics?.growth || 0}%`,
+      value: `${metrics?.growthRate || 0}%`,
       change: '+5%',
       icon: TrendingUp
     },
