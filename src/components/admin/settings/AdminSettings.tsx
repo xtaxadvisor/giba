@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Save, Bell, Shield, Database, Globe } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Input } from '../../ui/Input';
 import { Select } from '../../ui/Select';
 import { useSettings } from '../../../hooks/useSettings';
 
+type NotificationSettings = {
+  userRegistration: boolean;
+  systemAlerts: boolean;
+  securityAlerts: boolean;
+};
+
 export function AdminSettings() {
-  const { settings, updateSettings, isLoading } = useSettings();
+  const { settings, isLoading } = useSettings();
   const [activeSection, setActiveSection] = useState('general');
 
   const sections = [
@@ -101,17 +107,17 @@ export function AdminSettings() {
               {activeSection === 'notifications' && (
                 <div className="space-y-6">
                   <div className="space-y-4">
-                    {['userRegistration', 'systemAlerts', 'securityAlerts'].map((setting) => (
-                      <div key={setting} className="flex items-center justify-between">
+                    {(['userRegistration', 'systemAlerts', 'securityAlerts'] as Array<keyof NotificationSettings>).map((setting) => (
+                      <div key={String(setting)} className="flex items-center justify-between">
                         <div>
                           <h3 className="text-sm font-medium text-gray-900">
-                            {setting.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                          defaultChecked={settings?.notifications?.[setting]}
                           </h3>
                         </div>
                         <input
                           type="checkbox"
                           className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                          defaultChecked={settings?.notifications?.[setting]}
+                          defaultChecked={settings?.notifications?.[setting as keyof NotificationSettings]}
                         />
                       </div>
                     ))}

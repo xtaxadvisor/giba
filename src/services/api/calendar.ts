@@ -1,6 +1,7 @@
 import { api } from '../api';
-import type { TimeSlot } from '../../types';
-import type { CreateEventDTO } from '../types/index/dto';
+import type { TimeSlot } from '../../types/index';
+import type { CreateEventDTO, UpdateEventDTO } from '../../types/index/dto';
+
 export interface CalendarEvent {
   id: string;
   title: string;
@@ -8,6 +9,7 @@ export interface CalendarEvent {
   end: Date;
   // Other properties...
 }
+
 export interface Event {
   id: string;
   title: string;
@@ -29,6 +31,28 @@ export interface Event {
     time: number; // minutes before event
   }>;
 }
+
+export const fetchEvents = async (searchParams?: { [key: string]: string }) => {
+  let url = '/api/events';
+  if (searchParams) {
+    const queryParams = new URLSearchParams(searchParams).toString();
+    url += `?${queryParams}`;
+  }
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return response.json();
+};
+
 export const calendarService = {
   getEvents: () => 
     api.get<Event[]>('/calendar/events'),
@@ -46,9 +70,10 @@ export const calendarService = {
     api.delete<void>(`/calendar/events/${id}`),
 
   getAvailability: async (date: string, professionalId: string) => {
-    const response = await api.get<TimeSlot[]>('/calendar/availability', { params: { date, professionalId } });
+    const url = `/calendar/availability?date=${date}&professionalId=${professionalId}`;
+    const response = await api.get<TimeSlot[]>(url);
 
-    return response.map(slot => ({
+    return response.map((slot: TimeSlot) => ({
       ...slot,
       startTime: new Date(slot.startTime).toISOString(),
       endTime: new Date(slot.endTime).toISOString()
@@ -63,8 +88,7 @@ export const calendarService = {
   },
 
   checkAvailability: async (startTime: string, endTime: string, professionalId: string) => {
-    return api.get<{ available: boolean }>('/calendar/check-availability', {
-      params: { startTime, endTime, professionalId }
-    });
+    const url = `/calendar/check-availability?startTime=${startTime}&endTime=${endTime}&professionalId=${professionalId}`;
+    return api.get<{ available: boolean }>(url);
   }
 };

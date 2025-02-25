@@ -8,6 +8,18 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconPosition?: 'left' | 'right';
 }
 
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  icon?: LucideIcon;
+  iconPosition?: 'left' | 'right';
+  onClick?: () => void;
+  className?: string;
+  children: React.ReactNode;
+}
+
+// Removed duplicate Button component definition
+
 export function Button({
   children,
   variant = 'primary',

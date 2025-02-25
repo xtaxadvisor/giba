@@ -3,6 +3,10 @@ import { clientService } from '../services/api/client';
 
 const queryClient = useQueryClient();
 
+export interface User {
+  displayName?: string;
+  // other properties
+}
 export function useClient(clientId: string) {
 
   const { data: client, isLoading } = useQuery({

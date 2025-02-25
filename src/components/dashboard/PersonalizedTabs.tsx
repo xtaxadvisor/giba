@@ -72,7 +72,7 @@ export function PersonalizedTabs() {
       <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
         <h2 className="text-2xl font-bold">Welcome back, {user.name}!</h2>
         <p className="mt-1 text-blue-100">
-          {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Account
+          {user.role ? (user.role.charAt(0).toUpperCase() + user.role.slice(1)) : 'Unknown'} Account
         </p>
       </div>
 
@@ -91,10 +91,12 @@ export function PersonalizedTabs() {
                 }
               `}
             >
-              <tab.icon className={`
-                mr-2 h-5 w-5
-                ${activeTab === tab.id ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
-              `} />
+              {React.createElement(tab.icon as React.ComponentType<{ className: string }>, {
+                className: `
+                  mr-2 h-5 w-5
+                  ${activeTab === tab.id ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
+                `
+              })}
               <span>{tab.label}</span>
               {tab.count !== undefined && (
                 <span className={`

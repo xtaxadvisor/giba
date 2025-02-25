@@ -1,11 +1,18 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase/client';
 import { useNotificationStore } from '../lib/store';
-import { User } from '@supabase/supabase-js';
 
+export interface AppUser {
+  name: ReactNode;
+  role: any;
+  id: string;
+  email: string;
+  displayName?: string; // added displayName property
+  // other properties
+}
 interface AuthContextType {
-  user: User | null;
+  user: AppUser | null;
   loading: boolean;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
@@ -19,7 +26,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AppUser | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { addNotification } = useNotificationStore();

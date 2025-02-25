@@ -2,11 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   FileText, 
-  Stamp, 
-  Building2, 
   FileCheck, 
-  DollarSign, 
-  BookOpen,
   ArrowLeft,
   Clock,
   ClipboardList,
@@ -15,7 +11,6 @@ import {
   BarChart,
   Briefcase,
   BookIcon,
-  FileSpreadsheet,
   FileSignature,
   Building,
   FileCode
@@ -234,7 +229,7 @@ export function SameDayServices() {
               <div className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="p-2 bg-blue-50 rounded-lg">
-                    <service.icon className="h-6 w-6 text-blue-600" />
+                    {React.createElement(service.icon as React.ComponentType<{ className: string }>, { className: "h-6 w-6 text-blue-600" })}
                   </div>
                   <h3 className="ml-3 text-xl font-semibold text-gray-900">{service.title}</h3>
                 </div>

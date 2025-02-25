@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -23,32 +23,20 @@ interface Event {
 
 export function Calendar() {
   const [currentDate] = useState(new Date());
-  const [events] = useState<Event[]>([
-    {
-      id: '1',
-      title: 'Tax Planning Meeting',
-      date: '2024-03-20',
-      time: '10:00 AM',
-      type: 'meeting',
-      participants: ['John Doe', 'Sarah Smith'],
-      isVirtual: true
-    },
-    {
-      id: '2',
-      title: 'Quarterly Filing Deadline',
-      date: '2024-03-25',
-      time: '11:30 AM',
-      type: 'deadline'
-    },
-    {
-      id: '3',
-      title: 'Investment Review',
-      date: '2024-03-22',
-      time: '2:00 PM',
-      type: 'meeting',
-      location: 'Conference Room A'
-    }
-  ]);
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const events = await fetchEvents();
+        setEvents(events);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+
+    loadEvents();
+  }, []);
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
@@ -93,11 +81,11 @@ export function Calendar() {
         <div className="flex items-center space-x-4">
           <h1 className="text-2xl font-bold text-gray-900">Calendar</h1>
           <div className="flex items-center space-x-2">
-            <Button variant="outline" icon={ChevronLeft} />
+            <Button variant="outline" icon={ChevronLeft} children={undefined} />
             <span className="text-lg font-medium">
               {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
             </span>
-            <Button variant="outline" icon={ChevronRight} />
+            <Button variant="outline" icon={ChevronRight}>Next</Button>
           </div>
         </div>
         <Button variant="primary" icon={Plus}>
@@ -182,3 +170,6 @@ export function Calendar() {
     </div>
   );
 }
+
+// Import the fetchEvents function from the calendar service
+import { fetchEvents } from '../../services/api/calendar';

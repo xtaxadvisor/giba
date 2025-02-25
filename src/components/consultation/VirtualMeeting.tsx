@@ -84,22 +84,19 @@ export function VirtualMeeting({ onEnd }: VirtualMeetingProps) {
             size="lg"
             className={`rounded-full ${isMuted ? 'bg-red-600 text-white' : ''}`}
             onClick={toggleMute}
-            icon={isMuted ? MicOff : Mic}
-          />
+            icon={isMuted ? MicOff : Mic} children={undefined}          />
           <Button
             variant="outline"
             size="lg"
             className={`rounded-full ${!isVideoEnabled ? 'bg-red-600 text-white' : ''}`}
             onClick={toggleVideo}
-            icon={isVideoEnabled ? VideoIcon : VideoOff}
-          />
+            icon={isVideoEnabled ? VideoIcon : VideoOff} children={undefined}          />
           <Button
             variant="outline"
             size="lg"
             className="rounded-full bg-red-600 text-white hover:bg-red-700"
             onClick={onEnd}
-            icon={Phone}
-          />
+            icon={Phone} children={undefined}          />
         </div>
       </div>
     </div>

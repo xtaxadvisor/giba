@@ -5,15 +5,28 @@ export type Json =
   | null
   | { [key: string]: Json | undefined }
   | Json[]
-  export type SomeOtherType = {
-    // other type definitions
-  };
-  
-  export interface MenuItem {
-    title: string;
-    href: string;
-    icon: React.ComponentType<{ size?: number }>;
+
+  export interface Document {
+    id: string;
+    name: string;
+    type: string;
+    size: string;
+    uploadedAt: string;
+    status: 'pending' | 'approved' | 'rejected';
   }
+  export type UserRole = 'client' | 'student' | 'investor' | 'professional' | 'admin';
+export interface MetricComparison {
+  // define properties here
+}
+export type SomeOtherType = {
+  // other type definitions
+};
+
+export type MenuItem = {
+  title: string;
+  href: string;
+  icon: React.ComponentType;
+};
 export interface Database {
   public: {
     Tables: {

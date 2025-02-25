@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   FileText, 
   Upload, 
@@ -19,7 +19,7 @@ interface Document {
   status: 'pending' | 'approved' | 'rejected';
 }
 
-export function Documents() {
+const Documents: React.FC = () => {
   const [documents] = useState<Document[]>([
     {
       id: '1',
@@ -145,9 +145,9 @@ export function Documents() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex space-x-3">
-                        <Button variant="ghost" size="sm" icon={Eye} />
-                        <Button variant="ghost" size="sm" icon={Download} />
-                        <Button variant="ghost" size="sm" icon={Trash2} className="text-red-600 hover:text-red-700" />
+                        <Button variant="ghost" size="sm" icon={Eye}>View</Button>
+                        <Button variant="ghost" size="sm" icon={Download} children={undefined} />
+                        <Button variant="ghost" size="sm" icon={Trash2} className="text-red-600 hover:text-red-700">Delete</Button>
                       </div>
                     </td>
                   </tr>
@@ -160,3 +160,5 @@ export function Documents() {
     </div>
   );
 }
+
+export default Documents;

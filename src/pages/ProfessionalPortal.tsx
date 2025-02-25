@@ -6,7 +6,7 @@ import { TaskManager } from '../components/professional/TaskManager';
 import { Reports } from '../components/professional/Reports';
 import { Billing } from '../components/professional/Billing';
 import { Messages } from '../components/dashboard/Messages';
-import { Documents } from '../components/dashboard/Documents';
+import Documents from '../components/dashboard/Documents';
 import { Calendar } from '../components/dashboard/Calendar';
 import { Settings } from '../components/dashboard/Settings';
 import { ProfessionalLayout } from '../components/professional/ProfessionalLayout';

@@ -1,5 +1,4 @@
-import React from 'react';
-import { TrendingUp, AlertCircle, Calendar, FileText } from 'lucide-react';
+import { AlertCircle, Calendar } from 'lucide-react';
 import { Card } from '../../ui/Card';
 
 export function ClientInsights() {
