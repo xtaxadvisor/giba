@@ -66,6 +66,40 @@ export const PORTAL_CONFIGS: Record<string, PortalConfig> = {
     messaging: true,
     documents: true
   },
+  client: {
+    id: 'client',
+    title: 'Client Portal',
+    description: 'Access financial services and account management tools.',
+    icon: Shield,
+    path: '/client',
+    requiredRole: ['client'],
+    features: [
+      'Account Management',
+      'Financial Services',
+      'Transaction History',
+      'Support'
+    ],
+    notifications: true,
+    messaging: true,
+    documents: true
+  },
+  professional: {
+    id: 'professional',
+    title: 'Professional Portal',
+    description: 'Access professional services and client management tools.',
+    icon: Shield,
+    path: '/professional',
+    requiredRole: ['professional'],
+    features: [
+      'Client Management',
+      'Professional Services',
+      'Appointment Scheduling',
+      'Billing'
+    ],
+    notifications: true,
+    messaging: true,
+    documents: true
+  },
   messages: {
     id: 'messages',
     title: 'Secure Messaging',

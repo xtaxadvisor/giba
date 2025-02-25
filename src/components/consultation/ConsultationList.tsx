@@ -9,19 +9,19 @@ import { BookingModal } from '../booking/BookingModal';
 
 export function ConsultationList() {
   const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);
-  const { consultation, isLoading, cancelConsultation } = useConsultation();
+  const { consultation, isLoading, updateConsultation } = useConsultation();
   const { addNotification } = useNotificationStore();
 
   const handleCancel = async (consultationId: string) => {
     try {
-      await cancelConsultation(consultationId);
+      await updateConsultation({ id: consultationId, status: 'cancelled' });
       addNotification('Consultation cancelled successfully', 'success');
     } catch (error) {
       addNotification('Failed to cancel consultation', 'error');
     }
   };
 
-  const handleReschedule = async (consultationId: string) => {
+  const handleReschedule = async () => {
     try {
       // Implement rescheduling logic
       addNotification('Rescheduling feature coming soon', 'info');
@@ -79,7 +79,7 @@ export function ConsultationList() {
                     key={consultation.id}
                     consultation={consultation}
                     onCancel={() => handleCancel(consultation.id)}
-                    onReschedule={() => handleReschedule(consultation.id)}
+                    onReschedule={handleReschedule}
                   />
                 ))}
             </div>

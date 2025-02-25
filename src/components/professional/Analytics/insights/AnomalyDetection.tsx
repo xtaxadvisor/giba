@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { identifyAnomalies } from '../../../../utils/analytics/insights';
 import { formatDate } from '../../../../utils/date';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useVideoStream } from '../../../hooks/useVideoStream';
 import { useChat } from '../../../hooks/useChat';
 import { useScreenShare } from '../../../hooks/useScreenShare';
@@ -45,12 +45,14 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
 
     // Update consultation status when joining
     if (consultation && consultation.status === 'scheduled') {
-      updateConsultation({
-        id: consultationId,
-        status: 'in-progress'
-      }).catch(() => {
+      try {
+        updateConsultation({
+          id: consultationId,
+          status: 'in-progress'
+        });
+      } catch {
         addNotification('Failed to update consultation status', 'error');
-      });
+      }
     }
 
     // Handle beforeunload to update status when leaving
@@ -111,7 +113,9 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
         {/* Meeting info overlay */}
         <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-lg p-4 text-white">
           <h2 className="text-lg font-medium">
-            {consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+            {typeof consultation.type === 'string' 
+              ? consultation.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) 
+              : 'Unknown Type'}
           </h2>
           <p className="text-sm opacity-75">
             {new Date(consultation.startTime).toLocaleTimeString()} - 

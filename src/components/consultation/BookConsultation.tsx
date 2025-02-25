@@ -12,7 +12,13 @@ export function BookConsultation() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add form submission logic here
+    const formData = new FormData(e.target as HTMLFormElement);
+    const date = formData.get('date') as string;
+    const time = formData.get('time') as string;
+    const clientId = '123'; // Replace with actual client ID
+    const consultantId = '456'; // Replace with actual consultant ID
+
+    await scheduleConsultation({ date, time, clientId, consultantId });
   };
 
   return (
@@ -25,6 +31,7 @@ export function BookConsultation() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <Select
             label="Consultation Type"
+            name="date"
             options={[
               { value: 'tax-planning', label: 'Tax Planning' },
               { value: 'financial-review', label: 'Financial Review' },

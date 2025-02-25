@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { VirtualConsultation } from './VirtualConsultation';
 import { MeetingPreview } from './MeetingPreview';
 import { useConsultation } from '../../../hooks/useConsultation';

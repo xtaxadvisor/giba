@@ -16,6 +16,11 @@ export interface WorkflowStep {
   config: Record<string, any>;
   nextSteps: string[];
 }
+export interface MenuItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType;
+}
 
 export interface Workflow {
   id: string;

@@ -1,4 +1,4 @@
-import React from 'react';
+// Code to render the Dashboard component
 import { Routes, Route } from 'react-router-dom';
 import { DashboardHome } from '../components/dashboard/DashboardHome';
 import { Messages } from '../components/dashboard/Messages';

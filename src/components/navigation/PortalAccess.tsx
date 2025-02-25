@@ -8,7 +8,7 @@ import { useNotificationStore } from '../../lib/store';
 interface PortalButtonProps {
   title: string;
   description: string;
-  icon: React.ComponentType;
+  icon: React.ComponentType<{ className?: string }>;
   path: string;
   requiredRole?: string[];
 }

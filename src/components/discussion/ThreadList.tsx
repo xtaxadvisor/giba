@@ -1,9 +1,7 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageSquare, ThumbsUp, Clock, Tag } from 'lucide-react';
 import type { Thread } from '../../types/discussion';
 import { formatTimeAgo, formatDateTime } from '../../utils/date';
-import { Button } from '../ui/Button';
 
 interface ThreadListProps {
   threads: Thread[];

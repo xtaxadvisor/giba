@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNotificationStore } from '../../lib/store';
 import { X } from 'lucide-react';
 

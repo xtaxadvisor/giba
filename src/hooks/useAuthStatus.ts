@@ -35,7 +35,7 @@ export function useAuthStatus() {
     checkAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (_, session) => {
         setStatus({
           isAuthenticated: !!session,
           isLoading: false,

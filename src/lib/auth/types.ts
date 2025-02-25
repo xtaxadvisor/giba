@@ -28,5 +28,12 @@ export interface MetricComparison {
   percentageChange: number;
   trend: 'up' | 'down' | 'stable';
 }
+// other type definitions
+
+export interface MenuItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType;
+}
 
 export type UserRole = 'client' | 'student' | 'investor' | 'professional' | 'admin';

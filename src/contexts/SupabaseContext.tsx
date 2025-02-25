@@ -2,7 +2,12 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase/client';
 import { useNotificationStore } from '../lib/store';
-import type { User } from '../types';
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+}
 
 interface SupabaseContextType {
   user: User | null;
@@ -31,7 +36,7 @@ export function SupabaseProvider({ children }: { children: React.ReactNode }) {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (_, session) => {
         if (session?.user) {
           await fetchUserProfile(session.user.id);
         } else {

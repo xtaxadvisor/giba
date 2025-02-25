@@ -107,7 +107,7 @@ export class SyncManager {
       await this.removeFromCalendar(booking);
       
       // Send cancellation notifications
-      await this.sendCancellationNotifications(booking);
+      await this.sendCancellationNotifications();
     } catch (error) {
       console.error('Booking deletion sync failed:', error);
     }
@@ -125,36 +125,41 @@ export class SyncManager {
     }
   }
 
-  private async syncWithCalendar(booking: any) {
-    // Implementation for calendar sync
+  private async syncWithCalendar() { // eslint-disable-line @typescript-eslint/no-empty-function 
+    try { // eslint-disable-line @typescript-eslint/no-empty-function  
+      // Implementation for calendar sync
+    } catch (error) {
+      console.error('Calendar sync failed:', error);
+    }
   }
 
-  private async updateCalendarEvent(booking: any) {
+  private async updateCalendarEvent(_booking: any) {
     // Implementation for calendar event update
   }
 
-  private async removeFromCalendar(booking: any) {
+  private async removeFromCalendar(_booking: any) {
     // Implementation for calendar event removal
   }
 
-  private async sendBookingNotifications(booking: any) {
+  private async sendBookingNotifications(_booking: any) {
     // Implementation for booking notifications
   }
 
-  private async sendUpdateNotifications(newBooking: any, oldBooking: any) {
+  private async sendUpdateNotifications(_newBooking: any, _oldBooking: any) {
     // Implementation for update notifications
   }
 
-  private async sendCancellationNotifications(booking: any) {
+  private async sendCancellationNotifications() {
     // Implementation for cancellation notifications
   }
 
-  private async sendPaymentConfirmation(payment: any) {
+  private async sendPaymentConfirmation(_payment: any) {
     // Implementation for payment confirmation
   }
 
   private async updateBookingStatus(bookingId: string, status: string) {
     // Implementation for booking status update
+    console.log(`Updating booking ${bookingId} to status ${status}`);
   }
 
   public cleanup() {

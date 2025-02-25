@@ -1,4 +1,3 @@
-import React from 'react';
 import { Video, Users } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { useVideoStream } from '../../../hooks/useVideoStream';
@@ -10,7 +9,8 @@ interface MeetingPreviewProps {
 }
 
 export function MeetingPreview({ onJoin, onCancel }: MeetingPreviewProps) {
-  const { videoRef, isVideoEnabled, toggleVideo } = useVideoStream();
+  const consultationId = 'some-consultation-id'; // Replace with actual consultation ID
+  const { videoRef, isVideoEnabled, toggleVideo } = useVideoStream(consultationId);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

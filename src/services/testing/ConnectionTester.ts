@@ -16,7 +16,7 @@ export class ConnectionTester {
   async testSupabaseConnection(): Promise<{ success: boolean; error?: string }> {
     try {
       // Test basic connection first
-      const { data, error } = await supabase.rpc('test_connection');
+      const { error } = await supabase.rpc('test_connection');
 
       if (error) {
         console.error('Connection test error:', error);

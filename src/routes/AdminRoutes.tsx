@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AdminProtectedRoute } from '../components/admin/auth/AdminProtectedRoute';
 import { AdminDashboard } from '../components/admin/AdminDashboard';

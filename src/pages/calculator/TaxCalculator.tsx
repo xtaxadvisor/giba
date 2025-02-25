@@ -1,4 +1,4 @@
-import React from 'react';
+// Code: TaxCalculator page component
 import { TaxCalculator as TaxCalculatorComponent } from '../../components/calculator/TaxCalculator';
 
 export default function TaxCalculator() {

@@ -1,15 +1,18 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ThumbsUp, MessageSquare, Share2, Flag } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
-import { useThread } from '../../hooks/useThread';
+import { useThread } from '../../forum/useThreads';
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { formatTimeAgo } from '../../utils/date';
 
 export function ThreadDetail() {
   const { threadId } = useParams();
-  const { thread, replies, isLoading } = useThread(threadId);
+  const { thread, replies, isLoading } = useThread(threadId) as {
+    thread: { title: string; content: string; likes: number; createdAt: string };
+    replies: { id: string; author: { avatarUrl: string; displayName: string }; content: string; likes: number; createdAt: string }[];
+    isLoading: boolean;
+  };
 
   if (isLoading) {
     return <LoadingSpinner />;

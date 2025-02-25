@@ -1,6 +1,6 @@
-import React from 'react';
+// Note: Service Item Component
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { consultationService } from '../../services/api/consultation';

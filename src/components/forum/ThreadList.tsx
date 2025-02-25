@@ -1,21 +1,35 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageSquare, ThumbsUp, Clock, Tag } from 'lucide-react';
 import { useThreads } from '../../hooks/useThreads';
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { formatTimeAgo } from '../../utils/date';
 
+interface Thread {
+  id: string;
+  title: string;
+  content: string;
+  isPinned: boolean;
+  createdAt: Date;
+  replies: number;
+  likes: number;
+  tags: string[];
+  author: {
+    avatarUrl: string;
+    displayName: string;
+    location?: string;
+  };
+}
+
 export function ThreadList() {
   const navigate = useNavigate();
   const { threads, isLoading } = useThreads();
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
   return (
     <div className="space-y-4">
-      {threads?.map((thread) => (
+      {threads?.map((thread: Thread) => (
         <div
           key={thread.id}
           className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 cursor-pointer"
@@ -51,7 +65,7 @@ export function ThreadList() {
               {thread.likes}
             </div>
             <div className="flex items-center space-x-2">
-              {thread.tags.map((tag) => (
+              {thread.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800"

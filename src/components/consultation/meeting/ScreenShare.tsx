@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Share2, StopCircle } from 'lucide-react';
 import { Button } from '../../ui/Button';
 

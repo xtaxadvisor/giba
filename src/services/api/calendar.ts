@@ -1,7 +1,13 @@
 import { api } from '../api';
-import { addMinutes, format } from 'date-fns';
 import type { TimeSlot } from '../../types';
-
+import type { CreateEventDTO } from '../types/index/dto';
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  start: Date;
+  end: Date;
+  // Other properties...
+}
 export interface Event {
   id: string;
   title: string;
@@ -23,7 +29,6 @@ export interface Event {
     time: number; // minutes before event
   }>;
 }
-
 export const calendarService = {
   getEvents: () => 
     api.get<Event[]>('/calendar/events'),
@@ -41,9 +46,7 @@ export const calendarService = {
     api.delete<void>(`/calendar/events/${id}`),
 
   getAvailability: async (date: string, professionalId: string) => {
-    const response = await api.get<TimeSlot[]>('/calendar/availability', {
-      params: { date, professionalId }
-    });
+    const response = await api.get<TimeSlot[]>('/calendar/availability', { params: { date, professionalId } });
 
     return response.map(slot => ({
       ...slot,

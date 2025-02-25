@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { formatDate, formatTime } from '../../utils/date';
@@ -47,7 +46,7 @@ export function ConsultationCard({
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-lg font-medium text-gray-900">
-              {consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              {typeof consultation.type === 'string' ? consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : ''}
             </h3>
             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium mt-1 ${getStatusColor(consultation.status)}`}>
               {consultation.status.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -58,11 +57,11 @@ export function ConsultationCard({
         <div className="mt-4 space-y-3">
           <div className="flex items-center text-sm text-gray-500">
             <Calendar className="h-4 w-4 mr-1" />
-            {formatDate(consultation.startTime)}
+            {formatDate(new Date(consultation.startTime))}
           </div>
           <div className="flex items-center text-sm text-gray-500">
             <Clock className="h-4 w-4 mr-1" />
-            {formatTime(consultation.startTime)} - {formatTime(consultation.endTime)}
+            {formatTime(new Date(consultation.startTime))} - {formatTime(new Date(consultation.endTime))}
           </div>
           {consultation.isVirtual && (
             <div className="flex items-center text-sm text-gray-500">

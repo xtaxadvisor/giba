@@ -19,6 +19,7 @@ const AdminPortal = React.lazy(() => import('../pages/admin/AdminPortal'));
 const InvestorPortal = React.lazy(() => import('../pages/investor/InvestorPortal'));
 const StudentPortal = React.lazy(() => import('../pages/student/StudentPortal'));
 const ProfessionalPortal = React.lazy(() => import('../pages/ProfessionalPortal'));
+const ClientPortal = React.lazy(() => import('../pages/clientPortal/ClientPortal'));
 const TaxCalculator = React.lazy(() => import('../pages/calculator/TaxCalculator'));
 const TaxForms = React.lazy(() => import('../pages/forms/TaxForms'));
 const TermsAndConditions = React.lazy(() => import('../pages/legal/TermsAndConditions'));
@@ -110,7 +111,13 @@ export function AppRoutes() {
           </ProtectedRoute>
         </Suspense>
       } />
-
+      <Route path="/clientportal/*" element={
+        <Suspense fallback={<LoadingSpinner />}>
+          <ProtectedRoute requiredRole={['client']}>
+            <ClientPortal />
+          </ProtectedRoute>
+        </Suspense>
+      } />
       {/* Error Routes */}
       <Route path="*" element={<Navigate to="/not-found" replace />} />
     </Routes>

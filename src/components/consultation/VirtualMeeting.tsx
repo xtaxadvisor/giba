@@ -3,11 +3,11 @@ import { Mic, MicOff, Video as VideoIcon, VideoOff, Phone } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 interface VirtualMeetingProps {
-  meetingId: string;
   onEnd: () => void;
 }
+export function VirtualMeeting({ onEnd }: VirtualMeetingProps): JSX.Element;
 
-export function VirtualMeeting({ meetingId, onEnd }: VirtualMeetingProps) {
+export function VirtualMeeting({ onEnd }: VirtualMeetingProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = React.useState(false);
   const [isVideoEnabled, setIsVideoEnabled] = React.useState(true);

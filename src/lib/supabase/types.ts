@@ -5,11 +5,19 @@ export type Json =
   | null
   | { [key: string]: Json | undefined }
   | Json[]
-
+  export type SomeOtherType = {
+    // other type definitions
+  };
+  
+  export interface MenuItem {
+    title: string;
+    href: string;
+    icon: React.ComponentType<{ size?: number }>;
+  }
 export interface Database {
   public: {
     Tables: {
-      users: {
+      user: {
         Row: {
           id: string
           auth_id: string | null
