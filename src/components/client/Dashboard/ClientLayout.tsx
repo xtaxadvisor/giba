@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../../contexts/AuthContext';
 import { Button } from '../../ui/Button';
-import Documents from '../../dashboard/Documents';
 import React from 'react';
 
 const menuItems = [
@@ -42,6 +41,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      {/* Top Navigation Bar */}
       <nav className="bg-white border-b border-gray-200 fixed w-full z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -83,7 +83,9 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
         </div>
       </nav>
 
+      {/* Sidebar and Main Content */}
       <div className="flex pt-16">
+        {/* Sidebar Navigation */}
         <aside className="w-64 bg-white h-[calc(100vh-4rem)] border-r border-gray-200 fixed">
           <nav className="mt-5 px-2">
             {menuItems.map((item) => {
@@ -98,18 +100,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             })}
           </nav>
         </aside>
+
+        {/* Main Content */}
         <main className="flex-1 ml-64 p-8">{children}</main>
       </div>
     </div>
   );
 }
-
-const ClientPortal: React.FC = () => {
-  return (
-    <ClientLayout>
-      <Documents />
-    </ClientLayout>
-  );
-};
-
-export default ClientPortal;

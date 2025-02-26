@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { ClientLayout } from '../../components/layouts/ClientLayout'; // Update the path to the correct location
-import { ClientDashboard } from '../../components/ClientDashboard'; // Update the path to the correct location
-import { Documents } from '../../components/dashboard/Documents'; 
-import { Messages } from '../../components/dashboard/Messages'; // Update the path to the correct location
-import { Calendar } from '../../components/dashboard/Calendar';
-import { Settings } from '../../components/dashboard/Settings'; // Update the path to the correct location
+import { ClientLayout } from '../../components/client/ClientLayout'; // ✅ Fixed import path
+import { ClientDashboard } from '../../components/client/Dashboard/ClientDashboard'; // ✅ Fixed import path
+import { Documents } from '../../components/client/Documents'; // Ensure this path is correct and the file exists
+import { Messages } from '../../components/client/Messages'; // ✅ Moved from dashboard/
+import { Calendar } from '../../components/client/Calendar'; // ✅ Moved from dashboard/
+import { Settings } from '../../components/client/Settings'; // ✅ Moved from dashboard/
 
 export default function ClientPortal() {
   return (
