@@ -1,14 +1,12 @@
-import React from 'react';
-import { Users, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { Users, ArrowUpRight } from 'lucide-react';
 import { ClientDistributionChart } from '../charts/ClientDistributionChart';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 
 interface ClientReportProps {
-  dateRange: string;
   isLoading: boolean;
 }
 
-export function ClientReport({ dateRange, isLoading }: ClientReportProps) {
+export function ClientReport({ isLoading }: ClientReportProps) {
   if (isLoading) {
     return <LoadingSpinner />;
   }

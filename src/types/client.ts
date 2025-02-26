@@ -9,3 +9,18 @@ export interface FinancialHealth {
   metrics: HealthMetric[];
   lastUpdated: string;
 }
+export interface Client {
+  email: string;
+  phone: string;
+  company?: string;
+  address?: string;
+  website?: string;
+  createdAt: string;
+  status: 'active' | 'inactive';
+  notes?: string;
+  recentActivity?: {
+    icon: React.ComponentType;
+    description: string;
+    timestamp: string;
+  }[];
+}

@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   User, 
-  Mail, 
-  Phone, 
-  Building2, 
-  Calendar,
   FileText,
   MessageSquare,
   Clock,
@@ -13,11 +9,9 @@ import {
 } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { ClientInfo } from './ClientInfo';
-import { ClientDocuments } from './ClientDocuments';
-import { ClientCommunication } from './ClientCommunication';
-import { ClientHistory } from './ClientHistory';
 import { Modal } from '../../ui/Modal';
-import { ClientForm } from './ClientForm';
+import { ClientDocuments, ClientHistory, ClientForm } from '../../client';
+import { ClientCommunication } from '../../client/ClientCommunication';
 import { useClient } from '../../../hooks/useClient';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 
@@ -71,7 +65,7 @@ export function ClientProfile({ clientId }: ClientProfileProps) {
             className="text-red-600 hover:text-red-700"
             onClick={() => {
               if (window.confirm('Are you sure you want to delete this client?')) {
-                deleteClient(clientId);
+                deleteClient();
               }
             }}
           >

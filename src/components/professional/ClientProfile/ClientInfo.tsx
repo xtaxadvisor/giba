@@ -1,6 +1,5 @@
-import React from 'react';
 import { Mail, Phone, Building2, Calendar, MapPin, Link } from 'lucide-react';
-import type { Client } from '../../../types';
+import { Client } from '../../../types';
 
 interface ClientInfoProps {
   client: Client;
@@ -73,7 +72,7 @@ export function ClientInfo({ client }: ClientInfoProps) {
       <div className="space-y-4">
         <h3 className="text-lg font-medium text-gray-900">Recent Activity</h3>
         <div className="space-y-4">
-          {client.recentActivity?.map((activity, index) => (
+          {client.recentActivity?.map((activity: { icon: React.ComponentType<{ className?: string }>; description: string; timestamp: string }, index: number) => (
             <div key={index} className="flex items-start space-x-3">
               <div className="flex-shrink-0">
                 <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
