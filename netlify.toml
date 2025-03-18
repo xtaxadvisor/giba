@@ -9,16 +9,15 @@
   status = 200
 
 [dev]
+  framework = "vite"
+  targetPort = 3001  # ✅ Correctly set Vite's port
   command = "npm run dev"
-  port = 3001
-  targetPort = 8888
   publish = "dist"
   autoLaunch = true
-  framework = "#custom"
 
 [functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["@aws-sdk/client-ses", "openai", "jose"]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"  # ✅ Keep only one instance
 
 [[headers]]
   for = "/*"

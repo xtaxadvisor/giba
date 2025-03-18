@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { ClientLayout } from "@/components/client/Dashboard/ClientLayout"; 
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import { useState } from "react";
 
 // ✅ Corrected Import Paths Based on Actual File Locations
 const ClientDashboard = React.lazy(() => import("@/components/client/Dashboard/ClientDashboard"));
@@ -11,7 +12,7 @@ const Documents = React.lazy(() => import("@/components/client/Documents")); // 
 const Messages = React.lazy(() => import("@/components/client/Messages"));
 const Calendar = React.lazy(() => import("@/components/client/Calendar"));
 const Settings = React.lazy(() => import("@/components/client/Settings"));
-
+const [dashboardData, setDashboardData] = useState<{ id: string; name: string }[]>([]);
 export default function ClientPortal() {
   return (
     <ClientLayout>
@@ -31,3 +32,5 @@ export default function ClientPortal() {
     </ClientLayout>
   );
 }
+
+// Removed the conflicting local useState declaration
