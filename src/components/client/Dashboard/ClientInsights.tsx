@@ -1,3 +1,4 @@
+import React from "react";
 import { AlertCircle, Calendar } from 'lucide-react';
 import { Card } from '../../ui/Card';
 

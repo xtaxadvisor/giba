@@ -1,9 +1,15 @@
 import { setupCache } from 'axios-cache-adapter';
 
+interface CacheStorage {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): void;
+  removeItem(key: string): void;
+}
+
 
 export const cache = setupCache({
   maxAge: 15 * 60 * 1000, // Cache for 15 minutes
-  store: {
+  store: <CacheStorage><unknown>{
     getItem: (key: string) => {
       // Use the key parameter to retrieve the item from the store
       return Promise.resolve(localStorage.getItem(key));
@@ -30,7 +36,7 @@ export const cache = setupCache({
     const invalidatePatterns = config.invalidate as unknown as string[];
     if (invalidatePatterns) {
       await Promise.all(
-        invalidatePatterns.map(pattern => cache.store.removeItem(pattern))
+        invalidatePatterns.map(pattern => (cache.store as CacheStorage).removeItem(pattern))
       );
     }
   }

@@ -4,7 +4,7 @@ type MetricComparison = {
   previous: number;
   absoluteChange: number;
   percentageChange: number;
-  trend: 'up' | 'down' | 'stable';
+      trend: 'up' | 'down' | 'stable';
   };
 
 
@@ -20,7 +20,8 @@ export function calculateYearOverYear(
     absoluteChange: current - previous,
     percentageChange: change,
     trend: change > 0 ? 'up' : change < 0 ? 'down' : 'stable'
-  };
+    };
+  }
 
 
 const sampleMetrics = [
@@ -47,4 +48,4 @@ export function AnalyticsMetrics(): Record<string, number> {
     growthRate: 10,
     pendingTransactions: 50
   };
-
+}

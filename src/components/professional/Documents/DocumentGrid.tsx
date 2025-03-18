@@ -1,17 +1,25 @@
-import React from 'react';
+import React from "react";
 import { 
   FileText, 
   Download, 
   Trash2, 
   Share2, 
-  History,
   Eye,
   MoreVertical,
   Clock
 } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
-import type { Document } from '../../../types';
+
+interface Document {
+  id: string;
+  title: string;
+  type: string;
+  uploadedAt: string | Date;
+  status: string;
+  tags?: string[];
+}
+
 
 interface DocumentGridProps {
   documents: Document[];
@@ -20,6 +28,33 @@ interface DocumentGridProps {
   onShare: (id: string) => void;
 }
 
+// Assuming these are your types
+type DocumentGridDocument = {
+  id: string;
+  title: string;
+  type: string;
+  uploadedAt: string | Date;
+  status: string;
+  tags?: string[];
+};
+
+const transformToDocument = (docGridDoc: DocumentGridDocument): Document => {
+  return {
+    id: docGridDoc.id,
+    title: docGridDoc.title,
+    type: docGridDoc.type,
+    uploadedAt: docGridDoc.uploadedAt,
+    status: docGridDoc.status,
+    tags: docGridDoc.tags,
+  };
+};
+
+// Example usage
+const documentGridDocuments: DocumentGridDocument[] = [
+  // your DocumentGridDocument objects here
+];
+
+const documents: Document[] = documentGridDocuments.map(transformToDocument);
 export function DocumentGrid({ documents, isLoading, onDelete, onShare }: DocumentGridProps) {
   if (isLoading) {
     return <LoadingSpinner />;
@@ -56,8 +91,7 @@ export function DocumentGrid({ documents, isLoading, onDelete, onShare }: Docume
                   variant="ghost"
                   size="sm"
                   icon={MoreVertical}
-                  className="text-gray-400 hover:text-gray-500"
-                />
+                  className="text-gray-400 hover:text-gray-500" children={undefined}                />
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
                   <div className="py-1">
                     <button className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">
@@ -68,15 +102,17 @@ export function DocumentGrid({ documents, isLoading, onDelete, onShare }: Docume
                       <Download className="h-4 w-4 mr-2" />
                       Download
                     </button>
-                    <button className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">
+                    <button 
+                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full"
+                      onClick={() => onShare(doc.id)}
+                    >
                       <Share2 className="h-4 w-4 mr-2" />
                       Share
                     </button>
-                    <button className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">
-                      <History className="h-4 w-4 mr-2" />
-                      Version History
-                    </button>
-                    <button className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full">
+                    <button 
+                      className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full"
+                      onClick={() => onDelete(doc.id)}
+                    >
                       <Trash2 className="h-4 w-4 mr-2" />
                       Delete
                     </button>
@@ -99,11 +135,8 @@ export function DocumentGrid({ documents, isLoading, onDelete, onShare }: Docume
 
             {doc.tags && doc.tags.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {doc.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800"
-                  >
+                {doc.tags.map((tag: string, index: number) => (
+                  <span key={index} className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
                     {tag}
                   </span>
                 ))}

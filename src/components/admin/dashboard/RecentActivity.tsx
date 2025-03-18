@@ -1,3 +1,4 @@
+import React from "react";
 import { FileText, Users, Settings } from 'lucide-react';
 
 export function RecentActivity() {

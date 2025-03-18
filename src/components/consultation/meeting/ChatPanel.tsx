@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, AlertCircle, Check, CheckCheck } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Input } from '../../ui/Input';
@@ -14,13 +14,13 @@ interface ChatPanelProps {
   isSending?: boolean;
 }
 
-export function ChatPanel({ 
+const ChatPanel: React.FC<ChatPanelProps> = ({ 
   messages, 
-  onSendMessage,
-  onRetryMessage,
-  isLoading,
+  onSendMessage, 
+  onRetryMessage, 
+  isLoading, 
   isSending 
-}: ChatPanelProps) {
+}) => {
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -28,15 +28,15 @@ export function ChatPanel({
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     if (newMessage.trim() && !isSending) {
       onSendMessage(newMessage);
       setNewMessage('');
     }
-  };
+  }, [newMessage, isSending, onSendMessage]);
 
-  const getMessageStatus = (status: ChatMessage['status']) => {
+  const getMessageStatus = useCallback((status: string, messageId: string) => {
     switch (status) {
       case 'sent':
         return <Check className="h-4 w-4 text-gray-400" />;
@@ -45,7 +45,7 @@ export function ChatPanel({
       case 'failed':
         return (
           <button
-            onClick={() => onRetryMessage?.(message.id)}
+            onClick={() => onRetryMessage?.(messageId)}
             className="flex items-center text-red-500 hover:text-red-600"
           >
             <AlertCircle className="h-4 w-4 mr-1" />
@@ -55,7 +55,7 @@ export function ChatPanel({
       default:
         return null;
     }
-  };
+  }, [onRetryMessage]);
 
   if (isLoading) {
     return (
@@ -67,10 +67,12 @@ export function ChatPanel({
 
   return (
     <div className="flex flex-col h-full bg-white">
+      {/* Header */}
       <div className="p-4 border-b">
         <h3 className="text-lg font-medium text-gray-900">Chat</h3>
       </div>
 
+      {/* Messages List */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message) => (
           <div
@@ -93,13 +95,14 @@ export function ChatPanel({
               <span className="text-xs text-gray-500">
                 {formatTime(message.timestamp)}
               </span>
-              {message.sender === 'You' && getMessageStatus(message.status)}
+              {message.sender === 'You' && getMessageStatus(message.status, message.id)}
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
 
+      {/* Message Input */}
       <form onSubmit={handleSubmit} className="border-t p-4">
         <div className="flex space-x-2">
           <Input
@@ -110,13 +113,17 @@ export function ChatPanel({
             disabled={isSending}
           />
           <Button 
-            type="submit" 
-            variant="primary" 
+            type="submit"
+            variant="primary"
             icon={Send}
             disabled={isSending || !newMessage.trim()}
-          />
+          >
+            Send
+          </Button>
         </div>
       </form>
     </div>
   );
-}
+};
+
+export default ChatPanel;

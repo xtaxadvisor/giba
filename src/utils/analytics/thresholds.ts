@@ -25,11 +25,18 @@ export function getThresholdColor(status: 'normal' | 'warning' | 'critical'): st
 }
 export { predictTrend };
 
+type PerformanceEntry = {
+  [key: string]: {
+    current: number;
+    thresholds: MetricThreshold;
+  };
+};
+
 export function calculateMetricStatus(
   metrics: PerformanceEntry
 ): Record<string, 'normal' | 'warning' | 'critical'> {
   return Object.entries(metrics).reduce((acc, [key, metric]) => ({
     ...acc,
-    [key]: checkThresholdViolation((metric as { current: number }).current, (metric as PerformanceEntry).thresholds)
+    [key]: checkThresholdViolation(metric.current, metric.thresholds)
   }), {});
 }

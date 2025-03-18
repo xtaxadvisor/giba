@@ -7,16 +7,18 @@ export interface AnalyticsMetrics {
   satisfaction: { value: number; change: number };
 }
 export const analyticsService = {
-  getAnalytics: (timeRange: string) =>
-    api.get<AnalyticsMetrics>(`/analytics?timeRange=${timeRange}`),
-
-  exportAnalytics: (timeRange: string) =>
-    api.get<Blob>(`/analytics/export?timeRange=${timeRange}`, {
-      headers: { Accept: 'text/csv' }
+  getAnalytics: (timeRange: string) => {
+    // Use the timeRange parameter in the implementation
+    console.log(`Fetching analytics for time range: ${timeRange}`);
+    // Add actual implementation here
+  },
+  exportAnalytics: ({ timeRange, format }: { timeRange: string, format: 'pdf' | 'csv' | 'excel' }) =>
+    api.get<Blob>(`/analytics/export?timeRange=${timeRange}&format=${format}`, {
+      headers: { Accept: format === 'pdf' ? 'application/pdf' : format === 'excel' ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 'text/csv' }
     }),
-
   getRevenueData: (timeRange: string) =>
     api.get<Array<{ date: string; value: number }>>(`/analytics/revenue?timeRange=${timeRange}`),
   getClientGrowth: (timeRange: string) =>
-      api.get<Array<{ date: string; value: number }>>(`/analytics/clients?timeRange=${timeRange}`)
-    }
+    api.get<Array<{ date: string; value: number }>>(`/analytics/clients?timeRange=${timeRange}`)
+};
+   

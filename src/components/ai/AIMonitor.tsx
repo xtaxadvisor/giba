@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Activity, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 import { aiManager } from '../../services/ai/AIManager';
 import { Card } from '../ui/Card';

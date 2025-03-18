@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Clock, Bell } from 'lucide-react';
 import { Select } from '../../../ui/Select';
 import type { TriggerConfig } from '../../../../types/automation';
+import { Input } from '@/components/ui/Input';
 
 interface EventTriggerProps {
   config: TriggerConfig;
@@ -19,7 +20,7 @@ export function EventTrigger({ config, onChange }: EventTriggerProps) {
           { value: 'condition', label: 'Condition' }
         ]}
         value={config.type}
-        onChange={(value) => onChange({ ...config, type: value })}
+        onChange={(value) => onChange({ ...config, type: value as 'schedule' | 'event' | 'condition' })}
       />
 
       {config.type === 'schedule' && (

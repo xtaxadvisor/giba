@@ -1,4 +1,3 @@
-import React from 'react';
 import { Plus, Video } from 'lucide-react';
 import { ConsultationCard } from './ConsultationCard';
 import { LoadingSpinner } from '../ui/LoadingSpinner';
@@ -6,6 +5,8 @@ import { useConsultation } from '../../hooks/useConsultation';
 import { useNotificationStore } from '../../lib/store';
 import { Button } from '../ui/Button';
 import { BookingModal } from '../booking/BookingModal';
+import React from 'react';
+
 
 export function ConsultationList() {
   const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);

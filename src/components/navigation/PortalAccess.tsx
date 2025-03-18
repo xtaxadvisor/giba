@@ -1,21 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Users, Database, TrendingUp, MessageSquare, BookOpen } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { useNotificationStore } from '../../lib/store';
+import { Button } from '../../components/ui/Button';
+import { PORTAL_CONFIGS } from '../../services/navigation/portalConfig';
+import type { LucideIcon } from 'lucide-react';
 
+// ✅ Define Props Interface for PortalButton
 interface PortalButtonProps {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   path: string;
   requiredRole?: string[];
 }
 
-function PortalButton({ title, description, icon: Icon, path, requiredRole }: PortalButtonProps) {
+const PortalButton: React.FC<PortalButtonProps> = ({ title, description, icon: Icon, path, requiredRole = [] }) => {
   const navigate = useNavigate();
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
+  const isAuthenticated = !!user;
   const { addNotification } = useNotificationStore();
 
   const handleAccess = () => {
@@ -45,63 +48,35 @@ function PortalButton({ title, description, icon: Icon, path, requiredRole }: Po
         variant="primary"
         onClick={handleAccess}
         className="w-full"
+        aria-label={`Access ${title}`}
       >
         Access Portal
       </Button>
     </div>
   );
-}
+};
 
-export function PortalAccess() {
-  const portals = [
-    {
-      title: 'Client Portal',
-      description: 'Access your documents and manage your financial information securely.',
-      icon: Database,
-      path: '/client',
-      requiredRole: ['client']
-    },
-    {
-      title: 'Professional Portal',
-      description: 'Dedicated workspace for financial professionals.',
-      icon: Users,
-      path: '/professional',
-      requiredRole: ['professional']
-    },
-    {
-      title: 'Investors Club Portal',
-      description: 'Access investment tools and market insights.',
-      icon: TrendingUp,
-      path: '/investor',
-      requiredRole: ['investor']
-    },
-    {
-      title: 'Student Portal',
-      description: 'Access educational resources and financial learning materials.',
-      icon: BookOpen,
-      path: '/student',
-      requiredRole: ['student']
-    },
-    {
-      title: 'Admin Portal',
-      description: 'Comprehensive system administration and management.',
-      icon: Shield,
-      path: '/admin',
-      requiredRole: ['admin']
-    },
-    {
-      title: 'Secure Messaging',
-      description: 'End-to-end encrypted communication platform.',
-      icon: MessageSquare,
-      path: '/messages'
-    }
-  ];
+// ✅ Dynamically Generates Portal Buttons
+export const PortalAccess: React.FC = () => {
+  const { user } = useAuth();
+  
+  // ✅ Filter only the portals the user can access
+  const availablePortals = Object.values(PORTAL_CONFIGS).filter((portal: any) => 
+    !portal.requiredRole || portal.requiredRole.includes(user?.role ?? "")
+  ) as { id: any; title: any; description: any; icon: any; path: any; requiredRole?: string[] }[];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {portals.map((portal) => (
-        <PortalButton key={portal.title} {...portal} />
+      {availablePortals.map((portal: { id: any; title: any; description: any; icon: any; path: any; requiredRole?: string[] }) => (
+        <PortalButton
+          key={portal.id}
+          title={portal.title}
+          description={portal.description}
+          icon={portal.icon}
+          path={portal.path}
+          requiredRole={portal.requiredRole}
+        />
       ))}
     </div>
   );
-}
+};

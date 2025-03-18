@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from 'react';
 import { 
   User, 
@@ -9,7 +10,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { ClientInfo } from './ClientInfo';
-import { Modal } from '../../ui/Modal';
+import Modal from '../../ui/Modal';
 import { ClientDocuments, ClientHistory, ClientForm } from '../../client';
 import { ClientCommunication } from '../../client/ClientCommunication';
 import { useClient } from '../../../hooks/useClient';
@@ -32,9 +33,24 @@ export function ClientProfile({ clientId }: ClientProfileProps) {
     return <div>Client not found</div>;
   }
 
-  const handleUpdateClient = async (data: any) => {
-    await updateClient({ id: clientId, ...data });
-    setIsEditModalOpen(false);
+  const handleUpdateClient = async (data: Partial<typeof client>) => {
+    try {
+      await updateClient({ id: clientId, ...data } as any);
+      setIsEditModalOpen(false); // Close modal only after successful update
+    } catch (error) {
+      console.error('Error updating client:', error);
+    }
+  };
+
+  const handleDeleteClient = async () => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this client?');
+    if (confirmDelete) {
+      try {
+        await deleteClient();
+      } catch (error) {
+        console.error('Error deleting client:', error);
+      }
+    }
   };
 
   const tabs = [
@@ -63,11 +79,7 @@ export function ClientProfile({ clientId }: ClientProfileProps) {
             variant="outline"
             icon={Trash2}
             className="text-red-600 hover:text-red-700"
-            onClick={() => {
-              if (window.confirm('Are you sure you want to delete this client?')) {
-                deleteClient();
-              }
-            }}
+            onClick={handleDeleteClient}
           >
             Delete Client
           </Button>

@@ -18,7 +18,7 @@ export function prepareTimeSeriesData(
 
   return data.map(series => ({
     label: series.label,
-    data: series.data.map(d => ({
+    data: series.data.map((d: { date: string; value: any; }) => ({
       x: new Date(formatDate(d.date)).getTime(),
       y: d.value
     })),

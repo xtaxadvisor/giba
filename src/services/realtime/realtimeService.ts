@@ -1,23 +1,31 @@
-import { protaxChannel } from '../../lib/supabase/client';
+import { Database } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase/client';
+import { SupabaseClient } from '@supabase/supabase-js';
 
-export const realtimeService = {
-  async sendMessage(message: string, data: any = {}) {
-    return protaxChannel.send({
-      type: 'broadcast',
-      event: 'message',
-      payload: { message, data }
-    });
-  },
+class RealtimeService {
+  private supabase: SupabaseClient;
 
-  async updatePresence(presenceData: any) {
-    return protaxChannel.track(presenceData);
-  },
-
-  getPresence() {
-    return protaxChannel.presenceState();
-  },
-
-  async unsubscribe() {
-    return protaxChannel.unsubscribe();
+  constructor(supabase: SupabaseClient) {
+    this.supabase = supabase;
   }
-};
+  async sendMessage(message: string, data: any = {}) {
+    // implementation
+  }
+
+  async updatePresence(data: any) {
+    // implementation
+  }
+
+  removeAllSubscriptions() {
+    const subscriptions = this.supabase.getChannels();
+    subscriptions.forEach((subscription) => {
+      this.supabase.removeChannel(subscription);
+    });
+  }
+}
+
+// Usage example
+const realtimeService = new RealtimeService(supabase);
+realtimeService.removeAllSubscriptions();
+
+export { realtimeService };

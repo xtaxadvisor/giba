@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { AIAssistantBubble } from './AIAssistantBubble';
+import AIAssistantBubble from './AIAssistantBubble';
 import { AIChat } from './AIChat';
 import { useClickOutside } from '../../utils/hooks';
 
@@ -7,6 +7,7 @@ export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const chatRef = useRef<HTMLDivElement>(null);
+  
 
   useClickOutside(chatRef, () => {
     if (isOpen) setIsOpen(false);
@@ -43,9 +44,9 @@ export function AIAssistant() {
       {isOpen && (
         <div ref={chatRef}>
           <AIChat 
-            onClose={handleClose}
-            onNewMessage={handleNewMessage}
-          />
+            onClose={handleClose} messages={[]} onSendMessage={function (message: string): void {
+              throw new Error('Function not implemented.');
+            } } isLoading={false}          />
         </div>
       )}
     </>

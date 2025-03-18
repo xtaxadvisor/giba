@@ -125,7 +125,7 @@ export class SyncManager {
     }
   }
 
-  private async syncWithCalendar() { // eslint-disable-line @typescript-eslint/no-empty-function 
+  private async syncWithCalendar(booking: any) { // eslint-disable-line @typescript-eslint/no-empty-function 
     try { // eslint-disable-line @typescript-eslint/no-empty-function  
       // Implementation for calendar sync
     } catch (error) {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Brain, Lightbulb, Target, BookOpen } from 'lucide-react';
 import { useAI } from '../../hooks/useAI';
 import { Button } from '../ui/Button';

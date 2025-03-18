@@ -10,12 +10,10 @@ export const ROUTES = {
   SAME_DAY_SERVICES: '/same-day-services',
   VIDEOS: '/browse-videos',
   CONSULTATION: '/consultation',
-  STUDENTS: 'REGISTERED-STUDENTS',
-  CLIENT: 'REGISTERED-CLIENTS',
-  STUDENT: 'STUDENT',
-  CLIENT_DETAIL: 'CLIENT',
-  
-
+  STUDENTS: '/registered-students',
+  CLIENT: '/registered-clients',
+  STUDENT: '/student',
+  CLIENT_DETAIL: '/client-details',
 } as const;
 
 export const PROTECTED_ROUTES = [
@@ -26,7 +24,7 @@ export const PROTECTED_ROUTES = [
   ROUTES.CLIENT,
   ROUTES.STUDENT,
   ROUTES.SAME_DAY_SERVICES,
-] as const;
+];
 
 export const PUBLIC_ROUTES = [
   ROUTES.HOME,
@@ -34,4 +32,4 @@ export const PUBLIC_ROUTES = [
   ROUTES.REGISTER,
   ROUTES.SERVICES,
   ROUTES.VIDEOS,
-] as const;
+];

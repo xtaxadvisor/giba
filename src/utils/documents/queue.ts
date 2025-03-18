@@ -10,7 +10,6 @@ export function calculateQueueMetrics(documents: QueuedDocument[]) {
     averageProcessingTime: calculateAverageProcessingTime(documents)
   };
 }
-
 function calculateAverageProcessingTime(documents: QueuedDocument[]): number {
   const completedDocs = documents.filter(d => 
     d.status === 'completed' && d.completedAt && d.startedAt

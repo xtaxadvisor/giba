@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Share2, UserPlus, MessageSquare } from 'lucide-react';
 import { Button } from '../../ui/Button';
 

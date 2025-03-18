@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { formatTimeAgo } from '../../../../utils/date';
 import type { QueuedDocument } from '../../../../types/documents';

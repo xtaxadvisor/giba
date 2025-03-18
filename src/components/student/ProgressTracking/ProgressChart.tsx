@@ -54,7 +54,7 @@ export function ProgressChart() {
         beginAtZero: true,
         max: 100,
         ticks: {
-          callback: (value: number) => `${value}%`
+          callback: (tickValue: string | number) => `${tickValue}%`
         }
       }
     }

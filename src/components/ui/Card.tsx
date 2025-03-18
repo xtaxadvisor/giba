@@ -1,10 +1,11 @@
+import React from "react";
 import { LucideIcon } from 'lucide-react';
 
 interface CardProps {
   icon?: LucideIcon;
   title: string;
   value: string | number;
-  description?: string;
+  description?:React.ReactNode;
   className?: string;
 }
 

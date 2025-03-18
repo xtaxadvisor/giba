@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { DollarSign } from 'lucide-react';
 import { Input } from '../../ui/Input';
 import { formatCurrency } from '../../../utils/format';

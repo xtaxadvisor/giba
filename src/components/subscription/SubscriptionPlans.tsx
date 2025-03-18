@@ -1,5 +1,3 @@
-```typescript
-import React from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
 import type { SubscriptionPlan } from '../../types/subscription';
@@ -69,4 +67,3 @@ export function SubscriptionPlans({ plans, onSelectPlan, currentPlanId }: Subscr
     </div>
   );
 }
-```

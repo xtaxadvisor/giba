@@ -1,5 +1,6 @@
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
-import { AdminDashboard } from '../components/admin/AdminDashboard';
+import AdminDashboard from '../components/admin/AdminDashboard';
 import { AdminLayout } from '../components/admin/AdminLayout';
 
 export default function AdminPortal() {

@@ -45,7 +45,7 @@ export function LineChart() {
         display: false,
       },
       tooltip: {
-        mode: 'index',
+        mode: 'nearest' as const,
         intersect: false,
       },
     },
@@ -74,7 +74,7 @@ export function LineChart() {
 
   return (
     <div className="w-full h-[300px]">
-      <Line data={data} options={options} />
+      <Line data={data} options={options as any} />
     </div>
   );
 }

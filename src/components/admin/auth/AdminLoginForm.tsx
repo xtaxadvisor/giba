@@ -6,8 +6,9 @@ import { Button } from '../../ui/Button';
 import { useNotificationStore } from '../../../lib/store';
 import { adminAuthService } from '../../../services/auth/adminAuth';
 import { isStrongPassword } from '../../../utils/crypto';
+// Your existing code here
 
-export function AdminLoginForm() {
+const AdminLoginForm = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -63,7 +64,6 @@ export function AdminLoginForm() {
           <p className="mt-2 text-sm text-gray-600">
             Please enter your admin credentials to continue
           </p>
-        </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {!showTOTP ? (
@@ -112,7 +112,11 @@ export function AdminLoginForm() {
             {loading ? 'Verifying...' : showTOTP ? 'Verify 2FA Code' : 'Continue'}
           </Button>
         </form>
-      </div>
     </div>
+  </div>
+);
+</div>
   );
-}
+};
+
+export default AdminLoginForm;

@@ -11,9 +11,14 @@ import {
   User,
   Video
 } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { Button } from '../ui/Button';
-import type { MenuItem } from '../../types';
+
+interface MenuItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
 
 const menuItems: MenuItem[] = [
   { title: 'Dashboard', href: '/dashboard', icon: Home },
@@ -25,7 +30,11 @@ const menuItems: MenuItem[] = [
 ];
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, logout } = useAuth();
+  const auth = React.useContext(AuthContext);
+  if (!auth) {
+    throw new Error("AuthContext is undefined");
+  }
+  const { user, logout } = auth;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -52,7 +61,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               >
                 Back to Home
               </Button>
-              <span className="text-xl font-bold text-blue-600">XTaXAdvisors</span>
+              <span className="text-xl font-bold text-blue-600">ProTaXaDvisors</span>
             </div>
             <div className="flex items-center space-x-4">
               <button className="text-gray-500 hover:text-gray-700">

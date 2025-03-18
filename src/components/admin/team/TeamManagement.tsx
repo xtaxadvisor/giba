@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Search, Filter } from 'lucide-react';
 import { Button } from '../../ui/Button';
-import { Modal } from '../../ui/Modal';
+import Modal from '../../ui/Modal';
 import { TeamMemberForm } from './TeamMemberForm';
 import { useTeamMembers } from '../../../hooks/useTeamMembers';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';

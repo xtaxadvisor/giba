@@ -11,7 +11,11 @@ import {
 import { useAuth } from '../../../contexts/AuthContext';
 import { AdminHeader } from './AdminHeader';
 import { AdminSidebar } from './AdminSidebar';
-import type { MenuItem } from '../../../types';
+interface MenuItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType;
+}
 
 const menuItems: MenuItem[] = [
   { title: 'Dashboard', href: '/admin', icon: Home },

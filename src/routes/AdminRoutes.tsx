@@ -1,8 +1,9 @@
+import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AdminProtectedRoute } from '../components/admin/auth/AdminProtectedRoute';
-import { AdminDashboard } from '../components/admin/AdminDashboard';
+import AdminDashboard from '../components/admin/AdminDashboard';
 import { AdminLayout } from '../components/admin/AdminLayout';
-import { AdminLoginForm } from '../components/admin/auth/AdminLoginForm';
+import AdminLoginForm from '../components/admin/auth/AdminLoginForm';
 import { TeamManagement } from '../components/admin/team/TeamManagement';
 import AIMonitoringDashboard from '../pages/admin/AIMonitoringDashboard';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';

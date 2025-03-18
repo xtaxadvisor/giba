@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Bot, Shield, Clock, MessageSquare, Sparkles } from 'lucide-react';
 
 export function AIWelcomeMessage() {

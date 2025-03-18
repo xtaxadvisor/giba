@@ -1,4 +1,4 @@
-import React from 'react';
+// src/components/RevenueChart.tsx
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,23 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
+
+// ✅ Define prop types for RevenueChart
+interface RevenueChartProps {
+  data: {
+    labels: string[];
+    datasets: {
+      label: string;
+      data: number[];
+      fill?: boolean;
+      borderColor?: string;
+      backgroundColor?: string;
+      borderDash?: number[];
+      tension?: number;
+    }[];
+  };
+}
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,29 +40,8 @@ ChartJS.register(
   Filler
 );
 
-export function RevenueChart() {
-  const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: [
-      {
-        label: 'Revenue',
-        data: [65000, 59000, 80000, 81000, 86000, 95000, 89000, 90000, 92000, 96000, 98000, 105000],
-        fill: true,
-        borderColor: 'rgb(59, 130, 246)',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        tension: 0.4,
-      },
-      {
-        label: 'Target',
-        data: [70000, 72000, 75000, 78000, 82000, 85000, 88000, 90000, 93000, 95000, 98000, 100000],
-        borderColor: 'rgba(107, 114, 128, 0.5)',
-        borderDash: [5, 5],
-        fill: false,
-        tension: 0.4,
-      }
-    ],
-  };
-
+// ✅ Make RevenueChart accept `data` as a prop
+export function RevenueChart({ data }: RevenueChartProps) {
   const options = {
     responsive: true,
     plugins: {
@@ -56,7 +52,7 @@ export function RevenueChart() {
         mode: 'index' as const,
         intersect: false,
         callbacks: {
-          label: function(context: any) {
+          label: function (context: any) {
             let label = context.dataset.label || '';
             if (label) {
               label += ': ';
@@ -76,7 +72,7 @@ export function RevenueChart() {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: function(value: any) {
+          callback: function (value: any) {
             return new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD',
@@ -89,7 +85,8 @@ export function RevenueChart() {
   };
 
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full h-[400px] bg-white p-4 shadow-md rounded-lg">
+      <h2 className="text-lg font-semibold text-gray-700 mb-2">Revenue Chart</h2>
       <Line data={data} options={options} />
     </div>
   );

@@ -1,19 +1,15 @@
-import { DollarSign, TrendingUp, CreditCard, AlertCircle } from 'lucide-react';
+import React from "react";
+import { TrendingUp, CreditCard, AlertCircle } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { BarChart } from '../charts/BarChart';
 import { formatCurrency } from '../../../utils/format';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 
+
 export function RevenueAnalytics() {
   const { metrics } = useAnalytics('month');
 
   const stats = [
-    {
-      title: 'Total Revenue',
-      value: formatCurrency(metrics?.totalRevenue || 0),
-      change: '+15%',
-      icon: DollarSign
-    },
     {
       title: 'Average Transaction',
       value: formatCurrency(metrics?.avgTransaction || 0),

@@ -1,8 +1,26 @@
 import React from 'react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 import { calculateTrend } from '../../../../utils/analytics/trends';
-import type { PerformanceData } from '../../../../types/analytics';
+// import type { PerformanceData } from '../../../../utils/analytics/trends';
 
+export function RevenueChart({ data }: { data: any }) {
+  return (
+    <div>
+      {/* Render your chart here using the data prop */}
+      <p>Revenue Chart</p>
+    </div>
+  );
+}
+
+export interface PerformanceData {
+  metric: string;
+  value: number;
+  history: Array<{ date: string; value: number }>;
+  current: number;
+  label: string;
+}
+
+export {};
 interface PerformanceIndicatorProps {
   data: PerformanceData;
   threshold: number;

@@ -1,10 +1,16 @@
+import React from "react";
 import { FileText } from 'lucide-react';
 
 interface DocumentRecommendationsProps {
   recommendations: Recommendation[];
 }
+export interface Recommendation {
+  // other properties
+  field: string; // Add the 'field' property
+}
 // existing exports
 export interface Finding {
+  field: string;
   type: 'success' | 'warning';
   message: string;
 }

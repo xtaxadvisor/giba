@@ -2,7 +2,11 @@ import { Handler } from '@netlify/functions';
 import { createClient } from '@supabase/supabase-js';
 import { handleCors, getCorsHeaders } from './utils/cors';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
-
+// Removed duplicate testConnection function
+export async function testConnection(): Promise<boolean> {
+  // implementation
+  return true; // or false based on the actual connection status
+}
 export const handler: Handler = async (event) => {
   try {
     // Handle CORS

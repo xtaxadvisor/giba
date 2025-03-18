@@ -11,6 +11,11 @@ export interface User {
   location?: string;
   bio?: string;
 }
+export interface TimeSlot {
+  startTime: string;
+  endTime: string;
+  available: boolean;
+}
 
 declare function useAuth(): { user: User | null };
 export interface UserProfile extends User {

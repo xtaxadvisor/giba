@@ -45,7 +45,7 @@ export function TaxCalculator() {
   const handleInputChange = (section: keyof TaxData, data: any) => {
     setTaxData(prev => ({
       ...prev,
-      [section]: { ...prev[section], ...data }
+      [section]: { ...(typeof prev[section] === 'object' ? prev[section] : {}), ...data }
     }));
     
     // Calculate form completion percentage

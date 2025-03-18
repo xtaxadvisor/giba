@@ -74,13 +74,12 @@ export function ServiceCalculator() {
               <h3 className="text-lg font-medium text-gray-900">Service {index + 1}</h3>
               {services.length > 1 && (
                 <Button
-                  variant="ghost"
-                  size="sm"
-                  icon={Trash2}
-                  onClick={() => handleRemoveService(index)}
-                  className="text-red-600 hover:text-red-700"
-                  aria-label={`Remove service ${index + 1}`}
-                />
+                            variant="ghost"
+                            size="sm"
+                            icon={Trash2}
+                            onClick={() => handleRemoveService(index)}
+                            className="text-red-600 hover:text-red-700"
+                            aria-label={`Remove service ${index + 1}`} children={undefined}                />
               )}
             </div>
 

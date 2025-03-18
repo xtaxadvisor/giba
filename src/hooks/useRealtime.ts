@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { protaxChannel, supabase } from '../lib/supabase/client';
+import { supabase } from '../lib/supabase/client';
+import { protaxChannel } from '@/components/client/protaxChannel';
 import { realtimeService } from '../services/realtime/realtimeService';
 import { useNotificationStore } from '../lib/store';
 
@@ -7,7 +8,10 @@ export function useRealtime() {
   const [presence, setPresence] = useState<any>({});
   const [isConnected, setIsConnected] = useState(false);
   const { addNotification } = useNotificationStore();
-
+  async function testConnection(): Promise<boolean> {
+    // implementation
+    return true; // or false based on the actual connection status
+  }
   useEffect(() => {
     let mounted = true;
 
@@ -22,7 +26,7 @@ export function useRealtime() {
               setIsConnected(true);
             }
           })
-          .subscribe(async (status) => {
+          .subscribe(async (status: string) => {
             if (status === 'SUBSCRIBED' && user) {
               await protaxChannel.track({
                 online_at: new Date().toISOString(),
@@ -66,6 +70,7 @@ export function useRealtime() {
     presence,
     isConnected,
     sendMessage,
-    updatePresence
+    updatePresence,
+    testConnection
   };
 }

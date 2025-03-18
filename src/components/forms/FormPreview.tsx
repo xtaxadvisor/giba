@@ -37,8 +37,7 @@ export function FormPreview({ formId, onClose, onDownload }: FormPreviewProps) {
                       variant="ghost"
                       size="sm"
                       icon={X}
-                      onClick={onClose}
-                    />
+                      onClick={onClose} children={undefined}                    />
                   </div>
                 </div>
                 

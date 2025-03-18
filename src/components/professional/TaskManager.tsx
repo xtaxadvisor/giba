@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Calendar, Clock, CheckCircle, AlertCircle, Trash2 } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { Modal } from '../ui/Modal';
+import Modal from '../ui/Modal';
 import { TaskForm } from './TaskForm';
 import { useTaskStore } from '../../lib/store';
 import { useNotificationStore } from '../../lib/store';

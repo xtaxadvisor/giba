@@ -1,5 +1,6 @@
+import React from "react";
 ```typescript
-import React from 'react';
+
 import { LucideIcon } from 'lucide-react';
 
 interface AIFeatureCardProps {

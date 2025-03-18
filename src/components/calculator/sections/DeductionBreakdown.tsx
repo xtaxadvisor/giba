@@ -1,6 +1,7 @@
-import React from 'react';
-import { PieChart } from 'react-chartjs-2';
+import React from "react";
+import { Pie } from 'react-chartjs-2';
 import { formatCurrency } from '../../../utils/format';
+// Removed import for PieChart from 'lucide-react'
 
 interface DeductionBreakdownProps {
   deductions: {
@@ -67,7 +68,7 @@ export function DeductionBreakdown({ deductions, selectedType }: DeductionBreakd
 
       {selectedType === 'itemized' && (
         <div className="h-64">
-          <PieChart data={data} />
+          <Pie data={data} />
         </div>
       )}
     </div>

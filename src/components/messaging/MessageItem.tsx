@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
 import { FileText, Download } from 'lucide-react';
 import { formatTimeAgo } from '../../utils/date';
-import type { Message } from '../../types';
+interface Message {
+  senderId: string;
+  timestamp: string | Date;
+  content: string;
+  attachments?: string[];
+}
 
 interface MessageItemProps {
   message: Message;
@@ -22,7 +27,7 @@ export function MessageItem({ message }: MessageItemProps) {
           <span className="text-sm opacity-75">{formatTimeAgo(message.timestamp)}</span>
         </div>
         <p className="mt-1">{message.content}</p>
-        {message.attachments?.map((attachment, index) => (
+        {message.attachments?.map((attachment: string, index: number) => (
           <div key={index} className="mt-2 flex items-center space-x-2">
             <FileText className="h-4 w-4" />
             <span className="text-sm">{attachment}</span>

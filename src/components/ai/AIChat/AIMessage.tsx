@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Bot, User } from 'lucide-react';
 import type { AIMessage as AIMessageType } from '../../../types/ai';
 

@@ -42,8 +42,7 @@ export function MessageInput({ onSendMessage, isLoading }: MessageInputProps) {
             type="button"
             variant="ghost"
             icon={Paperclip}
-            className="text-gray-400 hover:text-gray-600"
-          />
+            className="text-gray-400 hover:text-gray-600" children={undefined}          />
         </label>
         <Input
           value={message}

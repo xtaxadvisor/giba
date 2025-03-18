@@ -3,10 +3,11 @@ import { Bot, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAI } from '../../hooks/useAI';
 import { AIChat } from './chat/AIChat';
+import { error } from 'console';
 
 export function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, sendMessage, isLoading, error } = useAI();
+  const { messages, sendMessage, isLoading } = useAI();
 
   const handleClose = () => {
     setIsOpen(false);
@@ -44,14 +45,13 @@ export function AIAssistantWidget() {
               size="sm"
               onClick={handleClose}
               icon={X}
-              className="text-gray-400 hover:text-gray-500"
-            />
+              className="text-gray-400 hover:text-gray-500" children={undefined}            />
           </div>
           <AIChat
             messages={messages}
             onSendMessage={sendMessage}
             isLoading={isLoading}
-            error={error}
+            error={isLoading ? new Error('Loading...') : undefined}
           />
         </div>
       )}

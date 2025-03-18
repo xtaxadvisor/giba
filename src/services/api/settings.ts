@@ -7,6 +7,7 @@ interface GeneralSettings {
 }
 
 interface SecuritySettings {
+  twoFactorAuth: boolean;
   require2FA: boolean;
   sessionTimeout: number;
 }
@@ -50,6 +51,7 @@ export function useSettings() {
 }
 export interface Settings {
   profile: {
+    name: string;
     companyName: string;
     website: string;
     address: string;

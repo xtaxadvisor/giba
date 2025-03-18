@@ -1,5 +1,6 @@
+import React from "react";
 ```typescript
-import React from 'react';
+
 import { Calculator, Calendar, FileText, HelpCircle } from 'lucide-react';
 import { AIFeatureCard } from './AIFeatureCard';
 

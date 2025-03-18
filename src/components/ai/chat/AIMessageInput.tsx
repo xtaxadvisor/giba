@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";  // ✅ Correct Import
 import { Send } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Input } from '../../ui/Input';
@@ -38,8 +38,7 @@ export function AIMessageInput({
           type="submit"
           variant="primary"
           icon={Send}
-          disabled={isDisabled || !message.trim()}
-        />
+          disabled={isDisabled || !message.trim()} children={undefined}        />
       </div>
     </form>
   );

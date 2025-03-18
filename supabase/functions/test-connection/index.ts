@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Enable CORS
-app.use((req, res, next) => {
+app.use((_, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -25,7 +25,7 @@ const supabaseAnonKey = process.env.SUPABASE_ANON_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // API Route to Test Supabase Connection
-app.get("/test-connection", async (req, res) => {
+app.get("/test-connection", async (_, res) => {
   try {
     const { data, error } = await supabase.rpc("test_connection");
 
@@ -34,7 +34,7 @@ app.get("/test-connection", async (req, res) => {
     res.json({ success: true, data });
   } catch (error) {
     console.error("Connection test error:", error);
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({ success: false, error: (error as Error).message });
   }
 });
 

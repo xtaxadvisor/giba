@@ -3,8 +3,7 @@ import { TrendingUp, Users, DollarSign, Clock, Filter, Download, Calendar } from
 import { Button } from '../../ui/Button';
 import { Select } from '../../ui/Select';
 import { MetricsGrid } from './MetricsGrid';
-import { RevenueChart } from './RevenueChart';
-import { ClientGrowthChart } from './ClientGrowthChart';
+import { RevenueChart } from '../charts/RevenueChart';
 import { PerformanceMetrics } from './PerformanceMetrics';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
@@ -71,7 +70,7 @@ export function AnalyticsDashboard() {
         </div>
       </div>
 
-      <MetricsGrid metrics={metrics} />
+      <MetricsGrid metrics={metrics} isLoading={false} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
@@ -81,7 +80,7 @@ export function AnalyticsDashboard() {
 
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-medium text-gray-900 mb-4">Client Growth</h3>
-          <ClientGrowthChart data={clientGrowth} />
+          <RevenueChart data={clientGrowth} />
         </div>
       </div>
 

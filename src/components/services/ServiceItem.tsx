@@ -1,3 +1,4 @@
+import React from "react";
 // Note: Service Item Component
 import { useNavigate } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
@@ -11,9 +12,10 @@ interface ServiceItemProps {
   description: string;
   price: string;
   features: string[];
+  duration?: string;
 }
 
-export function ServiceItem({ title, description, price, features }: ServiceItemProps) {
+export function ServiceItem({ title, description, price, features }: ServiceItemProps): JSX.Element {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const { addNotification } = useNotificationStore();

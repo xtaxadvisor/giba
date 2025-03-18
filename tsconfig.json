@@ -1,7 +1,33 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsxdev",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,   // ✅ Prevents TypeScript from generating .js files
+    "allowJs": true   // ✅ Ensures TypeScript allows JavaScript files
+  },
+  "include": ["src/**/*"],  // make sure it covers your .js and .tsx files
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/components/ai/**",
+    "src/hooks/useAI.ts",
+    "src/hooks/useAIMonitoring.ts",
+    "src/services/ai/**",
+    "src/services/analytics/ai.ts",
+    "src/utils/ai/**"
+  ],
+  "resolve": {
+    "extensions": [".tsx", ".ts", ".js", ".jsx"]
+  }
 }

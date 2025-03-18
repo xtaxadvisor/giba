@@ -1,12 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { analyticsService } from '../services/api/analytics';
 import { useNotificationStore } from '../lib/store';
+import { AnalyticsMetrics } from '../components/admin/analytics/UserAnalytics';
 
-export function useAnalytics(timeRange: string) {
+export function useAnalytics(timeRange: string): {
+  satisfaction: any;
+  responseTime: any;
+  clients: any;
+  revenue: any; metrics: AnalyticsMetrics, revenueData: any, clientGrowth: any, performanceMetrics: any, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> 
+} {
   const { addNotification } = useNotificationStore();
 
 
-  const { data: metrics, isLoading: metricsLoading } = useQuery({
+  const { data: metrics = {} as AnalyticsMetrics, isLoading: metricsLoading } = useQuery({
     queryKey: ['analytics-metrics', timeRange],
     queryFn: () => analyticsService.getAnalytics(timeRange)
   });
@@ -47,11 +53,17 @@ export function useAnalytics(timeRange: string) {
   };
 
   return {
-    metrics,
-    revenueData,
-    clientGrowth,
-    performanceMetrics,
-    isLoading: metricsLoading || revenueLoading || clientGrowthLoading || performanceLoading,
-    exportAnalytics
-  };
+  metrics,
+  revenueData,
+  clientGrowth,
+  performanceMetrics,
+  isLoading: metricsLoading || revenueLoading || clientGrowthLoading || performanceLoading,
+  exportAnalytics,
+  satisfaction: undefined,
+  responseTime: undefined,
+  clients: undefined,
+  revenue: undefined
+};
 }
+
+export { AnalyticsMetrics };

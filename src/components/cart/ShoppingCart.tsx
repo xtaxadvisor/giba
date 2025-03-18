@@ -1,4 +1,5 @@
-{`import React from 'react';
+import React from "react";
+{`
 import { ShoppingCart as CartIcon } from 'lucide-react';
 import { useMediaQuery } from '../../utils/hooks';
 

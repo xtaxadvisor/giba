@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { TeamMemberCard } from './TeamMemberCard';
 import { teamMembers } from '../../data/teamData';
 import { useMediaQuery } from '../../utils/hooks';

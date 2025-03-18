@@ -1,3 +1,4 @@
+import React from "react";
 import { Search, Filter } from 'lucide-react';
 import { Input } from '../ui/Input';
 import { Select } from '../ui/Select';

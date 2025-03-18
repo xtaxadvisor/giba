@@ -1,3 +1,4 @@
+import React from "react";
 import { PersonalizedTabs } from './PersonalizedTabs';
 import { useAuth } from '../../contexts/AuthContext';
 

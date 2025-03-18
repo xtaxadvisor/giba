@@ -30,7 +30,7 @@ export function ServiceCategory({ title, icon: Icon, services }: ServiceCategory
         {services.map((service, index) => (
           <ServiceItem
             key={index}
-            name={service.name}
+            title={service.name}
             description={service.description}
             price={service.price}
             features={service.features}

@@ -1,3 +1,4 @@
+import React from "react";
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { formatDate, formatTime } from '../../utils/date';

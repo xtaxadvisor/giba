@@ -1,16 +1,19 @@
-import { Users, FileText, Clock, TrendingUp } from 'lucide-react';
-import { Card } from '../../ui/Card';
-import { AdminMetrics } from './AdminMetrics';
-import { RecentActivity } from './RecentActivity';
-import { SystemStatus } from './SystemStatus';
+import React from "react";
+import { Users, FileText, Clock, TrendingUp } from "lucide-react";
+import { Card } from "../../ui/Card";
+import { AdminMetrics } from "./AdminMetrics";
+import { RecentActivity } from "./RecentActivity";
+import { SystemStatus } from "./SystemStatus";
 
-export function AdminDashboard() {
+const AdminDashboard = () => {
   return (
     <div className="space-y-6">
+      {/* Dashboard Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
       </div>
 
+      {/* Dashboard Summary Cards */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card
           icon={Users}
@@ -38,12 +41,16 @@ export function AdminDashboard() {
         />
       </div>
 
+      {/* Metrics & Activity Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <AdminMetrics />
         <RecentActivity />
       </div>
 
+      {/* System Status Section */}
       <SystemStatus />
     </div>
   );
-}
+};
+
+export default AdminDashboard;

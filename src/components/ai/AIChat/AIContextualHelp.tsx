@@ -1,5 +1,6 @@
+import React from "react";
 ```typescript
-import React from 'react';
+
 import { Lightbulb } from 'lucide-react';
 
 interface AIContextualHelpProps {

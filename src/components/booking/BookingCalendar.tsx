@@ -1,10 +1,13 @@
-{`import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { format, startOfWeek, addDays, isSameDay, isToday, isBefore, addMinutes } from 'date-fns';
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
+
 import { useConsultation } from '../../hooks/useConsultation';
+
 import { useNotificationStore } from '../../lib/store';
-import type { TimeSlot } from '../../types';
+import { TimeSlot } from '@/types';
+import { consultationService } from '@/services/api/consultation';
 
 interface BookingCalendarProps {
   professionalId: string;
@@ -47,4 +50,4 @@ export function BookingCalendar({
       {/* Calendar implementation */}
     </div>
   );
-}`}
+}

@@ -3,7 +3,7 @@ import type { TimeSeriesData } from '../../types/analytics';
 
 export function aggregateTimeSeries(
   data: Array<{ date: string; value: number }>,
-): TimeSeriesData {
+): { label: string; data: { date: string; value: number; }[]; color: string } {
   const grouped = data.reduce((acc, item) => {
     const key = startOfDay(new Date(item.date)).toISOString();
     acc[key] = (acc[key] || 0) + item.value;
@@ -17,13 +17,13 @@ export function aggregateTimeSeries(
   const allDays = eachDayOfInterval({ start, end });
   
   return {
-    label: 'Time Series',
-    data: allDays.map(date => ({
-      date: date.toISOString(),
-      value: grouped[date.toISOString()] || 0
-    })),
-    color: '#000000' // or any color you prefer
-  };
+  label: 'Time Series',
+  data: allDays.map(date => ({
+    date: date.toISOString(),
+    value: grouped[date.toISOString()] || 0
+  })),
+  color: '#000000' // or any color you prefer
+};
 }
 
 export function calculateMovingAverage(

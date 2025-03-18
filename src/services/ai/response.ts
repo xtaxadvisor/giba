@@ -1,5 +1,6 @@
 import type { AIResponse } from '../../types/ai';
 import { analyzeText } from './analysis';
+import { aiCore } from '../../utils/ai/core';
 import { formatResponse } from '../../utils/ai/responseFormatting';
 
 export async function generateStructuredResponse(

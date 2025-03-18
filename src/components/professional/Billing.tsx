@@ -13,7 +13,7 @@ import {
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { Select } from '../ui/Select';
-import { Modal } from '../ui/Modal';
+import Modal from "../ui/Modal"; // ✅ Correct;
 import { InvoiceForm } from './InvoiceForm';
 
 interface Invoice {

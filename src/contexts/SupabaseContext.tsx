@@ -10,6 +10,7 @@ interface User {
 }
 
 interface SupabaseContextType {
+  auth: any;
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
@@ -116,6 +117,7 @@ export function SupabaseProvider({ children }: { children: React.ReactNode }) {
   };
 
   const value = {
+    auth: supabase.auth,
     user,
     loading,
     signIn,

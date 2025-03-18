@@ -1,8 +1,11 @@
+import React from "react";
 import { Users, ArrowUpRight } from 'lucide-react';
 import { ClientDistributionChart } from '../charts/ClientDistributionChart';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 
+
 interface ClientReportProps {
+  dateRange: string;
   isLoading: boolean;
 }
 

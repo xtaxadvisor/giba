@@ -4,7 +4,7 @@ import { Button } from '../../ui/Button';
 import { Select } from '../../ui/Select';
 import { FinancialReport } from './FinancialReport';
 import { ClientReport } from './ClientReport';
-import { PerformanceReport } from './PerformanceReport';
+import { PerformanceReport } from '../../client/PerformanceReport';
 import { useReports } from '../../../hooks/useReports';
 import { ReportFilters } from './ReportFilters';
 import { ReportExport } from './ReportExport';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { DollarSign, TrendingUp, ArrowUp, ArrowDown } from 'lucide-react';
 import { formatCurrency } from '../../../utils/format';
 

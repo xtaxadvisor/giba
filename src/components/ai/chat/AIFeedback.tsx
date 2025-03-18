@@ -1,5 +1,6 @@
+import React from "react";
 ```typescript
-import React from 'react';
+
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import { Button } from '../../ui/Button';
 

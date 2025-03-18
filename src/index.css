@@ -1,111 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Improved color contrast */
-:root {
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #4a5568;
-  --color-text-muted: #718096;
-  --color-blue-primary: #2563eb;
-  --color-blue-hover: #1d4ed8;
-  --color-gray-light: #f3f4f6;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@font-face {
+  font-family: "CustomFont";
+  src: url("/fonts/custom-font.woff2") format("woff2");
+  font-display: swap;
 }
 
-/* High contrast text */
-.text-high-contrast {
-  color: var(--color-text-primary);
+body {
+  font-family: "CustomFont", sans-serif;
 }
 
-.text-secondary {
-  color: var(--color-text-secondary);
-}
+:root{--color-text-primary:#1a1a1a;--color-text-secondary:#4a5568;--color-text-muted:#718096;--color-blue-primary:#2563eb;--color-blue-hover:#1d4ed8;--color-gray-light:#f3f4f6}
 
-.text-muted {
-  color: var(--color-text-muted);
-}
+.text-high-contrast{color:var(--color-text-primary)}
+.text-secondary{color:var(--color-text-secondary)}
+.text-muted{color:var(--color-text-muted)}
 
-/* Improved link contrast */
-a {
-  color: var(--color-blue-primary);
-}
+a{color:var(--color-blue-primary);text-decoration:none}
+a:hover{color:var(--color-blue-hover);text-decoration:underline}
 
-a:hover {
-  color: var(--color-blue-hover);
-}
+.btn-primary{background-color:var(--color-blue-primary);color:#fff;padding:.75rem 1.5rem;border-radius:.375rem;font-weight:600}
+.btn-primary:hover{background-color:var(--color-blue-hover)}
 
-/* Improved button contrast */
-.btn-primary {
-  background-color: var(--color-blue-primary);
-  color: white;
-}
+:focus-visible{outline:2px solid var(--color-blue-primary);outline-offset:2px;transition:outline .2s ease-in-out}
 
-.btn-primary:hover {
-  background-color: var(--color-blue-hover);
-}
+html{scroll-behavior:smooth}
 
-/* Improved focus styles */
-*:focus-visible {
-  outline: 2px solid var(--color-blue-primary);
-  outline-offset: 2px;
-}
+@media (max-width:640px){a,button{min-height:44px;min-width:44px}}
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.8;transform:scale(1.05)}}
+.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
 
-/* Better tap targets on mobile */
-@media (max-width: 640px) {
-  button, 
-  a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
+.transition-opacity{transition:opacity 1s cubic-bezier(.4, 0, .2, 1)}
+.transition-colors{transition:color 150ms cubic-bezier(.4, 0, .2, 1),background-color 150ms cubic-bezier(.4, 0, .2, 1),border-color 150ms cubic-bezier(.4, 0, .2, 1)}
 
-/* Animations */
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
+.bg-high-contrast{background-color:#fff}
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
+input,select,textarea{color:var(--color-text-primary);background-color:#fff;border:1px solid var(--color-text-muted);padding:.5rem;border-radius:.375rem}
+input:focus,select:focus,textarea:focus{border-color:var(--color-blue-primary);outline:0}
 
-.transition-opacity {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 1000ms;
-}
-
-.transition-colors {
-  transition-property: color, background-color, border-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* High contrast text */
-.bg-high-contrast {
-  background-color: #ffffff;
-}
-
-/* Improved form element contrast */
-input, select, textarea {
-  color: var(--color-text-primary);
-  background-color: #ffffff;
-  border-color: var(--color-text-muted);
-}
-
-/* Improved placeholder contrast */
-::placeholder {
-  color: var(--color-text-muted);
-  opacity: 1;
-}
+::placeholder{color:var(--color-text-muted);opacity:1}

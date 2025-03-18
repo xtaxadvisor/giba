@@ -1,4 +1,3 @@
-```typescript
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { subscriptionService } from '../services/api/subscription';
 import { useNotificationStore } from '../lib/store';
@@ -45,7 +44,6 @@ export function useSubscription() {
     currentSubscription,
     subscribe: subscribeMutation.mutate,
     cancelSubscription: cancelSubscriptionMutation.mutate,
-    isLoading: subscribeMutation.isLoading || cancelSubscriptionMutation.isLoading
+    isLoading: subscribeMutation.status === 'pending' || cancelSubscriptionMutation.status === 'pending'
   };
 }
-```

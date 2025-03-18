@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ConsultationCard } from '../ConsultationCard';
 import type { Consultation } from '../../../services/api/consultation';
 

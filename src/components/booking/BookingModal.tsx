@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '../ui/Modal';
+import Modal from "../../components/ui/Modal"; // ✅ Correct
 import { BookingForm } from './BookingForm';
 import { useConsultation } from '../../hooks/useConsultation';
 import { useNotificationStore } from '../../lib/store';

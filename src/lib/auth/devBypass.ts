@@ -1,4 +1,10 @@
-import { User } from '../types/UserProfile';
+// Define the User interface within the same file
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
 
 const DEV_AUTH_ENABLED = import.meta.env.DEV && import.meta.env.VITE_DEV_BYPASS_AUTH === 'true';
 

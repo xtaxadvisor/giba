@@ -1,5 +1,4 @@
-import React from 'react';
-import { Plus, ArrowRight, Settings } from 'lucide-react';
+import { Plus, ArrowRight, Settings, FileText, Mail, Calendar } from 'lucide-react';
 import { Button } from '../../ui/Button';
 
 export function WorkflowBuilder() {

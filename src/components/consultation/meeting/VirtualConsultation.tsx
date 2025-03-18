@@ -1,10 +1,11 @@
+import React from "react";
 import { useState, useEffect } from 'react';
 import { useVideoStream } from '../../../hooks/useVideoStream';
 import { useChat } from '../../../hooks/useChat';
 import { useScreenShare } from '../../../hooks/useScreenShare';
 import { VideoStream } from './VideoStream';
 import { VideoControls } from './VideoControls';
-import { ChatPanel } from './ChatPanel';
+import ChatPanel from './ChatPanel';
 import { ScreenShare } from './ScreenShare';
 import { MeetingControls } from './MeetingControls';
 import { useConsultation } from '../../../hooks/useConsultation';

@@ -1,6 +1,7 @@
+import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AdminLayout } from '../../components/admin/layout/AdminLayout';
-import { AdminDashboard } from '../../components/admin/dashboard/AdminDashboard';
+import AdminDashboard from '../../components/admin/dashboard/AdminDashboard';
 import { TeamManagement } from '../../components/admin/team/TeamManagement';
 import { UserManagement } from '../../components/admin/users/UserManagement';
 import { AdminSettings } from '../../components/admin/settings/AdminSettings';

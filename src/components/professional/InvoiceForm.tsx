@@ -145,8 +145,7 @@ export function InvoiceForm({ onSubmit, onCancel }: InvoiceFormProps) {
                   size="sm"
                   icon={Trash2}
                   onClick={() => removeItem(index)}
-                  className="text-red-600 hover:text-red-700"
-                />
+                  className="text-red-600 hover:text-red-700" children={undefined}                />
               )}
             </div>
           </div>

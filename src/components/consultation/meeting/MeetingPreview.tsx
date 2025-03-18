@@ -1,3 +1,4 @@
+import React from "react";
 import { Video, Users } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { useVideoStream } from '../../../hooks/useVideoStream';

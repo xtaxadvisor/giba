@@ -27,9 +27,9 @@ export default defineConfig({
       }
     }
   },
-  server: {
-    port: 3001,
-    strictPort: false,
-    host: true
-  }
-});
+    server: {
+      hmr: {
+        clientPort: 3001 // Ensure this matches the client-side connection port
+      }
+    }
+  });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
 import { formatTimeAgo } from '../../../../utils/date';
 import { calculateProcessingTime } from '../../../../utils/documents/processing';
@@ -7,23 +7,22 @@ import type { ProcessingStep } from '../../../../types/documents';
 interface ProcessingStatusProps {
   steps: ProcessingStep[];
   startTime: string;
-  currentStep?: string;
 }
 
-export function ProcessingStatus({ steps, startTime, currentStep }: ProcessingStatusProps) {
+export function ProcessingStatus({ steps, startTime }: ProcessingStatusProps) {
   const processingTime = calculateProcessingTime(startTime);
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div>
         <span className="text-sm font-medium text-gray-500">Processing Time</span>
         <span className="text-sm text-gray-900">{processingTime}</span>
       </div>
 
       <div className="relative">
-        {steps.map((step, index) => (
+        {steps.map((step) => (
           <div key={step.id} className="flex items-center mb-4">
-            <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+            <div className={`p-2 rounded-full ${
               step.status === 'completed' ? 'bg-green-100' :
               step.status === 'processing' ? 'bg-blue-100' :
               step.status === 'error' ? 'bg-red-100' : 'bg-gray-100'

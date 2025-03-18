@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 import { Button } from '../../ui/Button';

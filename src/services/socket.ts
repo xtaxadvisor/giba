@@ -1,24 +1,26 @@
-import io from 'socket.io-client';
-import { useNotificationStore } from '../lib/store';
+import io, { Socket } from 'socket.io-client';
 
-  class SocketService {
-    private socket: Socket | null = null;
-    private readonly API_URL = import.meta.env.VITE_API_URL || '/api';
+class SocketService {
+  private socket: typeof Socket | null = null;
+  private socketUrl = 'http://localhost:3000';
+  private socketOptions = { transports: ['websocket'] };
+  private socketReconnectTimeout = 5000;
+  private socketReconnectAttempts = 5;
+  private socketReconnectDelay = 1000;
+  private socketReconnectMaxDelay = 5000;
+  private socketRandomizationFactor = 0.5;
 
   connect(consultationId: string) {
     if (this.socket) return;
 
-    this.socket = io(this.API_URL, {
+    this.socket = io(this.socketUrl, {
       query: { consultationId },
       transports: ['websocket']
     });
 
-    this.socket.on('connect_error', (error: any) => {
-      console.error('Socket connection error:', error);
-      useNotificationStore.getState().addNotification(
-        'Connection error. Please try reconnecting.',
-        'error'
-      );
+    this.socket?.on('connect', () => {
+      console.log('Connected to socket server');
+    
     });
 
     return this.socket;
@@ -44,12 +46,6 @@ import { useNotificationStore } from '../lib/store';
   on(event: string, callback: (data: any) => void) {
     if (this.socket) {
       this.socket.on(event, callback);
-    }
-  }
-
-  off(event: string, callback?: (data: any) => void) {
-    if (this.socket && callback) {
-      this.socket.off(event, callback);
     }
   }
 }

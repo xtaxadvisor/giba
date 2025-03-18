@@ -1,19 +1,22 @@
+import React from "react";
 import { Users, UserPlus, Activity } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { LineChart } from '../charts/LineChart';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 
 export interface AnalyticsMetrics {
+  satisfaction: any;
+  responseTime: any;
+  revenue: any;
+  clients: any;
   totalUsers: number;
   newUsers: number;
-  // other properties
   activeUsers: number;
-  // other properties
   totalRevenue: number;
   avgTransaction: number;
   growthRate: number;
   pendingTransactions: number;
-  // other properties
+  // Add other properties here
 }
 export function UserAnalytics() {
   const { metrics } = useAnalytics('month');

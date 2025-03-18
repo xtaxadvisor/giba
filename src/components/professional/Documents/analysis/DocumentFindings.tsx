@@ -1,5 +1,10 @@
+import React from "react";
 import { CheckCircle, AlertTriangle } from 'lucide-react';
-import type { Finding } from '../../../../types/documents';
+
+interface Finding {
+  type: 'success' | 'warning';
+  message: string;
+}
 
 interface DocumentFindingsProps {
   findings: Finding[];

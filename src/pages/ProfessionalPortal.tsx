@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import { ProfessionalDashboard } from '../components/professional/ProfessionalDashboard';
 import { ClientList } from '../components/professional/ClientList';

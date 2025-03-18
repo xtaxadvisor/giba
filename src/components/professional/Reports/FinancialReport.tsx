@@ -68,7 +68,10 @@ export function FinancialReport({ dateRange, isLoading }: FinancialReportProps) 
       <div className="bg-white rounded-lg shadow">
         <div className="p-6">
           <h3 className="text-lg font-medium text-gray-900 mb-4">Revenue Trends</h3>
-          <RevenueChart />
+          <RevenueChart data={{
+            labels: [],
+            datasets: []
+          }} />
         </div>
       </div>
 

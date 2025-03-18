@@ -1,11 +1,61 @@
+import { User } from "lucide-react";
+import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 // Define types for our context
 interface User {
   email: string;
 }
+const LoginPage = () => { // This is the login page component code    
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth()!; // ✅ Fixed Typo
+  const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    const authenticatedUser = await login(email, password);
+    if (authenticatedUser) {
+      setUser(authenticatedUser);
+      setIsAuthenticated(true);
+    } else {
+      setError("Invalid email or password");
+    }
+    setLoading(false);
+    };
+  
+    return (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+        {error && <p>{error}</p>}
+      </div>
+    );
+  };
+// component code
 
+export default LoginPage;
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<User | null>;
@@ -27,7 +77,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       console.log("Attempting login...");
       const authenticatedUser = { email }; // ✅ Simulated authentication
-      setUser(authenticatedUser);
       console.log("Login Successful, User Set:", authenticatedUser);
       navigate("/dashboard"); // Navigate to dashboard after login
       return authenticatedUser;
@@ -36,7 +85,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return null;
     }
   };
-
 const logout = () => {
   console.log("Logging out...");
   setUser(null);
@@ -51,5 +99,9 @@ const logout = () => {
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
-}
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+    return context; // ✅ Use AuthContext for authentication state management
+  }

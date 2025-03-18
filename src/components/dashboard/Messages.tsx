@@ -1,4 +1,5 @@
-import { MessagingCenter } from '../messaging/MessagingCenter';
+import React from "react";
+import MessagingCenter from '../messaging/MessagingCenter';
 
 export function Messages() {
   return (

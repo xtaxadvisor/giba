@@ -72,7 +72,10 @@ export function Reports() {
 
               <div className="mt-8">
                 <h3 className="text-lg font-medium text-gray-900 mb-4">Revenue Trend</h3>
-                <RevenueChart />
+                <RevenueChart data={{
+                                  labels: [],
+                                  datasets: []
+                              }} />
               </div>
             </div>
           )}

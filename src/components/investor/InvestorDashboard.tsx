@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { TrendingUp, PlayCircle, Users, BookOpen } from 'lucide-react';
 
 export function InvestorDashboard() {

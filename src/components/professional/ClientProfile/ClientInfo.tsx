@@ -1,3 +1,4 @@
+import React from "react";
 import { Mail, Phone, Building2, Calendar, MapPin, Link } from 'lucide-react';
 import { Client } from '../../../types';
 

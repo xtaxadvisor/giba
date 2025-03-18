@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Shield, Edit2, Trash2, Plus } from 'lucide-react';
 import { Button } from '../../ui/Button';
-import { Modal } from '../../ui/Modal';
+import Modal from '../../ui/Modal';
 import { RoleForm } from './RoleForm';
-import { useRoles } from '../../../hooks/useRoles'; // Ensure this path is correct or update it to the correct path
+import { useRoles } from '../hooks/useRoles';
 
 export function RoleManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +38,6 @@ export function RoleManagement() {
         >
           Create Role
         </Button>
-      </div>
 
       <div className="bg-white shadow rounded-lg">
         <div className="p-6">
@@ -55,14 +54,13 @@ export function RoleManagement() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Users
                   </th>
-                {roles?.map((role: Role) => (
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {roles?.map((role) => (
+                {roles?.map((role: Role) => (
                   <tr key={role.id}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
@@ -74,7 +72,7 @@ export function RoleManagement() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-2">
-                        {role.permissions.map((permission) => (
+                        {role.permissions.map((permission: string) => (
                           <span
                             key={permission}
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
@@ -112,11 +110,13 @@ export function RoleManagement() {
                     </td>
                   </tr>
                 ))}
-              </tbody>
-            </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+   
 
       <Modal
         isOpen={isModalOpen}

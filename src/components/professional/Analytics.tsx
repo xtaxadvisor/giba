@@ -1,12 +1,58 @@
-import React from 'react';
-import { TrendingUp, Users, DollarSign, Clock, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { Card } from '../ui/Card';
-import { LineChart } from './charts/LineChart';
-import { BarChart } from './charts/BarChart';
+import React from "react";
+import {
+  TrendingUp,
+  Users,
+  DollarSign,
+  Clock,
+  ArrowUpRight,
+  ArrowDownRight,
+} from "lucide-react";
+import { Card } from "../ui/Card";
+import { LineChart } from "./charts/LineChart";
+import { BarChart } from "./charts/BarChart";
+import { useAnalytics } from "../../hooks/useAnalytics";
+import { LucideIcon } from "lucide-react";
 
-export function Analytics() {
+// Corrected: Single definition for `CardProps`
+export interface CardProps {
+  icon?: LucideIcon;
+  title: string;
+  value: string | number;
+  description?: React.ReactNode; // Allows strings & JSX elements
+  className?: string;
+}
+
+// Reusable Metric Card Component
+interface MetricCardProps {
+  icon: LucideIcon;
+  title: string;
+  value: string;
+  change: number;
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ icon: Icon, title, value, change }) => {
+  const isPositive = change >= 0;
+  return (
+    <Card
+      icon={Icon}
+      title={title}
+      value={value}
+      description={
+        <span className={`flex items-center ${isPositive ? "text-green-600" : "text-red-600"}`}>
+          {isPositive ? <ArrowUpRight className="h-4 w-4 mr-1" /> : <ArrowDownRight className="h-4 w-4 mr-1" />}
+          {Math.abs(change)}% {isPositive ? "increase" : "decrease"}
+        </span>
+      }
+    />
+  );
+};
+
+export const Analytics: React.FC = () => {
+  const { metrics } = useAnalytics("last-30-days"); // Ensure correct destructuring
+
   return (
     <div className="space-y-6">
+      {/* Header Section */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Analytics</h1>
         <select className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
@@ -17,53 +63,15 @@ export function Analytics() {
         </select>
       </div>
 
+      {/* Metrics Grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <Card
-          icon={DollarSign}
-          title="Revenue"
-          value="$24,500"
-          description={
-            <span className="flex items-center text-green-600">
-              <ArrowUpRight className="h-4 w-4 mr-1" />
-              12% increase
-            </span>
-          }
-        />
-        <Card
-          icon={Users}
-          title="Active Clients"
-          value="156"
-          description={
-            <span className="flex items-center text-green-600">
-              <ArrowUpRight className="h-4 w-4 mr-1" />
-              8% increase
-            </span>
-          }
-        />
-        <Card
-          icon={Clock}
-          title="Avg. Response Time"
-          value="2.5h"
-          description={
-            <span className="flex items-center text-red-600">
-              <ArrowDownRight className="h-4 w-4 mr-1" />
-              5% decrease
-            </span>
-          }
-        />
-        <Card
-          icon={TrendingUp}
-          title="Client Satisfaction"
-          value="96%"
-          description={
-            <span className="flex items-center text-green-600">
-              <ArrowUpRight className="h-4 w-4 mr-1" />
-              2% increase
-            </span>
-          }
-        />
+        <MetricCard icon={DollarSign} title="Revenue" value="$24,500" change={metrics.revenue.change} />
+        <MetricCard icon={Users} title="Active Clients" value="156" change={metrics.clients.change} />
+        <MetricCard icon={Clock} title="Avg. Response Time" value="2.5h" change={metrics.responseTime.change} />
+        <MetricCard icon={TrendingUp} title="Client Satisfaction" value="96%" change={metrics.satisfaction.change} />
       </div>
 
+      {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-medium text-gray-900 mb-4">Revenue Overview</h3>
@@ -77,4 +85,4 @@ export function Analytics() {
       </div>
     </div>
   );
-}
+};

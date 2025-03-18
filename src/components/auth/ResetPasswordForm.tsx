@@ -12,7 +12,7 @@ export function ResetPasswordForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { supabase } = useSupabase();
+  const supabase = useSupabase();
   const { addNotification } = useNotificationStore();
 
   const handleSubmit = async (e: React.FormEvent) => {

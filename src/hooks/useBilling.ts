@@ -96,7 +96,7 @@ export function useBilling() {
     }
   };
 
-  const filteredInvoices = invoicesQuery.data?.filter(invoice => {
+  const filteredInvoices = invoicesQuery.data?.filter((invoice: Invoice) => {
     const matchesSearch = 
       invoice.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       invoice.number.toLowerCase().includes(searchTerm.toLowerCase());

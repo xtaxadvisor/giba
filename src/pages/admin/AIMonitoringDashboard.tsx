@@ -1,3 +1,4 @@
+import React from "react";
 import { AIMonitor } from '../../components/ai/AIMonitor';
 import { useAIMonitoring } from '../../hooks/useAIMonitoring';
 import { Button } from '../../components/ui/Button';

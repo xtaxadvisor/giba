@@ -19,7 +19,7 @@ import {
 import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../ui/Button';
 import type { MenuItem } from '../../types';
-
+import { useTheme } from 'styled-components';
 const menuItems: MenuItem[] = [
   { title: 'Dashboard', href: '/professional', icon: Home },
   { title: 'Clients', href: '/professional/clients', icon: Users },

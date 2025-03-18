@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import { Mail, Linkedin, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/Button';
 import type { TeamMember as TeamMemberType } from '../../types/team';
@@ -51,8 +52,7 @@ export function TeamMember({
                 size="sm"
                 icon={Mail}
                 onClick={() => window.location.href = `mailto:${email}`}
-                className="hover:text-blue-600"
-              />
+                className="hover:text-blue-600" children={undefined}              />
             )}
             {linkedin && (
               <Button
@@ -60,8 +60,7 @@ export function TeamMember({
                 size="sm"
                 icon={Linkedin}
                 onClick={() => window.open(linkedin, '_blank')}
-                className="hover:text-blue-600"
-              />
+                className="hover:text-blue-600" children={undefined}              />
             )}
             {website && (
               <Button
@@ -69,8 +68,7 @@ export function TeamMember({
                 size="sm"
                 icon={ExternalLink}
                 onClick={() => window.open(website, '_blank')}
-                className="hover:text-blue-600"
-              />
+                className="hover:text-blue-600" children={undefined}              />
             )}
           </div>
           

@@ -17,7 +17,7 @@ import { useNotificationStore } from '../../lib/store';
 interface SettingsSection {
   id: string;
   title: string;
-  icon: React.ComponentType;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export function Settings() {
@@ -68,7 +68,7 @@ export function Settings() {
               <Input
                 label="Full Name"
                 icon={User}
-                value={formData.name}
+                value={String(formData.name)}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
               <Input
@@ -235,7 +235,7 @@ export function Settings() {
         <Button
           variant="primary"
           icon={Save}
-          onClick={handleSubmit}
+          onClick={() => handleSubmit(new Event('click') as unknown as React.FormEvent)}
           disabled={loading}
         >
           {loading ? 'Saving...' : 'Save Changes'}

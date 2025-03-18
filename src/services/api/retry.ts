@@ -1,7 +1,11 @@
 import axios, { AxiosAdapter } from 'axios';
-import { retryAdapterEnhancer, Options } from 'axios-extensions';
+import { retryAdapterEnhancer } from 'axios-extensions';
 
-
+interface Options {
+  retries?: number;
+  retryCondition?: (error: any) => boolean;
+  retryDelay?: (retryCount: number) => number;
+}
 const retryConfig: Options = {
   retries: 3,
   retryCondition: (error: any) => {
@@ -14,5 +18,5 @@ const retryConfig: Options = {
   }
 };
 
-const enhancedAdapter = retryAdapterEnhancer(axios.defaults.adapter as AxiosAdapter, retryConfig);
+const enhancedAdapter = retryAdapterEnhancer(axios.defaults.adapter as AxiosAdapter, retryConfig as any); // eslint-disable-line @typescript-eslint/no-explicit-any
 axios.defaults.adapter = enhancedAdapter;

@@ -1,4 +1,4 @@
-import { sign, verify } from 'jose';
+import { SignJWT } from 'jose';
 import { createSecureHash } from './crypto';
 
 const TOKEN_EXPIRY = 3600; // 1 hour in seconds
@@ -29,7 +29,7 @@ export async function generateToken(user: AdminUser): Promise<string> {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET);
   const now = Math.floor(Date.now() / 1000);
   
-  const token = await new sign({
+  const token = await new SignJWT({
     exp: now + TOKEN_EXPIRY,
     iat: now,
     sub: user.id,
