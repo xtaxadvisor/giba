@@ -6,8 +6,12 @@ import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { useState } from "react";
 
 // ✅ Corrected Import Paths Based on Actual File Locations
-const ClientDashboard = React.lazy(() => import("@/components/client/Dashboard/ClientDashboard"));
-const ClientDocuments = React.lazy(() => import("@/components/client/Documents"));
+const ClientDashboard = React.lazy(() =>
+  import("@/components/client/Dashboard/ClientDashboard").then((m) => ({ default: m.default }))
+);
+const ClientDocuments = React.lazy(() =>
+  import("@/components/client/Documents").then((m) => ({ default: m.default }))
+);
 const Documents = React.lazy(() => import("@/components/client/Documents")); // No need for `/Documents/Documents`
 const Messages = React.lazy(() => import("@/components/client/Messages"));
 const Calendar = React.lazy(() => import("@/components/client/Calendar"));
