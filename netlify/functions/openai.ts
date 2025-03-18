@@ -1,12 +1,12 @@
 import { Handler } from '@netlify/functions';
-import { Configuration, OpenAIApi } from 'openai';
+import { OpenAI } from 'openai';
 import { handleCors, getCorsHeaders } from './utils/cors';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
 
 // Initialize OpenAI with error handling
-const openai = new OpenAIApi(new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.VITE_OPENAI_API_KEY
-}));
+});
 
 export const handler: Handler = async (event) => {
   try {
@@ -42,7 +42,7 @@ export const handler: Handler = async (event) => {
     }
 
     // Call OpenAI API
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-4-turbo-preview",
       messages: [
         { 
@@ -64,7 +64,7 @@ export const handler: Handler = async (event) => {
     // Return success response
     return {
       ...createSuccessResponse({ 
-        response: completion.data.choices[0]?.message?.content || 'No response generated'
+        response: completion.choices[0]?.message?.content || 'No response generated'
       }),
       headers: corsHeaders
     };

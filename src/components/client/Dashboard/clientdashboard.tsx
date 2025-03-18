@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
-import { Card } from "@/components/ui/Card"; // Ensure correct import
+import { Card } from "@/components/ui/Card"; // ✅ Ensure correct import
 
-function ClientDashboard() {
+const ClientDashboard: React.FC = () => {
   const [documents, setDocuments] = useState<{ title: string; type: string; date: string; status: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -87,6 +87,6 @@ function ClientDashboard() {
       </div>
     </div>
   );
-}
+};
 
-export default ClientDashboard;
+export default ClientDashboard; // ✅ Ensure only one default export

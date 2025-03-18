@@ -4,11 +4,14 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()], // ✅ Only one "plugins" entry
-  resolve: {
+
+  resolve: {  // ✅ Merged resolve objects
     alias: {
       "@": path.resolve(__dirname, "./src"),
-    }
+    },
+    extensions: [".tsx", ".ts", ".js", ".jsx"], // ✅ Ensure all file types are recognized
   },
+
   server: {
     port: 3001,
     strictPort: false,
@@ -16,13 +19,6 @@ export default defineConfig({
     mimeTypes: {
       "font/woff2": [".woff2"], // ✅ Ensure correct MIME type for WOFF2
     }
-  },
-
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-    extensions: [".tsx", ".ts", ".js", ".jsx"], // ✅ Ensure all file types are recognized
   },
 
   build: {
