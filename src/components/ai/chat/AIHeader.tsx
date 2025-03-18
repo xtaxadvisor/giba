@@ -25,7 +25,9 @@ export function AIHeader({ onClose }: AIHeaderProps) {
         onClick={onClose}
         icon={X}
         className="text-gray-500 hover:text-gray-700"
-      />
+      >
+        Close
+      </Button>
     </div>
   );
 }

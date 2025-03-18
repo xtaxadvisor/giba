@@ -10,10 +10,7 @@ interface VideoAnalysisProps {
 }
 
 export function VideoAnalysis({ video }: VideoAnalysisProps) {
-  const { sendMessage, messages, isLoading } = useAI({
-    context: 'student',
-    enableAnalysis: true
-  });
+  const { sendMessage, messages, isLoading } = useAI();
 
   const generateInsights = async () => {
     const prompt = `Analyze this educational video:

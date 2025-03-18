@@ -27,14 +27,18 @@ export function AIResponseActions({ onCopy, onFeedback }: AIResponseActionsProps
           icon={ThumbsUp}
           onClick={() => onFeedback(true)}
           className="text-gray-500 hover:text-green-600"
-        />
+        >
+          <span className="sr-only">Thumbs Up</span>
+        </Button>
         <Button
           variant="ghost"
           size="sm"
           icon={ThumbsDown}
           onClick={() => onFeedback(false)}
           className="text-gray-500 hover:text-red-600"
-        />
+        >
+          <span className="sr-only">Thumbs Down</span>
+        </Button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { AIMessageList } from './AIMessageList';
-import { AIMessageInput } from './AIMessageInput';
+import { AIMessageList } from "./chat/AIMessageList"; // ✅ Correct import path
+import { AIMessageInput } from './chat/AIMessageInput';  // ✅ Corrected path
 import { AIWelcomeMessage } from './AIWelcomeMessage';
 import { AISuggestions } from './AISuggestions';
 import { AIHeader } from './AIHeader';
