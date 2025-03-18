@@ -10,6 +10,10 @@ const validateEnvironment = () => {
         environment: import.meta.env.MODE
     };
 };
+const openai = new OpenAI({
+    apiKey: process.env.VITE_OPENAI_API_KEY || '',
+    dangerouslyAllowBrowser: true
+  });
 // Configuration object
 export const OPENAI_CONFIG = (() => {
     try {
