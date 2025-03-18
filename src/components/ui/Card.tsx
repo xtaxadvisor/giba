@@ -1,15 +1,15 @@
 import React from "react";
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon } from "lucide-react";
 
 interface CardProps {
   icon?: LucideIcon;
   title: string;
   value: string | number;
-  description?:React.ReactNode;
+  description?: React.ReactNode;
   className?: string;
 }
 
-export function Card({ icon: Icon, title, value, description, className = '' }: CardProps) {
+const Card: React.FC<CardProps> = ({ icon: Icon, title, value, description, className = "" }) => {
   return (
     <div className={`bg-white overflow-hidden shadow rounded-lg ${className}`}>
       <div className="p-5">
@@ -19,7 +19,7 @@ export function Card({ icon: Icon, title, value, description, className = '' }: 
               <Icon className="h-6 w-6 text-blue-600" />
             </div>
           )}
-          <div className={`${Icon ? 'ml-5' : ''} w-0 flex-1`}>
+          <div className={`${Icon ? "ml-5" : ""} w-0 flex-1`}>
             <dl>
               <dt className="text-sm font-medium text-gray-500 truncate">
                 {title}
@@ -34,4 +34,6 @@ export function Card({ icon: Icon, title, value, description, className = '' }: 
       </div>
     </div>
   );
-}
+};
+
+export default Card; // ✅ Ensure only one default export
