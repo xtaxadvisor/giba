@@ -2,6 +2,8 @@ export interface AIMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
 }
+const aiMessage = `Hello, this is an AI-generated response`;  
+console.log(aiMessage); // Hello, this is an AI-generated response  
 
 export interface AIResponse {
   text: string;
@@ -31,4 +33,3 @@ export interface AIFeedback {
   comment?: string;
   context: string;
 }
-` ``;
