@@ -1,43 +1,30 @@
-import React, { Suspense, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { ClientLayout } from "@/components/client/Dashboard/ClientLayout";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import React, { lazy, Suspense, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { ProtectedRoute } from 'src/components/auth/ProtectedRoute';
+import { LoadingSpinner } from 'src/components/ui/LoadingSpinner';
 
-// ✅ Lazy load components with correct export handling
-const ClientDashboard = React.lazy(() =>
-  import("@/components/client/Dashboard/ClientDashboard").then((m) => ({ default: m.default }))
-);
-const ClientDocuments = React.lazy(() =>
-  import("@/components/client/Documents").then((m) => ({ default: m.default }))
-);
-const Messages = React.lazy(() =>
-  import("@/components/client/Messages").then((m) => ({ default: m.default }))
-);
-const Calendar = React.lazy(() =>
-  import("@/components/client/Calendar").then((m) => ({ default: m.default }))
-);
-const Settings = React.lazy(() =>
-  import("@/components/client/Settings").then((m) => ({ default: m.default }))
-);
+// Lazy-load the ClientDashboard component
+const ClientDashboard = lazy(() => import('src/components/client/Dashboard/ClientDashboard'));
 
-export default function ClientPortal() {
-  // ✅ Correctly placing useState inside the component
-  const [dashboardData, setDashboardData] = useState<{ id: string; name: string }[]>([]);
-
+const ClientPortal = () => {
+  // Example state (ensure useState is inside the component)
+  const [portalState, setPortalState] = useState(null);
+  
   return (
-    <ClientLayout>
-      <ProtectedRoute>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<ClientDashboard />} />
-            <Route path="/client-documents" element={<ClientDocuments />} />
-            <Route path="/messages" element={<Messages />} />
-            <Route path="/appointments" element={<Calendar />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </Suspense>
-      </ProtectedRoute>
-    </ClientLayout>
+    <Suspense fallback={<LoadingSpinner />}>
+      <Routes>
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <ClientDashboard />
+            </ProtectedRoute>
+          } 
+        />
+        {/* Add other client routes here, each wrapped with ProtectedRoute if needed */}
+      </Routes>
+    </Suspense>
   );
-}
+};
+
+export default ClientPortal;
