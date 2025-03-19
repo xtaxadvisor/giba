@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
-import Card from "../../ui/Card"; // ✅ Correct relative path
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
 const ClientDashboard: React.FC = () => {
   const [documents, setDocuments] = useState<{ title: string; type: string; date: string; status: string }[]>([]);

@@ -21,13 +21,9 @@ const Card: React.FC<CardProps> = ({ icon: Icon, title, value, description, clas
           )}
           <div className={`${Icon ? "ml-5" : ""} w-0 flex-1`}>
             <dl>
-              <dt className="text-sm font-medium text-gray-500 truncate">
-                {title}
-              </dt>
+              <dt className="text-sm font-medium text-gray-500 truncate">{title}</dt>
               <dd className="text-lg font-medium text-gray-900">{value}</dd>
-              {description && (
-                <dd className="text-sm text-gray-500 mt-1">{description}</dd>
-              )}
+              {description && <dd className="text-sm text-gray-500 mt-1">{description}</dd>}
             </dl>
           </div>
         </div>
