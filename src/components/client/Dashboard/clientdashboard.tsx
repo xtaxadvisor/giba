@@ -2,8 +2,15 @@ import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
 import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
+interface Document {
+  title: string;
+  type: string;
+  date: string;
+  status: string;
+}
+
 const ClientDashboard: React.FC = () => {
-  const [documents, setDocuments] = useState<{ title: string; type: string; date: string; status: string }[]>([]);
+  const [documents, setDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -11,9 +18,9 @@ const ClientDashboard: React.FC = () => {
     async function fetchDocuments() {
       setLoading(true);
       try {
-        const response = await fetch('/api/documents');
+        const response = await fetch("/api/documents");
         if (!response.ok) throw new Error("Failed to fetch documents");
-        const data = await response.json();
+        const data: Document[] = await response.json();
         setDocuments(data);
       } catch (err) {
         setError("Failed to load documents.");
@@ -39,7 +46,7 @@ const ClientDashboard: React.FC = () => {
         </div>
         <div className="mt-4 grid grid-cols-3 gap-4">
           {["Savings", "Investments", "Tax Planning"].map((category, index) => (
-            <div key={index} className="text-center">
+            <div key={category} className="text-center">
               <div className="text-sm font-medium text-gray-500">{category}</div>
               <div className="text-lg font-semibold text-gray-900">{[92, 78, 85][index]}/100</div>
             </div>
