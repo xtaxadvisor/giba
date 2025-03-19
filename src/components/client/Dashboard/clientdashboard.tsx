@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
 import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
+// ✅ Define the type for documents
 interface Document {
   title: string;
   type: string;
@@ -10,8 +11,9 @@ interface Document {
 }
 
 const ClientDashboard: React.FC = () => {
+  // ✅ Ensure TypeScript properly handles state
   const [documents, setDocuments] = useState<Document[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const ClientDashboard: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Financial Health Score */}
+      {/* ✅ Financial Health Score */}
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Financial Health Score</h3>
         <div className="flex items-center justify-between">
@@ -54,13 +56,13 @@ const ClientDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Action Items */}
+      {/* ✅ Action Items */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card icon={AlertCircle} title="Required Actions" value="3" description="Tasks needing attention" />
         <Card icon={Calendar} title="Upcoming Deadlines" value="2" description="In the next 30 days" />
       </div>
 
-      {/* Document Timeline */}
+      {/* ✅ Document Timeline */}
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Recent Documents</h3>
         {loading ? (

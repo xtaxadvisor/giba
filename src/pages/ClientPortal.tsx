@@ -1,17 +1,14 @@
 import React, { Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { ClientLayout } from "@/components/client/Dashboard/ClientLayout"; 
+import { ClientLayout } from "@/components/client/Dashboard/ClientLayout";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 
-// ✅ Lazy load components properly
+// ✅ Lazy load components with correct export handling
 const ClientDashboard = React.lazy(() =>
   import("@/components/client/Dashboard/ClientDashboard").then((m) => ({ default: m.default }))
 );
 const ClientDocuments = React.lazy(() =>
-  import("@/components/client/Documents").then((m) => ({ default: m.default }))
-);
-const Documents = React.lazy(() =>
   import("@/components/client/Documents").then((m) => ({ default: m.default }))
 );
 const Messages = React.lazy(() =>
@@ -35,7 +32,6 @@ export default function ClientPortal() {
           <Routes>
             <Route path="/" element={<ClientDashboard />} />
             <Route path="/client-documents" element={<ClientDocuments />} />
-            <Route path="/documents" element={<Documents />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/appointments" element={<Calendar />} />
             <Route path="/settings" element={<Settings />} />
