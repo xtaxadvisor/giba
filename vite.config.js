@@ -4,7 +4,9 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()], // ✅ Only one "plugins" entry
-
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+  },
   resolve: {  // ✅ Merged resolve objects
     alias: {
       "@": path.resolve(__dirname, "./src"),
