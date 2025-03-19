@@ -1,24 +1,29 @@
+# 📌 Netlify Build Configuration
 [build]
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
+# 📌 Redirect all routes to index.html (For SPA)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# 📌 Netlify Development Environment Configuration
 [dev]
   framework = "vite"
-  targetPort = 3001  # ✅ Correctly set Vite's port
+  targetPort = 3001  # ✅ Ensure Vite runs on the correct port
   command = "npm run dev"
   publish = "dist"
   autoLaunch = true
 
+# 📌 Netlify Functions Configuration
 [functions]
   directory = "netlify/functions"
-  node_bundler = "esbuild"  # ✅ Keep only one instance
+  node_bundler = "esbuild"  # ✅ Keep only one instance for optimized builds
 
+# 📌 Security & Content Security Policy (CSP) Headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -26,16 +31,44 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = """
-      default-src 'self' https://*.supabase.co;
-      script-src 'self' 'unsafe-inline' https://*.supabase.co https://o4508848989929472.ingest.us.sentry.io;
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https://*.unsplash.com https://*.supabase.co https://storage.googleapis.com https://*.netlify.app https://o4508848989929472.ingest.us.sentry.io;
-      connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://o4508848989929472.ingest.us.sentry.io;
-      frame-ancestors 'self';
-    """
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Cross-Origin-Embedder-Policy = "require-corp"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # ✅ Fix CSP to allow fonts & styles
+    Content-Security-Policy = """
+      default-src 'self' https://*.supabase.co;
+      font-src 'self' data: https://fonts.gstatic.com https://*.googleapis.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      script-src 'self' 'unsafe-inline' https://*.supabase.co https://o4508848989929472.ingest.us.sentry.io;
+      img-src 'self' data: https://*.unsplash.com https://*.supabase.co https://storage.googleapis.com https://*.netlify.app https://o4508848989929472.ingest.us.sentry.io;
+      connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://o4508848989929472.ingest.us.sentry.io;
+      frame-ancestors 'self';
+    """
+
+# 📌 Ensure correct MIME type for CSS files
+[[headers]]
+  for = "/styles/*.css"
+  [headers.values]
+    Content-Type = "text/css"
+
+# 📌 Ensure correct MIME type for font files
+[[headers]]
+  for = "/fonts/*.woff2"
+  [headers.values]
+    Content-Type = "font/woff2"
+
+# 📌 Netlify Plugins (Optional - Remove If Not Needed)
+[[plugins]]
+  package = "@netlify/plugin-emails"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+[[plugins]]
+  package = "netlify-purge-cloudflare-on-deploy"
+
+[[plugins]]
+  package = "netlify-plugin-cloudinary"
