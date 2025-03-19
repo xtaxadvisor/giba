@@ -1,6 +1,6 @@
 import React from "react";
 import { Users, FileText, Clock, TrendingUp } from "lucide-react";
-import { Card } from "../../ui/Card";
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 import { AdminMetrics } from "./AdminMetrics";
 import { RecentActivity } from "./RecentActivity";
 import { SystemStatus } from "./SystemStatus";

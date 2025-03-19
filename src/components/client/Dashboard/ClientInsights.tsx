@@ -1,6 +1,6 @@
 import React from "react";
 import { AlertCircle, Calendar } from 'lucide-react';
-import { Card } from '../../ui/Card';
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
 export function ClientInsights() {
   return (

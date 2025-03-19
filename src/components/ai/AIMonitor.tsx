@@ -2,7 +2,7 @@ import React from "react";
 
 import { Activity, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 import { aiManager } from '../../services/ai/AIManager';
-import { Card } from '../ui/Card';
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
 export function AIMonitor() {
   const [metrics, setMetrics] = React.useState(aiManager.getMetrics());

@@ -1,6 +1,6 @@
 import React from "react";
 import { Users, UserPlus, Activity } from 'lucide-react';
-import { Card } from '../../ui/Card';
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 import { LineChart } from '../charts/LineChart';
 import { useAnalytics } from '../../../hooks/useAnalytics';
 

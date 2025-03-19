@@ -4,7 +4,7 @@ import { CreditCard, DollarSign, Plus } from "lucide-react";
 import { Input } from "../../ui/Input";
 import { Button } from "../../ui/Button";
 import { Select } from "../../ui/Select";
-import { Card } from "../../ui/Card";
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 
 interface BillingSettingsProps {
   settings?: {

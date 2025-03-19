@@ -1,6 +1,6 @@
 import React from "react";
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
-import { Card } from '../../ui/Card';
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 import ReactDOMServer from 'react-dom/server';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 interface MetricProps {

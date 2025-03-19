@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, TrendingUp, BookOpen, CheckCircle } from 'lucide-react';
-import { Card } from '../ui/Card';
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 import { ProgressChart } from './dashboard/ProgressChart';
 
 export function ProgressTracking() {

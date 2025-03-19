@@ -7,7 +7,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
 } from "lucide-react";
-import { Card } from "../ui/Card";
+import Card from "@/components/ui/Card"; // ✅ Absolute Import
 import { LineChart } from "./charts/LineChart";
 import { BarChart } from "./charts/BarChart";
 import { useAnalytics } from "../../hooks/useAnalytics";
