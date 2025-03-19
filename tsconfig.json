@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "ES2020",               // or ESNext – Node 20 supports modern syntax
+    "module": "NodeNext",             // use ESNext or NodeNext to output ESM code
+    "moduleResolution": "NodeNext",   // use NodeNext resolution for Node ESM support
+    // Removed duplicate "esModuleInterop" key
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsxdev",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
-    "strict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
     "noEmit": true,   // ✅ Prevents TypeScript from generating .js files
     "allowJs": true   // ✅ Ensures TypeScript allows JavaScript files
   },
