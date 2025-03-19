@@ -13,7 +13,7 @@
 # 📌 Netlify Development Environment Configuration
 [dev]
   framework = "vite"
-  targetPort = 3001  # ✅ Ensure Vite runs on the correct port
+  targetPort = 3001  # ✅ Correctly set Vite's port
   command = "npm run dev"
   publish = "dist"
   autoLaunch = true
@@ -36,7 +36,7 @@
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    
+
     # ✅ Fix CSP to allow fonts & styles
     Content-Security-Policy = """
       default-src 'self' https://*.supabase.co;
