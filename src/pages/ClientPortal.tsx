@@ -1,30 +1,29 @@
-import React, { lazy, Suspense, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { ProtectedRoute } from 'src/components/auth/ProtectedRoute';
-import { LoadingSpinner } from 'src/components/ui/LoadingSpinner';
+import { ReactNode, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+// Import custom hook or other components if needed (ensure the path is correct):
+// import { usePortal } from '../hooks/use-portal';  // example path, adjust as needed
 
-// Lazy-load the ClientDashboard component
-const ClientDashboard = lazy(() => import('src/components/client/Dashboard/ClientDashboard'));
+interface ClientPortalProps {
+  /** The id of the DOM element to portal into (e.g., 'portal-root'). */
+  containerId?: string;
+  children: ReactNode;
+}
 
-const ClientPortal = () => {
-  // Example state (ensure useState is inside the component)
-  const [portalState, setPortalState] = useState(null);
-  
-  return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <Routes>
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <ClientDashboard />
-            </ProtectedRoute>
-          } 
-        />
-        {/* Add other client routes here, each wrapped with ProtectedRoute if needed */}
-      </Routes>
-    </Suspense>
-  );
+const ClientPortal: React.FC<ClientPortalProps> = ({ containerId = 'portal-root', children }) => {
+  // State to track the target container element (only when running in a browser)
+  const [targetElement, setTargetElement] = useState<Element | null>(null);
+
+  useEffect(() => {
+    // Only execute on client: find the container by ID
+    const elem = document.getElementById(containerId);
+    setTargetElement(elem);
+  }, [containerId]);
+
+  // If no container is found or we're on the server, render nothing
+  if (!targetElement) return null;
+
+  // Create a portal with children into the target DOM element
+  return createPortal(children, targetElement);
 };
 
 export default ClientPortal;
