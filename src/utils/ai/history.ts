@@ -1,12 +1,15 @@
-```typescript
-import type { AIMessage } from '../../types/ai';
-import { aiStorage } from './storage';
+import type { AIMessage } from '../../types/ai.js';
+
+interface AIMessageWithTimestamp extends AIMessage {
+  timestamp: string;
+}
+import { aiStorage } from './storage.js';
 
 const HISTORY_KEY = 'ai_chat_history';
 const MAX_HISTORY_LENGTH = 100;
 
 export function saveMessageToHistory(message: AIMessage): void {
-  const history = getMessageHistory();
+  const history = getMessageHistory() as AIMessageWithTimestamp[];
   history.push({
     ...message,
     timestamp: new Date().toISOString()
@@ -45,4 +48,3 @@ export function getRecentTopics(): string[] {
 
   return Array.from(topics).slice(-5);
 }
-```

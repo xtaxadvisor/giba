@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServiceItem } from './ServiceItem';
+import { ServiceItem } from './ServiceItem.js';
 import { LucideIcon } from 'lucide-react';
 
 interface Service {

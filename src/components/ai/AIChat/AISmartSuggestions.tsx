@@ -1,8 +1,6 @@
 import React from "react";
-```typescript
-
 import { Calculator, Calendar, FileText, HelpCircle } from 'lucide-react';
-import { AIFeatureCard } from './AIFeatureCard';
+import { AIFeatureCard } from './AIFeatureCard.js';
 
 interface AISmartSuggestionsProps {
   onSelect: (prompt: string) => void;
@@ -53,4 +51,3 @@ export function AISmartSuggestions({ onSelect }: AISmartSuggestionsProps) {
     </div>
   );
 }
-```

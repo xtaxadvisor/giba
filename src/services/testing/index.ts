@@ -1,6 +1,6 @@
-import { infrastructureTester } from './InfrastructureTester';
-import { loadTester } from './LoadTester';
-import { securityTester } from './SecurityTester';
+import { infrastructureTester } from './InfrastructureTester.js';
+import { loadTester } from './LoadTester.js';
+import { securityTester } from './SecurityTester.js';
 
 export async function runAllTests() {
   try {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAuth } from '../../contexts/AuthContext';
-import { useNotificationStore } from '../../lib/store';
-import { PortalConfig, getPortalConfig } from './portalConfig';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { PortalConfig, getPortalConfig } from './portalConfig.js';
 
 export function usePortalManager() {
   const { user, isAuthenticated } = useAuth();

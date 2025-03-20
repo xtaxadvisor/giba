@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import type { Database } from './types';
+import type { Database } from './types.js';
 
 // Supabase configuration
 const supabaseUrl = 'https://menyracpmwczxhsrvlxz.supabase.co';
@@ -18,4 +18,4 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
 export default supabase;
 
 // Export type
-export type { Database } from './types';
+export type { Database } from './types.js';

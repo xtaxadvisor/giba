@@ -1,13 +1,13 @@
 import React from "react";
-import { MessageItem } from './MessageItem';
-import { useMessages } from '../../hooks/useMessages';
-import { LoadingSpinner } from '../ui/LoadingSpinner';
-import { Message, MessageThread } from '@/services/api/message';
-import { Button } from "../ui/Button";
+import { MessageItem } from './MessageItem.js';
+import { useMessages } from '../../hooks/useMessages.js';
+import { LoadingSpinner } from '../ui/LoadingSpinner.js';
+import { messageService, Message, MessageThread } from '@/services/api/message.js';
+import { Button } from "../ui/Button.js";
 import { Download, Eye, Trash2 } from "lucide-react";
 
 export function MessageList() {
-  const { messages, isLoading }: { messages: MessageThread[] | undefined, isLoading: boolean } = useMessages();
+  const { messages, isLoading } = useMessages() as { messages: MessageThread[] | undefined, isLoading: boolean };
 
   if (isLoading) {
     return <LoadingSpinner />;

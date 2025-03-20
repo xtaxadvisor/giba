@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FileText, Download, Filter, Calendar } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Select } from '../ui/Select';
-import { RevenueChart } from './charts/RevenueChart';
-import { ClientDistributionChart } from './charts/ClientDistributionChart';
+import { Button } from '../ui/Button.js';
+import { Select } from '../ui/Select.js';
+import { RevenueChart } from './charts/RevenueChart.js';
+import { ClientDistributionChart } from './charts/ClientDistributionChart.js';
 
 export function Reports() {
   const [dateRange, setDateRange] = useState('month');

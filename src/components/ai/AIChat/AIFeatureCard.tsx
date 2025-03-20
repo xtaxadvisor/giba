@@ -1,5 +1,4 @@
 import React from "react";
-```typescript
 
 import { LucideIcon } from 'lucide-react';
 
@@ -30,4 +29,3 @@ export function AIFeatureCard({ icon: Icon, title, description, onClick }: AIFea
     </button>
   );
 }
-```

@@ -1,11 +1,11 @@
 import React from "react";
 
-import { AIMessageList } from './AIMessageList';
-import { AIMessageInput } from './AIMessageInput';
-import { AIWelcomeMessage } from '../AIWelcomeMessage';
-import { AISuggestions } from '../AISuggestions';
-import { AIHeader } from './AIHeader';
-import type { AIMessage } from '../../../types/ai';
+import { AIMessageList } from './AIMessageList.js';
+import { AIMessageInput } from './AIMessageInput.js';
+import { AIWelcomeMessage } from '../AIWelcomeMessage.js';
+import { AISuggestions } from '../AISuggestions.js';
+import { AIHeader } from './AIHeader.js';
+import type { AIMessage } from '../../../types/ai.js';
 
 interface AIChatProps {
   messages: AIMessage[];

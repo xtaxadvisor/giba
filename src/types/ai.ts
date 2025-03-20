@@ -12,6 +12,7 @@ export interface AIResponse {
 }
 
 export interface AIAnalysis {
+  sources: never[];
   sentiment: 'positive' | 'negative' | 'neutral';
   topics: string[];
   entities: string[];
@@ -25,8 +26,15 @@ export interface AIFeature {
   prompt: string;
 }
 
-export type AIContext = 'general' | 'tax' | 'financial' | 'service' | 'visitor';
-
+export type AIContextType = 'general' | 'tax' | 'financial' | 'service' | 'visitor';
+export interface AIContext {
+  id: string;
+  name: string;
+  description: string;
+  systemPrompt: string;
+  suggestedQuestions: string[];
+  additionalInfo?: string; // Made optional to accommodate cases where it's not provided
+}
 export interface AIFeedback {
   messageId: string;
   rating: number;

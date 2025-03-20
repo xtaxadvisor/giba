@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { TrendingUp, Users, DollarSign, Clock, Filter, Download, Calendar } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Select } from '../../ui/Select';
-import { MetricsGrid } from './MetricsGrid';
-import { RevenueChart } from '../charts/RevenueChart';
-import { PerformanceMetrics } from './PerformanceMetrics';
-import { useAnalytics } from '../../../hooks/useAnalytics';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { Button } from '../../ui/Button.js';
+import { Select } from '../../ui/Select.js';
+import { MetricsGrid } from './MetricsGrid.js';
+import { RevenueChart } from '../charts/RevenueChart.js';
+import { PerformanceMetrics } from './PerformanceMetrics.js';
+import { useAnalytics } from '../../../hooks/useAnalytics.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 export function AnalyticsDashboard() {
   const [timeRange, setTimeRange] = useState('month');

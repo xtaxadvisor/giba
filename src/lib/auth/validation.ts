@@ -1,5 +1,5 @@
-import { AuthCredentials, RegisterData } from './types';
-import { validateEmail, validatePassword } from '../../utils/validation';
+import { AuthCredentials, RegisterData } from './types.js';
+import { validateEmail, validatePassword } from '../../utils/validation.js';
 
 export function validateLoginCredentials(credentials: AuthCredentials): string[] {
   const errors: string[] = [];

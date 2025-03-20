@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Bot, X } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAI } from '../../hooks/useAI';
-import { AIChat } from './chat/AIChat';
+import { Button } from '../ui/Button.js';
+import { useAI } from '../../hooks/useAI.js';
+import { AIChat } from './chat/AIChat.js';
 import { error } from 'console';
 
 export function AIAssistantWidget() {

@@ -8,9 +8,9 @@ import {
   Activity,
   UserPlus
 } from 'lucide-react';
-import { useAuth } from '../../../contexts/AuthContext';
-import { AdminHeader } from './AdminHeader';
-import { AdminSidebar } from './AdminSidebar';
+import { useAuth } from '../../../contexts/AuthContext.js';
+import { AdminHeader } from './AdminHeader.js';
+import { AdminSidebar } from './AdminSidebar.js';
 interface MenuItem {
   title: string;
   href: string;

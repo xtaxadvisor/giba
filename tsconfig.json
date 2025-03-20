@@ -1,34 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES2020",               // or ESNext – Node 20 supports modern syntax
-    "module": "NodeNext",             // use ESNext or NodeNext to output ESM code
-    "moduleResolution": "NodeNext",   // use NodeNext resolution for Node ESM support
-    // Removed duplicate "esModuleInterop" key
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "lib": ["DOM", "ESNext"],
-    "jsx": "react-jsxdev",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
     "esModuleInterop": true,
-    "noEmit": true,   // ✅ Prevents TypeScript from generating .js files
-    "allowJs": true   // ✅ Ensures TypeScript allows JavaScript files
+    "allowJs": true,
+    "noEmit": true
   },
-  "include": ["src/**/*"],  // make sure it covers your .js and .tsx files
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/components/ai/**",
-    "src/hooks/useAI.ts",
-    "src/hooks/useAIMonitoring.ts",
-    "src/services/ai/**",
-    "src/services/analytics/ai.ts",
-    "src/utils/ai/**"
-  ],
-  "resolve": {
-    "extensions": [".tsx", ".ts", ".js", ".jsx"]
-  }
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

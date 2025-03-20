@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ServiceCategory } from './ServiceCategory';
-import { WhyChooseUs } from './WhyChooseUs';
-import { ServiceCalculator } from './ServiceCalculator';
+import { ServiceCategory } from './ServiceCategory.js';
+import { WhyChooseUs } from './WhyChooseUs.js';
+import { ServiceCalculator } from './ServiceCalculator.js';
 import { 
   FileText, 
   Building2, 
@@ -11,7 +11,7 @@ import {
   MessageSquare,
   ArrowLeft 
 } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function ServiceCatalog() {

@@ -9,15 +9,15 @@ import {
   Share2,
   Tag
 } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { DocumentGrid } from './DocumentGrid';
-import { DocumentList } from '../../client/DocumentList'; // Update this path to the correct location if necessary
+import { Button } from '../../ui/Button.js';
+import { DocumentGrid } from './DocumentGrid.js';
+import { DocumentList } from '../../client/DocumentList.js'; // Update this path to the correct location if necessary
 // If the path is incorrect, update it to the correct path where DocumentList is located   
-import { DocumentUpload } from './DocumentUpload';
-import { DocumentFilters } from '../../client/DocumentFilters';  // Update this path to the correct location if necessary
-import Modal from '../../ui/Modal';
-import { useDocuments } from '../../../hooks/useDocuments'; // Update this path to the correct location if necessary
-import { DocumentGridDocument } from '@/types/documents';
+import { DocumentUpload } from './DocumentUpload.js';
+import { DocumentFilters } from '../../client/DocumentFilters.js';  // Update this path to the correct location if necessary
+import Modal from '../../ui/Modal.js';
+import { useDocuments } from '../../../hooks/useDocuments.js'; // Update this path to the correct location if necessary
+import { DocumentGridDocument } from '../../../types/documents.js';
 // If the path is incorrect, update it to the correct path where useDocuments is located
 
 interface ProfessionalDocument {

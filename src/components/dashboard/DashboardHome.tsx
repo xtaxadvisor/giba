@@ -1,6 +1,6 @@
 import React from "react";
-import { PersonalizedTabs } from './PersonalizedTabs';
-import { useAuth } from '../../contexts/AuthContext';
+import { PersonalizedTabs } from './PersonalizedTabs.js';
+import { useAuth } from '../../contexts/AuthContext.js';
 
 export function DashboardHome() {
   const { user } = useAuth();

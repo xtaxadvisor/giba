@@ -2,6 +2,7 @@ import React from "react";
 import express from "express";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
+import { APIError } from "openai";
 // Load environment variables
 dotenv.config();
 const app = express();
@@ -29,6 +30,31 @@ app.get("/test-connection", async (_, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
+APIError; // Suppress unused warning (for demonstration purposes) // Suppress unused warning (for demonstration purposes) // Suppress unused warning (for demonstration purposes) // Suppress unused warning (for demonstration purposes) 
+// API Route to Test OpenAI Connection (for demonstration purposes)
+app.get("/test-openai", async (_, res) => {
+    try {
+        const response = await fetch("https://api.openai.com/v1/engines/davinci/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+            },
+            body: JSON.stringify({
+                prompt: "Once upon a time",
+                max_tokens: 5,
+            }),
+        });
+        const data = await response.json();
+        res.json({ success: true, data });
+    }
+    catch (error) {
+        console.error("OpenAI test error:", error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+// Serve static files
+app.listen(PORT, () => { console.log(`Server running on http://localhost:${PORT}`); } ); 
 // Start Server (for local development)
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

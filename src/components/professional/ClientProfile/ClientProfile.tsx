@@ -8,13 +8,13 @@ import {
   Edit,
   Trash2
 } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { ClientInfo } from './ClientInfo';
-import Modal from '../../ui/Modal';
-import { ClientDocuments, ClientHistory, ClientForm } from '../../client';
-import { ClientCommunication } from '../../client/ClientCommunication';
-import { useClient } from '../../../hooks/useClient';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { Button } from '../../ui/Button.js';
+import { ClientInfo } from './ClientInfo.js';
+import Modal from '../../ui/Modal.js';
+import { ClientDocuments, ClientHistory, ClientForm } from '../../client/index.js';
+import { ClientCommunication } from '../../client/ClientCommunication.js';
+import { useClient } from '../../../hooks/useClient.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 interface ClientProfileProps {
   clientId: string;

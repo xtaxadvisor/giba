@@ -1,6 +1,6 @@
 import React from 'react';
-import { LineChart } from '../../charts/LineChart';
-import { PredictiveMetrics } from './PredictiveMetrics';
+import { LineChart } from '../../charts/LineChart.js';
+import { PredictiveMetrics } from './PredictiveMetrics.js';
 
 export function RevenueForecast() {
   return (

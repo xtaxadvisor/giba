@@ -2,7 +2,7 @@ export type MetricThreshold = {
   warning: number;
   critical: number;
 };
-import { predictTrend } from './trends';
+import { predictTrend } from './trends.js';
 
 export function checkThresholdViolation(
   value: number,

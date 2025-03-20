@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
-import { useNotificationStore } from '../lib/store';
-import { grakonAI } from '../services/ai/client';
-import type { AIMessage } from '../types/ai';
+import { useNotificationStore } from '../lib/store.js';
+import { grakonAI } from '../services/ai/client.js';
+import type { AIMessage } from '../types/ai.js';
 
 export function useAI() {
   const [messages, setMessages] = useState<AIMessage[]>([]);

@@ -1,4 +1,4 @@
-import { SECURITY_CONFIG } from './config';
+import { SECURITY_CONFIG } from './config.js';
 
 export class RateLimiter {
   private static instance: RateLimiter;

@@ -1,7 +1,7 @@
-import { supabase } from '../../lib/supabase/client';
-import { useNotificationStore } from '../../lib/store';
-import { validatePassword } from './validation';
-import type { AuthError } from '@supabase/supabase-js';
+import { supabase } from '../../lib/supabase/client.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { validatePassword } from './validation.js';
+import { AuthError } from "@supabase/supabase-js"; // ✅ Correct type for authentication errors
 
 export class AuthService {
   private static readonly MAX_RETRIES = 3;
@@ -38,7 +38,7 @@ export class AuthService {
             name: mockUser.role.charAt(0).toUpperCase() + mockUser.role.slice(1),
             created_at: new Date().toISOString()
           };
-        }
+        };
       }
 
       // Try Supabase authentication with retries
@@ -84,11 +84,12 @@ export class AuthService {
       return null;
     }
   }
+  // Removed redundant handleAuthError and unrelated try-catch block
 
-  static async signUp(email: string, password: string, userData: {
-    name: string;
-    role: string;
-  }) {
+  static async signUp(email: string, password: string, userData: { 
+    name: string; 
+    role: string; 
+  }): Promise<void> {
     try {
       // Validate password
       const passwordValidation = validatePassword(password);
@@ -128,7 +129,9 @@ export class AuthService {
         'success'
       );
     } catch (error) {
-      this.handleAuthError(error as AuthError);
+      if (error) {
+        this.handleAuthError(error as AuthError);
+      }
       throw error;
     }
   }

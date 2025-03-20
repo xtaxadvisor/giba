@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import { getAvailablePortals } from './portalConfig';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { getAvailablePortals } from './portalConfig.js';
 
 export function PortalNavigation() {
   const location = useLocation();

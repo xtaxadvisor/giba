@@ -1,6 +1,6 @@
-import type { AuthCredentials, RegisterData } from './types';
-import { storeUser, clearStoredUser } from './storage';
-import { validateLoginCredentials, validateRegistrationData } from './validation';
+import type { AuthCredentials, RegisterData } from './types.js';
+import { storeUser, clearStoredUser } from './storage.js';
+import { validateLoginCredentials, validateRegistrationData } from './validation.js';
 
 export interface LocalUser {
   id: string;

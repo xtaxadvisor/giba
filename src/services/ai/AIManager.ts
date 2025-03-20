@@ -1,9 +1,9 @@
-import { aiCore } from './core/AICore';
-import { AIMetricsManager } from './metrics/AIMetricsManager';
-import { AIHistoryManager } from './history/AIHistoryManager';
-import { AICacheManager } from './cache/AICacheManager';
-import { formatResponse } from '../../utils/ai/responseFormatting';
-import type { AIMessage, AIAnalysis } from '../../types/ai';
+import { aiCore } from './core/AICore.js';
+import { AIMetricsManager } from './metrics/AIMetricsManager.js';
+import { AIHistoryManager } from './history/AIHistoryManager.js';
+import { AICacheManager } from './cache/AICacheManager.js';
+import { formatResponse } from '../../utils/ai/responseFormatting.js';
+import type { AIMessage, AIAnalysis } from '../../types/ai.js';
 
 interface AIManagerConfig {
   debug?: boolean;

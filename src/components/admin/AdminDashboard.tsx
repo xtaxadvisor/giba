@@ -9,8 +9,8 @@ import {
   CheckCircle, 
   AlertCircle 
 } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import Dashboard from './dashboard/AdminDashboard'; 
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import Dashboard from './dashboard/AdminDashboard.js'; 
 const AdminDashboard = () => {
   const recentActivities = [
     { action: 'User Created', details: 'New professional account', time: '2 hours ago' },

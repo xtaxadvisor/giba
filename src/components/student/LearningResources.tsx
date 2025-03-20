@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Search, Filter, Play, Download, BookOpen } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import { Button } from '../ui/Button';
-import { TaxCalculationBasics } from './learning/TaxCalculationBasics';
-import { FinancialStatementAnalysis } from './learning/FinancialStatementAnalysis';
-import { AdvancedTaxPlanning } from './learning/AdvancedTaxPlanning';
+import { Input } from '../ui/Input.js';
+import { Select } from '../ui/Select.js';
+import { Button } from '../ui/Button.js';
+import { TaxCalculationBasics } from './learning/TaxCalculationBasics.js';
+import { FinancialStatementAnalysis } from './learning/FinancialStatementAnalysis.js';
+import { AdvancedTaxPlanning } from './learning/AdvancedTaxPlanning.js';
 
 export function LearningResources() {
   const [selectedResource, setSelectedResource] = useState<string | null>(null);

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Download, Filter, Calendar } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Select } from '../../ui/Select';
-import { FinancialReport } from './FinancialReport';
-import { ClientReport } from './ClientReport';
-import { PerformanceReport } from '../../client/PerformanceReport';
-import { useReports } from '../../../hooks/useReports';
-import { ReportFilters } from './ReportFilters';
-import { ReportExport } from './ReportExport';
+import { Button } from '../../ui/Button.js';
+import { Select } from '../../ui/Select.js';
+import { FinancialReport } from './FinancialReport.js';
+import { ClientReport } from './ClientReport.js';
+import { PerformanceReport } from '../../client/PerformanceReport.js';
+import { useReports } from '../../../hooks/useReports.js';
+import { ReportFilters } from './ReportFilters.js';
+import { ReportExport } from './ReportExport.js';
 
 export function ReportDashboard() {
   const {

@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { useNotificationStore } from '../../lib/store';
-import { adminSessionManager } from './adminSession';
-import { createSecureHash } from '../../utils/crypto';
+import { useNotificationStore } from '../../lib/store.js';
+import { adminSessionManager } from './adminSession.js';
+import { createSecureHash } from '../../utils/crypto.js';
 
 const adminCredentialsSchema = z.object({
   username: z.string().min(3),

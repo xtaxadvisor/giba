@@ -1,5 +1,5 @@
-import type { AnalyticsInsight, MetricData } from '../../types/analytics';
-import { analyzeTrend } from './trends';
+import type { AnalyticsInsight, MetricData } from '../../types/analytics.js';
+import { analyzeTrend } from './trends.js';
 
 export function generateInsights(metrics: MetricData[]): AnalyticsInsight[] {
   const insights: AnalyticsInsight[] = [];

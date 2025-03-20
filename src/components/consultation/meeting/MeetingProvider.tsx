@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from 'react';
-import { VirtualConsultation } from './VirtualConsultation';
-import { MeetingPreview } from './MeetingPreview';
-import { useConsultation } from '../../../hooks/useConsultation';
-import { useNotificationStore } from '../../../lib/store';
+import { VirtualConsultation } from './VirtualConsultation.js';
+import { MeetingPreview } from './MeetingPreview.js';
+import { useConsultation } from '../../../hooks/useConsultation.js';
+import { useNotificationStore } from '../../../lib/store.js';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext.js';
 
 interface MeetingProviderProps {
   consultationId: string;

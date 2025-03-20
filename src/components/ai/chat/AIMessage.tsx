@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Bot, User } from 'lucide-react';
-import { AIResponseActions } from './AIResponseActions';
-import type { AIMessage as AIMessageType } from '../../../types/ai';
+import { AIResponseActions } from './AIResponseActions.js';
+import type { AIMessage as AIMessageType } from '../../../types/ai.js';
 
 interface AIMessageProps {
   message: AIMessageType;

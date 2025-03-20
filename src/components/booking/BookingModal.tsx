@@ -1,8 +1,8 @@
 import React from 'react';
-import Modal from "../../components/ui/Modal"; // ✅ Correct
-import { BookingForm } from './BookingForm';
-import { useConsultation } from '../../hooks/useConsultation';
-import { useNotificationStore } from '../../lib/store';
+import Modal from "../../components/ui/Modal.js"; // ✅ Correct
+import { BookingForm } from './BookingForm.js';
+import { useConsultation } from '../../hooks/useConsultation.js';
+import { useNotificationStore } from '../../lib/store.js';
 import { useNavigate } from 'react-router-dom';
 
 interface BookingModalProps {

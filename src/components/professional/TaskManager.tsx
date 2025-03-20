@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Plus, Calendar, Clock, CheckCircle, AlertCircle, Trash2 } from 'lucide-react';
-import { Button } from '../ui/Button';
-import Modal from '../ui/Modal';
-import { TaskForm } from './TaskForm';
-import { useTaskStore } from '../../lib/store';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../ui/Button.js';
+import Modal from '../ui/Modal.js';
+import { TaskForm } from './TaskForm.js';
+import { useTaskStore } from '../../lib/store.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export function TaskManager() {
   const { tasks, addTask, moveTask, deleteTask } = useTaskStore();

@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Search, Filter } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import Modal from '../../ui/Modal';
-import { TeamMemberForm } from './TeamMemberForm';
-import { useTeamMembers } from '../../../hooks/useTeamMembers';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
-import { Input } from '../../ui/Input';
-import { Select } from '../../ui/Select';
+import { Button } from '../../ui/Button.js';
+import Modal from '../../ui/Modal.js';
+import { TeamMemberForm } from './TeamMemberForm.js';
+import { useTeamMembers } from '../../../hooks/useTeamMembers.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
+import { Input } from '../../ui/Input.js';
+import { Select } from '../../ui/Select.js';
 
 export function TeamManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterRole, setFilterRole] = useState('all');
-  const { teamMembers, isLoading, addTeamMember, updateTeamMember, deleteTeamMember } = useTeamMembers();
+  const { teamMembers = [], isLoading, addTeamMember, updateTeamMember, deleteTeamMember } = useTeamMembers() as unknown as {
+    teamMembers: TeamMember[];
+    isLoading: boolean;
+    addTeamMember: (data: any) => void;
+    updateTeamMember: (data: any) => void;
+    deleteTeamMember: (id: string) => void;
+  };
 
-  const filteredMembers = teamMembers?.filter(member => {
+  interface TeamMember {
+    id: string;
+    name: string;
+    email?: string;
+    role: string;
+    image: string;
+  }
+
+  const filteredMembers = teamMembers?.filter((member: TeamMember) => {
     const matchesSearch = 
       member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       member.email?.toLowerCase().includes(searchTerm.toLowerCase());

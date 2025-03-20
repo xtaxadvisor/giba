@@ -1,7 +1,7 @@
 import React from 'react';
 import { Award, TrendingUp, BookOpen, CheckCircle } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { ProgressChart } from './dashboard/ProgressChart';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import { ProgressChart } from './dashboard/ProgressChart.js';
 
 export function ProgressTracking() {
   return (

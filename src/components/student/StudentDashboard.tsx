@@ -1,9 +1,9 @@
 import React from 'react';
 import { Book, Clock, Award, TrendingUp } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { ProgressChart } from './dashboard/ProgressChart';
-import { RecentActivities } from './dashboard/RecentActivities';
-import { UpcomingAssignments } from './dashboard/UpcomingAssignments';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import { ProgressChart } from './dashboard/ProgressChart.js';
+import { RecentActivities } from './dashboard/RecentActivities.js';
+import { UpcomingAssignments } from './dashboard/UpcomingAssignments.js';
 
 export function StudentDashboard() {
   return (

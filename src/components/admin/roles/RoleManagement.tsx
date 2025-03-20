@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Shield, Edit2, Trash2, Plus } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import Modal from '../../ui/Modal';
-import { RoleForm } from './RoleForm';
-import { useRoles } from '../hooks/useRoles';
+import { Button } from '../../ui/Button.js';
+import Modal from '../../ui/Modal.js';
+import { RoleForm } from './RoleForm.js';
+import { useRoles } from '../hooks/useRoles.js';
 
 export function RoleManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);

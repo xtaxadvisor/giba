@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import AIAssistantBubble from './AIAssistantBubble';
-import { AIChat } from './AIChat';
-import { useClickOutside } from '../../utils/hooks';
+import AIAssistantBubble from './AIAssistantBubble.js';
+import { AIChat } from './AIChat.js';
+import { useClickOutside } from '../../utils/hooks/useClickOutside.js'; // Removed `.ts` extension as TypeScript resolves `.ts` files automatically
 
 export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);

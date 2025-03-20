@@ -1,4 +1,3 @@
-```typescript
 interface StorageItem {
   value: any;
   timestamp: number;
@@ -61,4 +60,3 @@ class AIStorage {
 }
 
 export const aiStorage = AIStorage.getInstance();
-```

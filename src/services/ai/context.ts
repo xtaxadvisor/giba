@@ -1,4 +1,4 @@
-import type { AIContext } from '../../types/ai';
+import type { AIContext } from '../../types/ai.js';
 
 export const AI_CONTEXTS: Record<string, AIContext> = {
   tax: {
@@ -50,7 +50,8 @@ Note: Be clear about service scope and limitations.`,
       'How much do your services cost?',
       'How can I schedule a consultation?',
       'What is your process for new clients?'
-    ]
+    ],
+    additionalInfo: '' // Add any missing required property from AIContext here
   }
 };
 

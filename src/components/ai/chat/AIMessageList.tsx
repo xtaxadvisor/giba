@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { AIMessage } from './AIMessage';
-import { AITypingIndicator } from '../AITypingIndicator';
-import type { AIMessage as AIMessageType } from '../../../types/ai';
+import { AIMessage } from './AIMessage.js';
+import { AITypingIndicator } from '../AITypingIndicator.js';
+import type { AIMessage as AIMessageType } from '../../../types/ai.js';
 
 interface AIMessageListProps {
   messages: AIMessageType[];

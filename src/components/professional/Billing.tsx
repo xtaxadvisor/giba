@@ -10,11 +10,11 @@ import {
   CheckCircle,
   XCircle
 } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import Modal from "../ui/Modal"; // ✅ Correct;
-import { InvoiceForm } from './InvoiceForm';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { Select } from '../ui/Select.js';
+import Modal from "../ui/Modal.js"; // ✅ Correct;
+import { InvoiceForm } from './InvoiceForm.js';
 
 interface Invoice {
   id: string;

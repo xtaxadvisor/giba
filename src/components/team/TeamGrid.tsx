@@ -1,8 +1,8 @@
 import React from "react";
 
-import { TeamMemberCard } from './TeamMemberCard';
-import { teamMembers } from '../../data/teamData';
-import { useMediaQuery } from '../../utils/hooks';
+import { TeamMemberCard } from './TeamMemberCard.js';
+import { teamMembers } from '../../data/teamData.js';
+import { useMediaQuery } from '../../utils/hooks/index.js';
 
 export function TeamGrid() {
   const isMobile = useMediaQuery('(max-width: 640px)');

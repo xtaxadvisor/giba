@@ -1,18 +1,18 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import { useVideoStream } from '../../../hooks/useVideoStream';
-import { useChat } from '../../../hooks/useChat';
-import { useScreenShare } from '../../../hooks/useScreenShare';
-import { VideoStream } from './VideoStream';
-import { VideoControls } from './VideoControls';
-import ChatPanel from './ChatPanel';
-import { ScreenShare } from './ScreenShare';
-import { MeetingControls } from './MeetingControls';
-import { useConsultation } from '../../../hooks/useConsultation';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
-import { useNotificationStore } from '../../../lib/store';
+import { useVideoStream } from '../../../hooks/useVideoStream.js';
+import { useChat } from '../../../hooks/useChat.js';
+import { useScreenShare } from '../../../hooks/useScreenShare.js';
+import { VideoStream } from './VideoStream.js';
+import { VideoControls } from './VideoControls.js';
+import ChatPanel from './ChatPanel.js';
+import { ScreenShare } from './ScreenShare.js';
+import { MeetingControls } from './MeetingControls.js';
+import { useConsultation } from '../../../hooks/useConsultation.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
+import { useNotificationStore } from '../../../lib/store.js';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext.js';
 
 interface VirtualConsultationProps {
   consultationId: string;

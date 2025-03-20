@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { jwtVerify, SignJWT } from 'jose';
-import { AdminPermissions } from './adminPermissions';
+import { AdminPermissions } from './adminPermissions.js';
 
 const SESSION_DURATION = 60 * 60; // 1 hour in seconds
 

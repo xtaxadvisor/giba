@@ -1,5 +1,5 @@
-import { supabase } from './client';
-import { useNotificationStore } from '../store';
+import { supabase } from './client.js';
+import { useNotificationStore } from '../store.js';
 
 export async function checkSupabaseConnection() {
   try {

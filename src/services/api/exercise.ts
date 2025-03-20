@@ -1,5 +1,12 @@
-import { api } from '../api';
-import type { Exercise } from '../../types/student';
+import { api } from '../api.js';
+import type { Exercise as StudentExercise } from '../../types/student.js';
+export type Exercise = {
+  id: string;
+  name: string;
+  // other fields
+};
+
+// Ensure the local Exercise type is distinct from the imported StudentExercise type
 
 export const exerciseService = {
   getExercises: () => 

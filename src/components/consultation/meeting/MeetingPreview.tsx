@@ -1,8 +1,8 @@
 import React from "react";
 import { Video, Users } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { useVideoStream } from '../../../hooks/useVideoStream';
-import { VideoStream } from './VideoStream';
+import { Button } from '../../ui/Button.js';
+import { useVideoStream } from '../../../hooks/useVideoStream.js';
+import { VideoStream } from './VideoStream.js';
 
 interface MeetingPreviewProps {
   onJoin: () => void;

@@ -1,5 +1,5 @@
 // Define the Message interface within this file
-import { api } from '../api';
+import { api } from '../api.js';
 
 
 export interface SendMessageDTO {

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Calculator, Save, Download, Info, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import { useNotificationStore } from '../../lib/store';
-import { Button } from '../ui/Button';
-import { IncomeSection } from './sections/IncomeSection';
-import { FilingStatusSection } from './sections/FilingStatusSection';
-import { DeductionsSection } from './sections/DeductionsSection';
-import { CalculationResults } from './sections/CalculationResults';
-import { ProgressBar } from './components/ProgressBar';
-import { LoginPrompt } from './components/LoginPrompt';
-import { calculateTaxes } from '../../utils/taxCalculations';
-import type { TaxData } from '../../types/calculator';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { Button } from '../ui/Button.js';
+import { IncomeSection } from './sections/IncomeSection.js';
+import { FilingStatusSection } from './sections/FilingStatusSection.js';
+import { DeductionsSection } from './sections/DeductionsSection.js';
+import { CalculationResults } from './sections/CalculationResults.js';
+import { ProgressBar } from './components/ProgressBar.js';
+import { LoginPrompt } from './components/LoginPrompt.js';
+import { calculateTaxes } from '../../utils/taxCalculations.js';
+import type { TaxData } from '../../types/calculator.js';
 
 export function TaxCalculator() {
   const navigate = useNavigate();

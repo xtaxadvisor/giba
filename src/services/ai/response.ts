@@ -1,7 +1,12 @@
-import type { AIResponse } from '../../types/ai';
-import { analyzeText } from './analysis';
-import { aiCore } from '../../utils/ai/core';
-import { formatResponse } from '../../utils/ai/responseFormatting';
+import type { AIResponse } from '../../types/ai.js';
+import { analyzeText } from './analysis.js';
+export const aiCoreConfig = {
+  model: "gpt-4-turbo",
+  temperature: 0.7,
+  maxTokens: 500,
+};
+import { formatResponse } from '../../utils/ai/responseFormatting.js';
+import { aiCore } from './core/AICore.js';
 
 export async function generateStructuredResponse(
   content: string,

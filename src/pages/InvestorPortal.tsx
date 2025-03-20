@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
-import { InvestorDashboard } from '../components/investor/InvestorDashboard';
-import { VideoLibrary } from '../components/investor/VideoLibrary';
-import { InvestorLayout } from '../components/investor/InvestorLayout';
-import InvestorForum from './investor/InvestorForum';
+import { InvestorDashboard } from '../components/investor/InvestorDashboard.js';
+import { VideoLibrary } from '../components/investor/VideoLibrary.js';
+import { InvestorLayout } from '../components/investor/InvestorLayout.js';
+import InvestorForum from './investor/InvestorForum.js';
 
 export default function InvestorPortal() {
   return (

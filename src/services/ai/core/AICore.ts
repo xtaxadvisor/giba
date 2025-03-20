@@ -1,6 +1,12 @@
-import OpenAIClient from "../client/OpenAIClient"; // ✅ Correct import path
-import { OPENAI_MODELS, MAX_TOKENS } from '../../../config/openai';
-import type { AIMessage } from '../../../types/ai';
+import OpenAIClient from "../client/OpenAIClient.js"; // ✅ Correct import path
+import { OPENAI_MODELS, MAX_TOKENS } from '../../../config/openai.js';
+import type { AIMessage } from '../../../types/ai.js';
+
+export const aiCoreConfig = {
+  model: "gpt-4-turbo",
+  temperature: 0.7,
+  maxTokens: 500,
+};
 
 class AICore {
   private static instance: AICore;

@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import type { Database } from './types';
+import type { Database } from './types.ts';
 
 // Validate environment variables
 function validateConfig() {

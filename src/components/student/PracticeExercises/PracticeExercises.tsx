@@ -1,6 +1,6 @@
 import React from 'react';
-import { ExerciseHeader } from './ExerciseHeader';
-import { ExerciseList } from './ExerciseList';
+import { ExerciseHeader } from './ExerciseHeader.js';
+import { ExerciseList } from './ExerciseList.js';
 
 export function PracticeExercises() {
   return (

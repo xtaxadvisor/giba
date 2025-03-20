@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProgressHeader } from './ProgressHeader';
-import { ProgressMetrics } from './ProgressMetrics';
-import { ProgressChart } from './ProgressChart';
-import { AchievementList } from './AchievementList';
+import { ProgressHeader } from './ProgressHeader.js';
+import { ProgressMetrics } from './ProgressMetrics.js';
+import { ProgressChart } from './ProgressChart.js';
+import { AchievementList } from './AchievementList.js';
 
 export function ProgressTracking() {
   return (

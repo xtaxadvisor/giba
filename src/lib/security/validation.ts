@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import DOMPurify from 'dompurify';
-import { SECURITY_CONFIG } from './config';
+import { SECURITY_CONFIG } from './config.js';
 
 // Input validation schemas
 export const inputSchemas = {

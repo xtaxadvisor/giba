@@ -1,10 +1,10 @@
 import { Plus, Video } from 'lucide-react';
-import { ConsultationCard } from './ConsultationCard';
-import { LoadingSpinner } from '../ui/LoadingSpinner';
-import { useConsultation } from '../../hooks/useConsultation';
-import { useNotificationStore } from '../../lib/store';
-import { Button } from '../ui/Button';
-import { BookingModal } from '../booking/BookingModal';
+import { ConsultationCard } from './ConsultationCard.js';
+import { LoadingSpinner } from '../ui/LoadingSpinner.js';
+import { useConsultation } from '../../hooks/useConsultation.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { Button } from '../ui/Button.js';
+import { BookingModal } from '../booking/BookingModal.js';
 import React from 'react';
 
 
