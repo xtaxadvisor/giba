@@ -1,3 +1,7 @@
+import react from 'react';
+import { AnalyticsMetrics } from './processing.js';
+import { Finding, Recommendation } from './DocumentRecommendations.js';
+import { number } from 'zod';
 import type { FindingsData } from '@/utils/documents/processing.js'; // Update this path to the correct one
 // If the path is incorrect, update it to the correct path where DocumentProcessing is located
 import { Finding, Recommendation } from "@/components/professional/Documents/analysis/DocumentRecommendations.js";

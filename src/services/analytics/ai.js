@@ -1,5 +1,3 @@
-"use strict";
-`` `typescript
 import type { AIAnalytics, AIMetrics } from '../../types/analytics';
 
 export class AIAnalyticsService {

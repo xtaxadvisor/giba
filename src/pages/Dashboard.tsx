@@ -1,5 +1,5 @@
-import React from "react.js";
-import { Routes, Route } from "react-router-dom.js";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { DashboardHome } from "../components/dashboard/DashboardHome.js";
 import { Messages } from "../components/dashboard/Messages.js";
 import Documents from "../components/dashboard/Documents.js";

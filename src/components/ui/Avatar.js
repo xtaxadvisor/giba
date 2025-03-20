@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx } from "react/jsx-runtime";
 export function Avatar({ src, alt, size = 'md', className = '' }) {
     const sizes = {

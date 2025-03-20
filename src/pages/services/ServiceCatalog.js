@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ServiceCategory } from '../../components/services/ServiceCategory';
 import { WhyChooseUs } from '../../components/services/WhyChooseUs';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Component } from 'react';
 import { useNotificationStore } from '../../lib/store';

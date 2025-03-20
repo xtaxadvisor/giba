@@ -1,3 +1,4 @@
+import react from 'react';
 import { supabase } from '../../lib/supabase/client.js';
 import { useNotificationStore } from '../../lib/store.js';
 import { validatePassword } from './validation.js';

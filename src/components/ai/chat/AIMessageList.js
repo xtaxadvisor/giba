@@ -1,7 +1,8 @@
+import React from "react";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useEffect } from 'react';
-import { AIMessage } from './AIMessage';
-import { AITypingIndicator } from '../AITypingIndicator';
+import { AIMessage } from './AIMessage.js';
+import { AITypingIndicator } from '../AITypingIndicator.js';
 export function AIMessageList({ messages, isTyping }) {
     const messagesEndRef = useRef(null);
     useEffect(() => {

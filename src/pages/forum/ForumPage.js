@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Routes, Route } from 'react-router-dom';
 import { ForumLayout } from '../../components/forum/ForumLayout';

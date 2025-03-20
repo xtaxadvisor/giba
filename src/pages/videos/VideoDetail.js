@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useParams } from 'react-router-dom';
 import { Play, Clock, Tag, User } from 'lucide-react';

@@ -1,3 +1,6 @@
+import react from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";

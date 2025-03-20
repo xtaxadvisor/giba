@@ -1,14 +1,15 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { SupabaseProvider } from './contexts/SupabaseContext';
-import { AuthProvider } from './contexts/AuthContext';
-import { AppRoutes } from './routes';
-import { Notifications } from './components/ui/Notifications';
-import { ErrorBoundary } from './components/ui/ErrorBoundary';
-import { ConnectionStatus } from './components/testing/ConnectionStatus';
-import { AdminProtectedRoute } from './components/admin/auth/AdminProtectedRoute'; // ✅ Fixed Path
-import Dashboard from './pages/Dashboard'; // ✅ Fixed Path
+import { SupabaseProvider } from './contexts/SupabaseContext.js';
+import { AuthProvider } from './contexts/AuthContext.js';
+import { AppRoutes } from './routes.js';
+import { Notifications } from './components/ui/Notifications.js';
+import { ErrorBoundary } from './components/ui/ErrorBoundary.js';
+import { ConnectionStatus } from './components/testing/ConnectionStatus.js';
+import { AdminProtectedRoute } from './components/admin/auth/AdminProtectedRoute.js'; // ✅ Fixed Path
+import Dashboard from './pages/Dashboard.js'; // ✅ Fixed Path
 // Create a React Query client
 const queryClient = new QueryClient({
     defaultOptions: {

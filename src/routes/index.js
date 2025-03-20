@@ -1,3 +1,4 @@
+import react from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React, { Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';

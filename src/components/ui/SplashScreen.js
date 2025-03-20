@@ -1,3 +1,4 @@
+import react from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';

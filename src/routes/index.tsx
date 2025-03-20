@@ -1,5 +1,5 @@
-import React, { Suspense } from "react.js";
-import { Routes, Route, Navigate } from "react-router-dom.js";
+import React, { Suspense } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner.js";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute.js";
 import "@/index.css"; // 👈 Import global styles

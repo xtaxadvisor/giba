@@ -1,3 +1,4 @@
+import react from 'react';
 import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';

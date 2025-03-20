@@ -1,3 +1,4 @@
+import react from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Search, Filter, MessageSquare, Eye, Tag } from 'lucide-react';

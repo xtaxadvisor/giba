@@ -1,8 +1,4 @@
-
-// ==============================
-// ✅ Authentication Types
-// ==============================
-
+import React from "react";
 import { AppUser } from "@/components/admin/AdminLayout.js";
 
 export interface AuthCredentials {

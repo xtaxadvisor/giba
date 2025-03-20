@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { AIMonitor } from '../../components/ai/AIMonitor';
 import { useAIMonitoring } from '../../hooks/useAIMonitoring';

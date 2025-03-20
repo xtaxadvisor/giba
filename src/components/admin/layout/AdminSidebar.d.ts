@@ -1,4 +1,4 @@
-import MenuItem from '../../ui/Modal'; // Update this path to the correct path if necessary
+import MenuItem from '../../ui/Modal.js'; // Update this path to the correct path if necessary
 interface AdminSidebarProps {
     menuItems: typeof MenuItem[];
     currentPath: string;

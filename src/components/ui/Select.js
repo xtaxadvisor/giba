@@ -1,3 +1,4 @@
+import React from 'react';
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 export function Select({ label, options, error, icon: Icon, onChange, className = '', id, name, ...props }) {
     // Generate a unique ID if none provided
