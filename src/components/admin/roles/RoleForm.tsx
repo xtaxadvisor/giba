@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Input } from '../../ui/Input';
-import { Button } from '../../ui/Button';
+import { Input } from '../../ui/Input.js';
+import { Button } from '../../ui/Button.js';
 
 interface RoleFormProps {
   initialData?: any;

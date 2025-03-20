@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Shield, TrendingUp } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAuth } from '../../contexts/AuthContext';
+import { Button } from '../ui/Button.js';
+import { useAuth } from '../../contexts/AuthContext.js';
 
 interface PortalButtonProps {
   type: 'admin' | 'investor';

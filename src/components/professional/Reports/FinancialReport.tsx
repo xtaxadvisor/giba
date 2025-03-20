@@ -1,7 +1,7 @@
 import React from 'react';
 import { DollarSign, TrendingUp, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { RevenueChart } from '../charts/RevenueChart';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { RevenueChart } from '../charts/RevenueChart.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 interface FinancialReportProps {
   dateRange: string;

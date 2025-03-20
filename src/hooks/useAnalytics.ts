@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { analyticsService } from '../services/api/analytics';
-import { useNotificationStore } from '../lib/store';
-import { AnalyticsMetrics } from '../components/admin/analytics/UserAnalytics';
+import { analyticsService } from '../services/api/analytics.js';
+import { useNotificationStore } from '../lib/store.js';
+import { AnalyticsMetrics } from '../components/admin/analytics/UserAnalytics.js';
 
 export function useAnalytics(timeRange: string): {
   satisfaction: any;

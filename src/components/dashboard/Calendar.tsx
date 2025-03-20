@@ -9,7 +9,7 @@ import {
   Video,
   MapPin
 } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface Event {
   id: string;
@@ -173,4 +173,4 @@ export function Calendar() {
 }
 
 // Import the fetchEvents function from the calendar service
-import { fetchEvents } from '../../services/api/calendar';
+import { fetchEvents } from '../../services/api/calendar.js';

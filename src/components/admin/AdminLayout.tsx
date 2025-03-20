@@ -6,11 +6,11 @@ export interface AuthCredentials {
   email: string;
   password: string;
 }
-export { AdminLayout } from './layout/AdminLayout';
-export { default as AdminLoginForm } from './auth/AdminLoginForm';
-export { AdminProtectedRoute } from './auth/AdminProtectedRoute';
-export { default as AdminDashboard } from './dashboard/AdminDashboard';
-export { TeamManagement } from './team/TeamManagement';
+export { AdminLayout } from './layout/AdminLayout.js';
+export { default as AdminLoginForm } from './auth/AdminLoginForm.js';
+export { AdminProtectedRoute } from './auth/AdminProtectedRoute.js';
+export { default as AdminDashboard } from './dashboard/AdminDashboard.js';
+export { TeamManagement } from './team/TeamManagement.js';
 
 
 export interface RegisterData extends AuthCredentials {
@@ -53,7 +53,7 @@ export interface AppUser {
 // ==============================
 
 import React from "react";
-import { AdminLayout } from "./layout/AdminLayout";
+import { AdminLayout } from "./layout/AdminLayout.js";
 
 export interface MenuItem {
   id: string;                   // Unique identifier

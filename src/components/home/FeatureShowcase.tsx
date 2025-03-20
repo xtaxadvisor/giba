@@ -7,7 +7,7 @@ import {
   MessageSquare,
   ArrowRight 
 } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 export function FeatureShowcase() {
   const [activeFeature, setActiveFeature] = useState(0);

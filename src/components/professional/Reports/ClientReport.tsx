@@ -1,7 +1,7 @@
 import React from "react";
 import { Users, ArrowUpRight } from 'lucide-react';
-import { ClientDistributionChart } from '../charts/ClientDistributionChart';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { ClientDistributionChart } from '../charts/ClientDistributionChart.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 
 interface ClientReportProps {

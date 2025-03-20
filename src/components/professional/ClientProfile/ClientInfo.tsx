@@ -1,11 +1,32 @@
 import React from "react";
 import { Mail, Phone, Building2, Calendar, MapPin, Link } from 'lucide-react';
-import { Client } from '../../../types';
+import { Client } from "@/components/client/index.js";
 
-interface ClientInfoProps {
+/**
+ * @typedef {Object} Client
+ * @property {string} email - The client's email address.
+ * @property {string} phone - The client's phone number.
+ * @property {string} [company] - The client's company name (optional).
+ * @property {string} [address] - The client's address (optional).
+ * @property {string} [website] - The client's website URL (optional).
+ * @property {string} createdAt - The date the client was created.
+ * @property {string} status - The client's status (e.g., "active" or "inactive").
+ * @property {string} [notes] - Additional notes about the client (optional).
+ * @property {Array<{ icon: React.ComponentType<{ className?: string }>, description: string, timestamp: string }>} [recentActivity] - Recent activity of the client (optional).
+ */
+
+/**
+ * @typedef {Object} ClientInfoProps
+ * @property {Client} client - The client object containing all relevant details.
+ */
+export interface ClientInfoProps {
   client: Client;
 }
 
+/**
+ * @param {ClientInfoProps} props
+ * @returns {JSX.Element}
+ */
 export function ClientInfo({ client }: ClientInfoProps) {
   return (
     <div className="space-y-6">
@@ -73,11 +94,11 @@ export function ClientInfo({ client }: ClientInfoProps) {
       <div className="space-y-4">
         <h3 className="text-lg font-medium text-gray-900">Recent Activity</h3>
         <div className="space-y-4">
-          {client.recentActivity?.map((activity: { icon: React.ComponentType<{ className?: string }>; description: string; timestamp: string }, index: number) => (
+          {client.recentActivity?.map((activity, index) => (
             <div key={index} className="flex items-start space-x-3">
               <div className="flex-shrink-0">
                 <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                  <activity.icon className="h-4 w-4 text-blue-600" />
+                  {React.createElement(activity.icon as React.ComponentType<{ className?: string }>, { className: "h-4 w-4 text-blue-600" })}
                 </div>
               </div>
               <div>

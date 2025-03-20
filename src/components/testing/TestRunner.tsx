@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Play, AlertCircle, CheckCircle, Loader } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { connectionTester } from '../../services/testing/ConnectionTester';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../ui/Button.js';
+import { connectionTester } from '../../services/testing/ConnectionTester.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export function TestRunner() {
   const [isRunning, setIsRunning] = useState(false);

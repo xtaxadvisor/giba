@@ -1,7 +1,7 @@
-import { supabase } from '../../lib/supabase';
-import type { Database } from '../../lib/supabase';
+import { supabase } from '../../lib/supabase.js';
+import type { Database } from '../../lib/supabase/types.js'; // Ensure the correct path and type definition
 
-export abstract class BaseService<T extends keyof Database['public']['Tables']> {
+export abstract class BaseService<T extends Extract<keyof Database['public']['Tables'], string>> {
   constructor(protected readonly table: T) {}
 
   protected get tableRef() {

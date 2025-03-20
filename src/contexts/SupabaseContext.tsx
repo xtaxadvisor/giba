@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase/client';
-import { useNotificationStore } from '../lib/store';
+import { supabase } from '../lib/supabase/client.js';
+import { useNotificationStore } from '../lib/store.js';
+import { Session } from '@supabase/supabase-js';
 interface User {
   id: string;
   email: string;
@@ -28,7 +29,7 @@ export function SupabaseProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }: { data: { session: { user: { id: string } } | null } }) => {
       if (session?.user) {
         fetchUserProfile(session.user.id);
       }
@@ -37,7 +38,7 @@ export function SupabaseProvider({ children }: { children: React.ReactNode }) {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_, session) => {
+      async (_: any, session: Session | null) => {
         if (session?.user) {
           await fetchUserProfile(session.user.id);
         } else {

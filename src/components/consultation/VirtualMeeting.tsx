@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Mic, MicOff, Video as VideoIcon, VideoOff, Phone } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface VirtualMeetingProps {
   onEnd: () => void;

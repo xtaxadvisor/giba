@@ -1,7 +1,6 @@
 import React from "react";
-
 import { Bot, X } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 interface AIHeaderProps {
   onClose: () => void;

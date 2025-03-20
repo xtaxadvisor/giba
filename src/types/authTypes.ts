@@ -3,7 +3,7 @@
 // ✅ Authentication Types
 // ==============================
 
-import { AppUser } from "@/components/admin/AdminLayout";
+import { AppUser } from "@/components/admin/AdminLayout.js";
 
 export interface AuthCredentials {
   email: string;
@@ -19,6 +19,14 @@ export interface TimeSlot {
   startTime: string;
   endTime: string;
   available: boolean;
+}
+// Define and export AIMetrics if it doesn't already exist
+export interface AIMetrics {
+  totalInteractions: number;
+  averageResponseTime: number;
+  satisfactionRate: number;
+  topQuestions: Map<string, number>;
+  errorRate: number;
 }
 
 export function useAnalytics(timeRange: string): { metrics: AnalyticsMetrics, revenueData: any, clientGrowth: any, performanceMetrics: any, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> } {

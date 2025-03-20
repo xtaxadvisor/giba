@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, Filter } from 'lucide-react';
-import { Select } from '../../ui/Select';
+import { Select } from '../../ui/Select.js';
 
 interface ReportFiltersProps {
   dateRange: string;

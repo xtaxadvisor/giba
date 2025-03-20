@@ -1,4 +1,4 @@
-import { supabase } from '../supabase/client';
+import supabase from '../supabase/client.js';
 
 export interface SAMLConfig {
   entityId: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { formatDate } from '../../../../utils/date';
+import { formatDate } from '../../../../utils/date.js';
 
 interface TimeSeriesData {
   label: string;

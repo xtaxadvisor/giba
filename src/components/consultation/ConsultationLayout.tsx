@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Calendar, Clock, Video, MessageSquare, Settings, ArrowLeft } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface ConsultationLayoutProps {
   children: React.ReactNode;

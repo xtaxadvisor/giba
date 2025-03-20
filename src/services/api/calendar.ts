@@ -1,7 +1,6 @@
-import { api } from '../api';
-import type { TimeSlot } from '../../types/index';
-import type { CreateEventDTO, UpdateEventDTO } from '../../types/index/dto';
-
+import { api } from '../api.js'
+import type { TimeSlot } from '../../types/index.js';
+import type { CreateEventDTO, UpdateEventDTO } from '../../types/index/dto.js';
 export interface CalendarEvent {
   id: string;
   title: string;

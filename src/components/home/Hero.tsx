@@ -1,9 +1,9 @@
 import React from 'react';
 import { Video } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAuth } from '../../contexts/AuthContext';
+import { Button } from '../ui/Button.js';
+import { useAuth } from '../../contexts/AuthContext.js';
 import { useNavigate } from 'react-router-dom';
-import { AIAssistantWidget } from '../ai/AIAssistantWidget';
+import { AIAssistantWidget } from '../ai/AIAssistantWidget.js';
 
 export function Hero() {
   const navigate = useNavigate();

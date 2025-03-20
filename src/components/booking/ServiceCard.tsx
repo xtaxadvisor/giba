@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Clock, Check } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface ServiceCardProps {
   title: string;

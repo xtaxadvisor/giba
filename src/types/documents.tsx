@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/ui/Button.js";
 import { Download, Eye, Trash2 } from "lucide-react";
 
 const Documents: React.FC = () => {

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabase/supabaseClient"; 
-import type { Thread } from "../types/threads"; // ✅ Ensure correct type import
+import { useState, useEffect } from "react.js";
+import { supabase } from "../lib/supabase/supabaseClient.js"; 
+import type { Thread } from "../types/threads.js"; // ✅ Ensure correct type import
 
 export function useThreads() {
   const [threads, setThreads] = useState<Thread[]>([]);

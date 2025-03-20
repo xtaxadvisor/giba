@@ -1,10 +1,10 @@
 import React from "react";
 import { Users, FileText, Clock, TrendingUp } from "lucide-react";
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { AdminMetrics } from "./AdminMetrics";
-import { RecentActivity } from "./RecentActivity";
-import { SystemStatus } from "./SystemStatus";
-
+import Card from "@/components/ui/Card.js"; // Ensure this is the correct component that supports 'title', 'value', and 'description' props.
+import { AdminMetrics } from "./AdminMetrics.js";
+import { RecentActivity } from "./RecentActivity.js";
+import { SystemStatus } from "./SystemStatus.js";
+// Removed redundant declaration of AdminDashboard
 const AdminDashboard = () => {
   return (
     <div className="space-y-6">
@@ -16,25 +16,16 @@ const AdminDashboard = () => {
       {/* Dashboard Summary Cards */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card
-          icon={Users}
           title="Total Users"
           value="1,234"
           description="24 new this week"
         />
         <Card
-          icon={FileText}
           title="Total Documents"
           value="5,678"
           description="142 pending review"
         />
         <Card
-          icon={Clock}
-          title="Average Response"
-          value="2.5h"
-          description="15% faster than last week"
-        />
-        <Card
-          icon={TrendingUp}
           title="System Health"
           value="98.5%"
           description="All systems operational"

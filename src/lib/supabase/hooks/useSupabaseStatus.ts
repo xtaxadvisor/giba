@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { checkSupabaseConnection, validateSupabaseConfig } from '../connectionChecker';
+import { checkSupabaseConnection, validateSupabaseConfig } from '../connectionChecker.js';
 
 export function useSupabaseStatus() {
   const [status, setStatus] = useState<{

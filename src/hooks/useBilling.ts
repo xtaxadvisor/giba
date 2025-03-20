@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { billingService } from '../services/api/billing';
-import { useNotificationStore } from '../lib/store';
-import type { Invoice, CreateInvoiceDTO, UpdateInvoiceDTO } from '../services/api/billing';
+import { billingService } from '../services/api/billing.js';
+import { useNotificationStore } from '../lib/store.js';
+import type { Invoice, CreateInvoiceDTO, UpdateInvoiceDTO } from '../services/api/billing.js';
 
 export function useBilling() {
   const queryClient = useQueryClient();

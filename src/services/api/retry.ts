@@ -1,22 +1,50 @@
 import axios, { AxiosAdapter } from 'axios';
-import { retryAdapterEnhancer } from 'axios-extensions';
-
-interface Options {
-  retries?: number;
-  retryCondition?: (error: any) => boolean;
-  retryDelay?: (retryCount: number) => number;
-}
-const retryConfig: Options = {
+const retryConfig = {
   retries: 3,
   retryCondition: (error: any) => {
-    // Retry on network errors and 5xx responses
-    return !error.response || (error.response.status >= 500 && error.response.status <= 599);
+    // Retry condition logic
+    return true;
   },
   retryDelay: (retryCount: number) => {
-    // Exponential backoff
-    return Math.min(1000 * Math.pow(2, retryCount - 1), 10000);
-  }
+    // Retry delay logic
+    return retryCount * 1000;
+  },
 };
 
-const enhancedAdapter = retryAdapterEnhancer(axios.defaults.adapter as AxiosAdapter, retryConfig as any); // eslint-disable-line @typescript-eslint/no-explicit-any
-axios.defaults.adapter = enhancedAdapter;
+axios.defaults.adapter = retryAdapter(
+  axios.defaults.adapter as AxiosAdapter,
+  retryConfig
+);
+function retryAdapter(
+  adapter: AxiosAdapter,
+  retryConfig: {
+    retries: number;
+    retryCondition: (error: any) => boolean;
+    retryDelay: (retryCount: number) => number;
+  }
+): AxiosAdapter {
+  return async (config) => {
+    let retries = 0;
+
+    while (retries <= retryConfig.retries) {
+      try {
+        // Attempt the request
+        return await adapter(config);
+      } catch (error) {
+        // Check if the retry condition is met
+        if (retries >= retryConfig.retries || !retryConfig.retryCondition(error)) {
+          throw error;
+        }
+
+        // Wait for the specified delay before retrying
+        const delay = retryConfig.retryDelay(retries + 1);
+        await new Promise((resolve) => setTimeout(resolve, delay));
+
+        retries++;
+      }
+    }
+
+    // If all retries fail, throw the last error
+    throw new Error('Max retries reached');
+  };
+}

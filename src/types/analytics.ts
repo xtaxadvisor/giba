@@ -14,6 +14,14 @@ export type MetricData = {
   previous: number;
   target: number;
 };
+// Define and export AIMetrics if it doesn't already exist
+export interface AIMetrics {
+  totalInteractions: number;
+  averageResponseTime: number;
+  satisfactionRate: number;
+  topQuestions: Map<string, number>;
+  errorRate: number;
+}
 
 export type AnalyticsInsight = {
   type: 'positive' | 'negative' | 'warning';

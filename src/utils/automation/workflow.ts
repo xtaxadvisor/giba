@@ -1,4 +1,4 @@
-import type { Workflow } from '../../types/automation';
+import type { Workflow } from '../../types/automation.js';
 
 export function validateWorkflow(workflow: Workflow): string[] {
   const errors: string[] = [];
@@ -16,11 +16,11 @@ export function validateWorkflow(workflow: Workflow): string[] {
   }
   
   // Validate step connections
-  const stepIds = new Set(workflow.steps.map(step => step.id));
-  workflow.steps.forEach(step => {
-    step.nextSteps.forEach(nextStepId => {
+  const stepIds = new Set(workflow.steps.map((step: { id: string }) => step.id));
+  workflow.steps.forEach((step: { id: string; nextSteps: string[] }) => {
+    step.nextSteps.forEach((nextStepId: string) => {
       if (!stepIds.has(nextStepId)) {
-        errors.push(`Invalid step connection: ${nextStepId} does not exist`);
+      errors.push(`Invalid step connection: ${nextStepId} does not exist`);
       }
     });
   });
@@ -45,8 +45,8 @@ export function findCycles(workflow: Workflow): string[][] {
     visited.add(stepId);
     path.push(stepId);
     
-    const step = workflow.steps.find(s => s.id === stepId);
-    step?.nextSteps.forEach(nextId => dfs(nextId));
+    const step = workflow.steps.find((s: { id: string; nextSteps: string[] }) => s.id === stepId);
+    step?.nextSteps.forEach((nextId: string) => dfs(nextId));
     
     path.pop();
   }

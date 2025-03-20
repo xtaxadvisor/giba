@@ -16,9 +16,9 @@ export function TeamManagement() {
   const { teamMembers = [], isLoading, addTeamMember, updateTeamMember, deleteTeamMember } = useTeamMembers() as unknown as {
     teamMembers: TeamMember[];
     isLoading: boolean;
-    addTeamMember: (data: any) => void;
-    updateTeamMember: (data: any) => void;
-    deleteTeamMember: (id: string) => void;
+    addTeamMember: (data: any) => Promise<void>;
+    updateTeamMember: (data: any) => Promise<void>;
+    deleteTeamMember: (id: string) => Promise<void>;
   };
 
   interface TeamMember {

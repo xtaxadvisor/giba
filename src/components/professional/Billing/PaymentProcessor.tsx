@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { CreditCard, DollarSign, AlertCircle } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
-import { useNotificationStore } from '../../../lib/store';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
+import { useNotificationStore } from '../../../lib/store.js';
 
 interface PaymentProcessorProps {
   amount: number;

@@ -7,8 +7,8 @@ export type TimeSlot = {
   // ✅ Exporting Components from Client Directory
   export { ClientDocuments } from "./ClientDocuments.js";
   export { ClientCommunication } from "./ClientCommunication.js";
-  // export { ClientForm } from "./ClientForm";
-  // export { ClientDashboard } from "./Dashboard/ClientDashboard";
+  // export { ClientForm } from "./ClientForm.js";
+  // export { ClientDashboard } from "./Dashboard/ClientDashboard.js";
   export { ClientLayout } from "./Dashboard/ClientLayout.js";
   import Message from "./Messages.js";
   export { Message };

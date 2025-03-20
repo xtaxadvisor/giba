@@ -1,16 +1,16 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import { ThumbsUp, MessageSquare, Share2, Flag } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { useThreads } from "@/components/forum/useThreads";
-import { LoadingSpinner } from '../ui/LoadingSpinner';
-import { formatTimeAgo } from '../../utils/date';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { useThreads } from "@/components/forum/useThreads.js";
+import { LoadingSpinner } from '../ui/LoadingSpinner.js';
+import { formatTimeAgo } from '../../utils/date.js';
 
 export function ThreadDetail() {
   const { threadId } = useParams<{ threadId: string }>();
   const { threads, isLoading } = useThreads();
-  const thread = threads.find(t => t.id === Number(threadId));
+  const thread = threads.find((t: { id: number }) => t.id === Number(threadId));
   const replies: any[] = thread && Array.isArray(thread.replies) ? thread.replies : [];
 
   if (isLoading) {

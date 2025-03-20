@@ -1,15 +1,13 @@
-"use strict";
-`` `typescript
-
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
-interface AIFeedbackProps {
-  onFeedback: (isPositive: boolean) => void;
-  disabled?: boolean;
-}
+/**
+ * @typedef {Object} AIFeedbackProps
+ * @property {(isPositive: boolean) => void} onFeedback - Callback for feedback.
+ * @property {boolean} [disabled] - Whether the buttons are disabled.
+ */
 
-export function AIFeedback({ onFeedback, disabled }: AIFeedbackProps) {
+export function AIFeedback({ onFeedback, disabled }) {
   return (
     <div className="flex items-center space-x-2">
       <Button
@@ -33,4 +31,4 @@ export function AIFeedback({ onFeedback, disabled }: AIFeedbackProps) {
     </div>
   );
 }
-` ``;
+

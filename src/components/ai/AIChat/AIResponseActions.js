@@ -1,15 +1,17 @@
-"use strict";
-`` `typescript
-
 import { Copy, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { Button } from '../../ui/Button';
 
-interface AIResponseActionsProps {
-  onCopy: () => void;
-  onFeedback: (isPositive: boolean) => void;
-}
+/**
+ * @typedef {Object} AIResponseActionsProps
+ * @property {() => void} onCopy - Callback function for the copy action.
+ * @property {(isPositive: boolean) => void} onFeedback - Callback function for feedback (positive or negative).
+ */
 
-export function AIResponseActions({ onCopy, onFeedback }: AIResponseActionsProps) {
+/**
+ * @param {AIResponseActionsProps} props
+ * @returns {JSX.Element}
+ */
+export function AIResponseActions({ onCopy, onFeedback }) {
   return (
     <div className="flex items-center space-x-2 mt-2">
       <Button
@@ -40,4 +42,3 @@ export function AIResponseActions({ onCopy, onFeedback }: AIResponseActionsProps
     </div>
   );
 }
-` ``;

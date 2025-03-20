@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import { Video, Calendar, Clock, FileText, MessageSquare } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useConsultation } from '../../hooks/useConsultation';
-import { LoadingSpinner } from '../ui/LoadingSpinner';
+import { Button } from '../ui/Button.js';
+import { useConsultation } from '../../hooks/useConsultation.js';
+import { LoadingSpinner } from '../ui/LoadingSpinner.js';
 
 export function ConsultationDetail() {
   const { consultationId } = useParams();

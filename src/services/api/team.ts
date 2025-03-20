@@ -1,5 +1,5 @@
-import { api } from '../api';
-import type { TeamMember } from '../../types/team';
+import { api } from '../api.js';
+import type { TeamMember } from '../../types/team.js';
 
 export interface CreateTeamMemberDTO {
   name: string;

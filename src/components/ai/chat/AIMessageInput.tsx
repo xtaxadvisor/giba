@@ -1,7 +1,7 @@
 import React, { useState } from "react";  // ✅ Correct Import
 import { Send } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
 
 interface AIMessageInputProps {
   onSend: (message: string) => void;

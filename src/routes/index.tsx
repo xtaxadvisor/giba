@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import React, { Suspense } from "react.js";
+import { Routes, Route, Navigate } from "react-router-dom.js";
+import { LoadingSpinner } from "@/components/ui/LoadingSpinner.js";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute.js";
 import "@/index.css"; // 👈 Import global styles
 
 // Eagerly load critical components
-import Home from "@/pages/Home";
-import { ForgotPasswordForm } from "@/components/auth/ForgotPasswordForm";
-import { ResetPasswordForm } from "@/components/auth/ResetPasswordForm";
+import Home from "@/pages/Home.js";
+import { ForgotPasswordForm } from "@/components/auth/ForgotPasswordForm.js";
+import { ResetPasswordForm } from "@/components/auth/ResetPasswordForm.js";
 
 // Lazy load other components
 const LoginPage = React.lazy(() => import("@/pages/LoginPage"));

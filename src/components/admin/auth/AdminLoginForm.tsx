@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Shield, Lock, User, Key } from 'lucide-react';
-import { Input } from '../../ui/Input';
-import { Button } from '../../ui/Button';
-import { useNotificationStore } from '../../../lib/store';
-import { adminAuthService } from '../../../services/auth/adminAuth';
-import { isStrongPassword } from '../../../utils/crypto';
+import { Input } from '../../ui/Input.js';
+import { Button } from '../../ui/Button.js';
+import { useNotificationStore } from '../../../lib/store.js';
+import { adminAuthService } from '../../../services/auth/adminAuth.js';
+import { isStrongPassword } from '../../../utils/crypto.js';
 // Your existing code here
 
 const AdminLoginForm = () => {

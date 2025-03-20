@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Plus, Clock, Users, Video, MapPin } from 'lucide-react';
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday } from 'date-fns';
-import { Button } from '../../ui/Button';
-import EventModal from "@/components/eventModal";
-import { EventDetails } from "@/components/ui/EventDetails"; // ✅ Correct absolute path
-import { useCalendar } from '../../../hooks/useCalendar';
+import { Button } from '../../ui/Button.js';
+import EventModal from "@/components/eventModal.js";
+import { EventDetails } from "@/components/ui/EventDetails.js"; // ✅ Correct absolute path
+import { useCalendar } from '../../../hooks/useCalendar.js';
 export function CalendarView() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);

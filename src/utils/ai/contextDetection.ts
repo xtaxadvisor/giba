@@ -1,7 +1,15 @@
-```typescript
-import type { AIContext } from '../../types/ai';
+/**
+ * @typedef {'tax' | 'financial' | 'service' | 'general'} AIContext
+ */
+type AIContext = 'tax' | 'financial' | 'service' | 'general';
 
-export function detectContext(input: string): AIContext {
+/**
+ * Detects the context of the input string based on predefined keywords.
+ *
+ * @param {string} input - The user input string.
+ * @returns {AIContext} - The detected context ('tax', 'financial', 'service', or 'general').
+ */
+export function detectContext(input: string) {
   const taxKeywords = ['tax', 'deduction', 'filing', 'irs', 'return'];
   const financialKeywords = ['invest', 'budget', 'savings', 'retirement', 'portfolio'];
   const serviceKeywords = ['service', 'consultation', 'appointment', 'schedule', 'meeting'];
@@ -21,7 +29,13 @@ export function detectContext(input: string): AIContext {
   return 'general';
 }
 
-export function getContextualSuggestions(context: AIContext): string[] {
+/**
+ * Provides contextual suggestions based on the detected context.
+ *
+ * @param {AIContext} context - The detected context.
+ * @returns {string[]} - An array of suggestions relevant to the context.
+ */
+export function getContextualSuggestions(context: AIContext) {
   const suggestions: Record<AIContext, string[]> = {
     tax: [
       'What tax deductions can I claim?',
@@ -47,4 +61,3 @@ export function getContextualSuggestions(context: AIContext): string[] {
 
   return suggestions[context] || suggestions.general;
 }
-```

@@ -1,5 +1,5 @@
-import { useNotificationStore } from '../../lib/store';
-import { createSecureHash } from '../../utils/crypto';
+import { useNotificationStore } from '../../lib/store.js'
+import { createSecureHash } from '../../utils/crypto.js';
 
 // Temporary credentials - ONLY FOR DEVELOPMENT
 const TEMP_CREDENTIALS = {

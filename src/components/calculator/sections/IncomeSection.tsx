@@ -1,7 +1,7 @@
 import React from "react";
 import { DollarSign } from 'lucide-react';
-import { Input } from '../../ui/Input';
-import { formatCurrency } from '../../../utils/format';
+import { Input } from '../../ui/Input.js';
+import { formatCurrency } from '../../../utils/format.js';
 
 interface IncomeSectionProps {
   values: {

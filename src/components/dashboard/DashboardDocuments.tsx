@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FileText, Upload, Download, Trash2, Search, Filter, Eye } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button.js";
 
 interface Document {
   id: string;

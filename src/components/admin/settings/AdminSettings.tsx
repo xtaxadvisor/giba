@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from 'react';
 import { Save, Bell, Shield, Database, Globe } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
-import { Select } from '../../ui/Select';
-import { useSettings } from '../../../hooks/useSettings';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
+import { Select } from '../../ui/Select.js';
+import { useSettings } from '../../../hooks/useSettings.js';
 
 type NotificationSettings = {
   userRegistration: boolean;
@@ -12,8 +12,25 @@ type NotificationSettings = {
   securityAlerts: boolean;
 };
 
+type Settings = {
+  general?: {
+    siteName?: string;
+    supportEmail?: string;
+    defaultLanguage?: string;
+  };
+  security?: {
+    require2FA?: boolean;
+    sessionTimeout?: number;
+  };
+  notifications?: NotificationSettings;
+  database?: {
+    backupSchedule?: string;
+    retentionPeriod?: number;
+  };
+};
+
 export function AdminSettings() {
-  const { settings, isLoading } = useSettings();
+  const { settings, isLoading } = useSettings() as { settings: Settings; isLoading: boolean };
   const [activeSection, setActiveSection] = useState('general');
 
   const sections = [

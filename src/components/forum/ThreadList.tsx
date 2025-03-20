@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, ThumbsUp, Clock, Tag } from "lucide-react";
-import { useThreads } from "@/components/forum/useThreads";
-import { LoadingSpinner } from "../ui/LoadingSpinner";
-import { formatTimeAgo } from "../../utils/date";
+import { useThreads } from "@/components/forum/useThreads.js";
+import { LoadingSpinner } from "../ui/LoadingSpinner.js";
+import { formatTimeAgo } from "../../utils/date.js";
 
 interface Thread {
   id: string; // ✅ Ensure `id` is always a string

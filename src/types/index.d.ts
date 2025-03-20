@@ -28,4 +28,4 @@ export type ApiResponse<T> = {
     data: T;
     error?: string;
 };
-export * from "./client";
+export * from "./client.js";

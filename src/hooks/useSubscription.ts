@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { subscriptionService } from '../services/api/subscription';
-import { useNotificationStore } from '../lib/store';
+import { subscriptionService } from '../services/api/subscription.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useSubscription() {
   const queryClient = useQueryClient();

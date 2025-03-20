@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
-import { calculateTrend } from '../../../../utils/analytics/trends';
+import { calculateTrend } from '../../../../utils/analytics/trends.js';
 // import type { PerformanceData } from '../../../../utils/analytics/trends';
 
 export function RevenueChart({ data }: { data: any }) {

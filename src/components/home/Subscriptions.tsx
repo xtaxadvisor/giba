@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, ArrowRight } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAuth } from '../../contexts/AuthContext';
+import { Button } from '../ui/Button.js';
+import { useAuth } from '../../contexts/AuthContext.js';
 
 const plans = [
   {

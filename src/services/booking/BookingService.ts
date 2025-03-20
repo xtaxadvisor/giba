@@ -1,8 +1,8 @@
-import { supabase } from '../../lib/supabase';
-import { awsEmailService } from '../email/awsEmail';
-import { authorizeNetService } from '../payment/authorizeNet';
-import { useNotificationStore } from '../../lib/store';
-import type { TimeSlot } from '../../types';
+import { supabase } from '../../lib/supabase.js';
+import { awsEmailService } from '../email/awsEmail.js';
+import { authorizeNetService } from '../payment/authorizeNet.js';
+import { useNotificationStore } from '../../lib/store.js';
+import type { TimeSlot } from "@/types/supabaseTypes.js";
 
 export class BookingService {
   private static instance: BookingService;
@@ -47,7 +47,7 @@ export class BookingService {
           slots.push({
             startTime: startTime.toISOString(),
             endTime: endTime.toISOString(),
-            available: !isBooked,
+            available: !isBooked
           });
         }
       }

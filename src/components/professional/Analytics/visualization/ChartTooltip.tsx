@@ -1,4 +1,4 @@
-import { formatNumber } from '../../../../utils/format';
+import { formatNumber } from '../../../../utils/format.js';
 
 interface ChartTooltipProps {
   active?: boolean;

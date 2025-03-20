@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, ArrowLeft } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { supabase } from '../../lib/supabase/client';
-import { useNotificationStore } from '../../lib/store';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { supabase } from '../../lib/supabase/client.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export function ForgotPasswordForm() {
   const [email, setEmail] = useState('');

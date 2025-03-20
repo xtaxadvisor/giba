@@ -1,4 +1,4 @@
-import type { Database } from '../../lib/supabase';
+import type { Database } from '../../lib/supabase/supabaseClient.ts';
 export declare abstract class BaseService<T extends keyof Database['public']['Tables']> {
     protected readonly table: T;
     constructor(table: T);

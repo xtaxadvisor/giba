@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { analyticsService } from '../../../services/api/analytics';
+import { analyticsService } from '../../../services/api/analytics.js';
 
 export function useAdminMetrics() {
   const { data: metrics, isLoading } = useQuery({

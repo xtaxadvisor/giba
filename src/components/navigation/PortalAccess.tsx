@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
-import { useNotificationStore } from '../../lib/store';
-import { Button } from '../../components/ui/Button';
-import { PORTAL_CONFIGS } from '../../services/navigation/portalConfig';
+import { useAuth } from '@/contexts/AuthContext.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { Button } from '../../components/ui/Button.js';
+import { PORTAL_CONFIGS } from '../../services/navigation/portalConfig.js';
 import type { LucideIcon } from 'lucide-react';
 
 // ✅ Define Props Interface for PortalButton

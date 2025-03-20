@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { aiManager } from '../services/ai/AIManager';
-import type { AIMessage } from '../types/ai';
+import { aiManager } from '../services/ai/AIManager.js';
+import type { AIMessage } from '../types/ai.js';
 
 export function useAIMonitoring() {
   const [metrics, setMetrics] = useState(aiManager.getMetrics());

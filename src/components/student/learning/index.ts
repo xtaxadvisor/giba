@@ -1,3 +1,3 @@
-export * from './TaxCalculationBasics';
-export * from './FinancialStatementAnalysis';
-export * from './AdvancedTaxPlanning';
+export * from './TaxCalculationBasics.js';
+export * from './FinancialStatementAnalysis.js';
+export * from './AdvancedTaxPlanning.js';

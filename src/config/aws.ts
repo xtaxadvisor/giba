@@ -1,4 +1,4 @@
-import { useNotificationStore } from '../lib/store';
+import { useNotificationStore } from '../lib/store.js';
 
 export const AWS_CONFIG = {
   region: 'us-east-1',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { MessageSquare, TrendingUp, Tag, Users, Settings, ArrowLeft, Plus } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface ForumLayoutProps {
   children: React.ReactNode;

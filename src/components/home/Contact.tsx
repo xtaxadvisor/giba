@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { Form } from '../ui/Form';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
+import { Form } from '../ui/Form.js';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
 
 export function Contact() {
   const handleSubmit = (data: Record<string, string>) => {

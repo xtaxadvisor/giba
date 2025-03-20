@@ -1,8 +1,6 @@
 import React from "react";
-```typescript
-
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 interface AIFeedbackProps {
   onFeedback: (isPositive: boolean) => void;
@@ -33,4 +31,3 @@ export function AIFeedback({ onFeedback, disabled }: AIFeedbackProps) {
     </div>
   );
 }
-```

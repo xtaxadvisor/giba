@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase/client';
-import { useNotificationStore } from '../lib/store';
+import { supabase } from '../lib/supabase/client.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useAuthStatus() {
   const [status, setStatus] = useState({

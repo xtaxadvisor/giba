@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 import { TrendingUp, CreditCard, AlertCircle } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { BarChart } from '../charts/BarChart';
-import { formatCurrency } from '../../../utils/format';
-import { useAnalytics } from '../../../hooks/useAnalytics';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import { BarChart } from '../charts/BarChart.js';
+import { formatCurrency } from '../../../utils/format.js';
+import { useAnalytics } from '../../../hooks/useAnalytics.js';
 
 
 export function RevenueAnalytics() {

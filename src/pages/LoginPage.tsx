@@ -1,7 +1,7 @@
-import { User } from "lucide-react";
-import React from "react";
-import { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { User } from "lucide-react.js";
+import React from "react.js";
+import { createContext, useContext, useState, useEffect } from "react.js";
+import { useNavigate } from "react-router-dom.js";
 
 
 // Define types for our context

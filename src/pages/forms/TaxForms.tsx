@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components/ui/Button';
+import { Button } from '../../components/ui/Button.js';
 
 export default function TaxForms() {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
-import { supabase } from '../../lib/supabase/client';
-import type { Database } from '../../lib/supabase/types';
+import supabase from '../../lib/supabase/client.js';
+import type { Database } from '../../lib/supabase/types.js';
 
 type Tables = Database['public']['Tables'];
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import { ServiceCard } from '../booking/ServiceCard';
-import { BookingModal } from '../booking/BookingModal';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { ServiceCard } from '../booking/ServiceCard.js';
+import { BookingModal } from '../booking/BookingModal.js';
 import { Calculator } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 export function Services() {
   const navigate = useNavigate();

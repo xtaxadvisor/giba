@@ -1,7 +1,16 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { Calendar as CalendarIcon } from "lucide-react";
-export function Calendar() {
+// Updated Calendar.js code to include the 'icon' prop
+// Add the 'icon' prop to the CalendarProps type
+/**
+ * @typedef {Object} CalendarProps
+ * @property {React.ComponentType} icon - The icon component.
+ * @property {string} title - The title of the calendar.
+ * @property {string} value - The value of the calendar.
+ * @property {string} description - The description of the calendar.
+ */
+  export function Calendar() {
     // Example events
     const [events] = useState([
         { id: 1, title: "Tax Filing Deadline", date: "2024-03-15" },

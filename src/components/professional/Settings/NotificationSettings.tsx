@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Bell, Mail, MessageSquare, Calendar } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
+import { Button } from '../../ui/Button.js';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
 
 interface NotificationSettingsProps {
   settings: any;

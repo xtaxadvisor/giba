@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { messageService } from '../services/api/message';
-import { useNotificationStore } from '../lib/store';
-import { Button } from '@chakra-ui/react'; // Replace '@chakra-ui/react' with the actual library you are using
+import { messageService } from '../services/api/message.js';
+import { useNotificationStore } from '../lib/store.js';
+// import { Button } from '@chakra-ui/react'; // Removed as it is not exported or used
 
 export function useMessages() {
   const queryClient = useQueryClient();

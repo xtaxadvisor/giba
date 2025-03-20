@@ -1,5 +1,5 @@
 import React from "react";
-import { HealthMetric } from '../../../../types/client';
+import { HealthMetric } from '../../../../types/client.js';
 
 interface HealthScoreProps {
   score: number;

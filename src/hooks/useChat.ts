@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useNotificationStore } from '../lib/store';
-import { socketService } from '../services/socket';
-import { chatService } from '../services/api/chat';
-import type { ChatMessage } from '../services/api/chat';
+import { useNotificationStore } from '../lib/store.js';
+import { socketService } from '../services/socket.js';
+import { chatService } from '../services/api/chat.js';
+import type { ChatMessage } from '../services/api/chat.js';
 
 export function useChat(consultationId: string) {
   const queryClient = useQueryClient();
@@ -66,7 +66,7 @@ export function useChat(consultationId: string) {
       queryClient.setQueryData<ChatMessage[]>(
         ['chat-messages', consultationId],
         (old = []) => old.map(msg =>
-          msg.id === response.id ? response : msg
+          msg.id === (response as ChatMessage).id ? (response as ChatMessage) : msg
         )
       );
     }

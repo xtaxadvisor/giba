@@ -1,5 +1,4 @@
 import React from "react";
-
 import { AIMessageList } from './AIMessageList.js';
 import { AIMessageInput } from './AIMessageInput.js';
 import { AIWelcomeMessage } from '../AIWelcomeMessage.js';

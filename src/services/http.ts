@@ -1,4 +1,4 @@
-import { useNotificationStore } from '../lib/store';
+import { useNotificationStore } from '../lib/store.js';
 
 interface RequestConfig extends RequestInit {
   params?: Record<string, string>;

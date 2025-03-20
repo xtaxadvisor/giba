@@ -1,6 +1,6 @@
 import React from "react";
-import { BarChart } from '../charts/BarChart';
-import { LineChart } from '../charts/LineChart';
+import { BarChart } from '../charts/BarChart.js';
+import { LineChart } from '../charts/LineChart.js';
 
 export function AdminMetrics() {
   return (

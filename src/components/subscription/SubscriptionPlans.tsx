@@ -1,6 +1,6 @@
 import { Check, ArrowRight } from 'lucide-react';
-import { Button } from '../ui/Button';
-import type { SubscriptionPlan } from '../../types/subscription';
+import { Button } from '../ui/Button.js';
+import type { SubscriptionPlan } from '../../types/subscription.js';
 
 interface SubscriptionPlansProps {
   plans: SubscriptionPlan[];

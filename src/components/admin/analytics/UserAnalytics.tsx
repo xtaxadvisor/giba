@@ -1,8 +1,8 @@
 import React from "react";
 import { Users, UserPlus, Activity } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { LineChart } from '../charts/LineChart';
-import { useAnalytics } from '../../../hooks/useAnalytics';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import { LineChart } from '../charts/LineChart.js';
+import { useAnalytics } from '../../../hooks/useAnalytics.js';
 
 export interface AnalyticsMetrics {
   satisfaction: any;

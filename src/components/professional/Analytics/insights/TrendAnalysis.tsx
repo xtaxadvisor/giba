@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
-import { formatPercentage } from '../../../../utils/analytics/metrics';
+import { formatPercentage } from '../../../../utils/analytics/metrics.js';
 
 interface TrendData {
   metric: string;

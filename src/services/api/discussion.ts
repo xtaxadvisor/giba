@@ -1,6 +1,6 @@
-import { db } from '../../lib/firebase';
+import { db } from '../../lib/firebase.js';
 import { collection, query, where, orderBy, getDocs, addDoc, updateDoc, deleteDoc, doc, QueryDocumentSnapshot } from 'firebase/firestore';
-import type { Thread, ThreadFilters } from '../../types/discussion';
+import type { Thread, ThreadFilters } from '../../types/discussion.js';
 
 export const discussionService = {
   async getThreads(filters?: ThreadFilters) {

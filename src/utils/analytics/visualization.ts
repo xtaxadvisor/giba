@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import type { ChartDataset } from 'chart.js';
-import type { TimeSeriesData } from '../../types/analytics';
+import type { TimeSeriesData } from '../../types/analytics.js';
 
 export function prepareTimeSeriesData(
   data: TimeSeriesData[],

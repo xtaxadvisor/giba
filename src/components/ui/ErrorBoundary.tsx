@@ -1,6 +1,6 @@
 import React from "react";
 import { Component, ErrorInfo, ReactNode } from 'react';
-import { useNotificationStore } from '../../lib/store';
+import { useNotificationStore } from '../../lib/store.js';
 
 interface Props {
   children: ReactNode;

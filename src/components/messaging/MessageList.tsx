@@ -6,7 +6,7 @@ import { messageService, Message, MessageThread } from '@/services/api/message.j
 import { Button } from "../ui/Button.js";
 import { Download, Eye, Trash2 } from "lucide-react";
 
-export function MessageList() {
+export function MessageList(): JSX.Element {
   const { messages, isLoading } = useMessages() as { messages: MessageThread[] | undefined, isLoading: boolean };
 
   if (isLoading) {

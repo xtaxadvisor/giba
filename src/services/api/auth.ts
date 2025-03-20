@@ -1,6 +1,6 @@
-import { supabase } from '../../lib/supabase/client';
-import { useNotificationStore } from '../../lib/store';
-import type { User } from '../../types';
+import supabase from '../../lib/supabase/client.js';
+import { useNotificationStore } from '../../lib/store.js';
+import type { User } from '../../types/authTypes.ts';
 
 export const authService = {
   async signIn(email: string, password: string) {

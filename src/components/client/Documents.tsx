@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button.js";
 import { Download, Eye, Trash2, Upload } from "lucide-react";
 
 interface Document {

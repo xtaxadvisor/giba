@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { MessageSquare, ThumbsUp, Clock, Tag } from 'lucide-react';
-import type { Thread } from '../../types/discussion';
-import { formatTimeAgo, formatDateTime } from '../../utils/date';
+import type { Thread } from '../../types/discussion.ts';
+import { formatTimeAgo, formatDateTime } from '../../utils/date.js';
 
 interface ThreadListProps {
   threads: Thread[];
@@ -60,7 +60,7 @@ export function ThreadList({ threads, isLoading }: ThreadListProps) {
               {thread.likes}
             </div>
             <div className="flex items-center space-x-2">
-              {thread.tags.map((tag) => (
+                {thread.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800"
@@ -68,7 +68,7 @@ export function ThreadList({ threads, isLoading }: ThreadListProps) {
                   <Tag className="h-3 w-3 mr-1" />
                   {tag}
                 </span>
-              ))}
+                ))}
             </div>
           </div>
 

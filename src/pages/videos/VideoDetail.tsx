@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Play, Clock, Tag, User } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
-import { VideoAnalysis } from '../../components/ai/VideoAnalysis';
-import { videoClasses } from '../../data/videoData';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../../components/ui/Button.js';
+import { VideoAnalysis } from '../../components/ai/VideoAnalysis.js';
+import { videoClasses } from '../../data/videoData.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export default function VideoDetail() {
   const { videoId } = useParams();

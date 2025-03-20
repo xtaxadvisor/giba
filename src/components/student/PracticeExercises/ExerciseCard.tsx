@@ -1,15 +1,24 @@
 import React from 'react';
 import { BookOpen, Award, Clock } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import type { Exercise } from '../../../types/student';
+import { Button } from '../../ui/Button.js';
+import type { Exercise } from '../../../types/student.js';
+
+interface LocalExercise {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  duration: string;
+  points: number;
+}
 
 interface ExerciseCardProps {
-  exercise: Exercise;
+  exercise: LocalExercise;
   onStart: (id: string) => void;
 }
 
 export function ExerciseCard({ exercise, onStart }: ExerciseCardProps) {
-  const getDifficultyStyle = (difficulty: string) => {
+  const getDifficultyStyle = (difficulty: string): string => {
     switch (difficulty) {
       case 'beginner':
         return 'bg-green-100 text-green-800';

@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { clientService } from '../services/api/client';
+import { clientService } from '../services/api/client.js';
+
 
 const queryClient = useQueryClient();
 

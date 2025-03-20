@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Bell, Users, CreditCard, Lock, Building } from 'lucide-react';
-import { useSettings } from '../../../hooks/useSettings';
-import ProfileSettings from "./ProfileSettings";
-import BillingSettings from "./BillingSettings";
-import { NotificationSettings } from "./NotificationSettings";
-import TeamSettings from "./TeamSettings";
-import SecuritySettings from "./SecuritySettings";
+import { useSettings } from '../../../hooks/useSettings.js';
+import ProfileSettings from "./ProfileSettings.js";
+import BillingSettings from "./BillingSettings.js";
+import { NotificationSettings } from "./NotificationSettings.js";
+import TeamSettings from "./TeamSettings.js";
+import SecuritySettings from "./SecuritySettings.js";
 
 export function ProfessionalSettings() {
   const [activeSection, setActiveSection] = useState('profile');

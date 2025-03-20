@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from '../../ui/Select';
+import { Select } from '../../ui/Select.js';
 
 interface FilingStatusSectionProps {
   value: string;

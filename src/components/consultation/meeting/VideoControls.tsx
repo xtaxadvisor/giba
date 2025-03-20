@@ -1,6 +1,6 @@
 import React from "react";
 import { Mic, MicOff, Video, VideoOff, Phone } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 interface VideoControlsProps {
   isMuted: boolean;

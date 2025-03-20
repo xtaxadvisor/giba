@@ -40,5 +40,5 @@ export interface MenuItem {
   };
   
   // ✅ Export Everything from This File
-  export * from "./client"; // If you have client-specific types
-  //   export * from "./auth"; // If you have authentication-related types
+  export * from "./client.js"; // If you have client-specific types
+  //   export * from "./auth.js"; // If you have authentication-related types

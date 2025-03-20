@@ -1,28 +1,20 @@
-"use strict";
-`` `typescript
-interface StorageItem {
-  value: any;
-  timestamp: number;
-  expiry?: number;
-}
-
 class AIStorage {
-  private static instance: AIStorage;
-  private storage: Map<string, StorageItem>;
-  private readonly DEFAULT_EXPIRY = 24 * 60 * 60 * 1000; // 24 hours
+  static instance;
+  storage;
+  DEFAULT_EXPIRY = 24 * 60 * 60 * 1000; // 24 hours
 
-  private constructor() {
+  constructor() {
     this.storage = new Map();
   }
 
-  public static getInstance(): AIStorage {
+  static getInstance() {
     if (!AIStorage.instance) {
       AIStorage.instance = new AIStorage();
     }
     return AIStorage.instance;
   }
 
-  public set(key: string, value: any, expiry?: number): void {
+  set(key, value, expiry) {
     this.storage.set(key, {
       value,
       timestamp: Date.now(),
@@ -30,7 +22,7 @@ class AIStorage {
     });
   }
 
-  public get<T>(key: string): T | null {
+  get(key) {
     const item = this.storage.get(key);
     
     if (!item) return null;
@@ -40,18 +32,18 @@ class AIStorage {
       return null;
     }
     
-    return item.value as T;
+    return item.value;
   }
 
-  public delete(key: string): void {
+  delete(key) {
     this.storage.delete(key);
   }
 
-  public clear(): void {
+  clear() {
     this.storage.clear();
   }
 
-  public cleanup(): void {
+  cleanup() {
     const now = Date.now();
     for (const [key, item] of this.storage.entries()) {
       if (now - item.timestamp > (item.expiry || this.DEFAULT_EXPIRY)) {
@@ -62,4 +54,3 @@ class AIStorage {
 }
 
 export const aiStorage = AIStorage.getInstance();
-` ``;

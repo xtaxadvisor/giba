@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, BookOpen, Video, FileText, CheckCircle } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 export function AdvancedTaxPlanning() {
   const sections = [

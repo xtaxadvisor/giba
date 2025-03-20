@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import type { TeamMember } from '../../types/team';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import type { TeamMember } from '../../types/team.js';
 
 interface TeamMemberFormProps {
   initialData?: Partial<TeamMember>;

@@ -1,5 +1,5 @@
 import type { AuthError } from '@supabase/supabase-js';
-import { useNotificationStore } from '../../lib/store';
+import { useNotificationStore } from '../../lib/store.js';
 
 export function handleAuthError(error: AuthError, ApiError: any): string {
   // Map specific error codes to user-friendly messages

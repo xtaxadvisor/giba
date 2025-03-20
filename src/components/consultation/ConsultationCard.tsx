@@ -1,9 +1,9 @@
 import React from "react";
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { formatDate, formatTime } from '../../utils/date';
+import { Button } from '../ui/Button.js';
+import { formatDate, formatTime } from '../../utils/date.js';
 import { useNavigate } from 'react-router-dom';
-import type { Consultation } from '../../services/api/consultation';
+import type { Consultation } from '../../services/api/consultation.js';
 
 interface ConsultationCardProps {
   consultation: Consultation;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Paperclip } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
 
 interface MessageInputProps {
   onSendMessage: (content: string, attachments?: File[]) => void;

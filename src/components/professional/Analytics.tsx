@@ -7,10 +7,10 @@ import {
   ArrowUpRight,
   ArrowDownRight,
 } from "lucide-react";
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
-import { LineChart } from "./charts/LineChart";
-import { BarChart } from "./charts/BarChart";
-import { useAnalytics } from "../../hooks/useAnalytics";
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+import { LineChart } from "./charts/LineChart.js";
+import { BarChart } from "./charts/BarChart.js";
+import { useAnalytics } from "../../hooks/useAnalytics.js";
 import { LucideIcon } from "lucide-react";
 
 // Corrected: Single definition for `CardProps`

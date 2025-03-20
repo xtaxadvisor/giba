@@ -1,6 +1,5 @@
-export { AIAssistant } from './AIAssistant';
-export { AIAssistantWidget } from './AIAssistantWidget';
-export { AIWelcomeMessage } from './AIWelcomeMessage';
-export { AISuggestions } from './AISuggestions';
-export { AITypingIndicator } from './AITypingIndicator';
-export * from './chat';
+export { AIAssistant } from './AIAssistant.js';
+export { AIAssistantWidget } from './AIAssistantWidget.js';
+export { AIWelcomeMessage } from './AIWelcomeMessage.js';
+export { AISuggestions } from './AISuggestions.js';
+export { AITypingIndicator } from './AITypingIndicator.js';

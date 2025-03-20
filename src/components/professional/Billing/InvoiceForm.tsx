@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
-import { Input } from '../../ui/Input';
-import { Button } from '../../ui/Button';
-import { Select } from '../../ui/Select';
+import { Input } from '../../ui/Input.js';
+import { Button } from '../../ui/Button.js';
+import { Select } from '../../ui/Select.js';
 
 interface InvoiceFormProps {
   onSubmit: (data: any) => void;
@@ -73,7 +73,7 @@ export function InvoiceForm({ onSubmit, onCancel }: InvoiceFormProps) {
         <Input
           label="Client Name"
           value={formData.clientName}
-          onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
+          onChange={(e: { target: { value: any; }; }) => setFormData({ ...formData, clientName: e.target.value })}
           required
         />
         <Input

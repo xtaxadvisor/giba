@@ -10,8 +10,8 @@ import {
   FileCode,
   Globe,
 } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../../components/ui/Button.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 interface Service {
   title: string;

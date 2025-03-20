@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '../ui/Modal';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { useNotificationStore } from '../../lib/store';
-import type { SubscriptionPlan } from '../../types/subscription';
+import Modal from '../ui/Modal.js';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { useNotificationStore } from '../../lib/store.js';
+import type { SubscriptionPlan } from '../../types/subscription.js';
 
 interface SubscriptionModalProps {
   isOpen: boolean;

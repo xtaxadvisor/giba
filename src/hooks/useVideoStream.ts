@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useNotificationStore } from '../lib/store';
-import { socketService } from '../services/socket';
+import { useNotificationStore } from '../lib/store.js';
+import { socketService } from '../services/socket.js';
 
 export function useVideoStream(consultationId: string) {
   const videoRef = useRef<HTMLVideoElement>(null);

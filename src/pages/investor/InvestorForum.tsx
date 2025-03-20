@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Search, Filter, MessageSquare, Eye, Tag } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { Select } from '../../components/ui/Select';
-import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
-import { useInvestmentForum } from '../../hooks/useInvestmentForum';
-import { formatTimeAgo } from '../../utils/date';
+import { Button } from '../../components/ui/Button.js';
+import { Input } from '../../components/ui/Input.js';
+import { Select } from '../../components/ui/Select.js';
+import { LoadingSpinner } from '../../components/ui/LoadingSpinner.js';
+import { useInvestmentForum } from '../../hooks/useInvestmentForum.js';
+import { formatTimeAgo } from '../../utils/date.js';
 
 export default function InvestorForum() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,7 +63,7 @@ export default function InvestorForum() {
 
       <div className="bg-white rounded-lg shadow">
         <div className="divide-y divide-gray-200">
-          {filteredThreads?.map((thread) => (
+          {filteredThreads?.map((thread: { id: React.Key | null | undefined; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; content: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; replies: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; views: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; createdAt: string | Date; tags: any[]; }) => (
             <div key={thread.id} className="p-6 hover:bg-gray-50 transition-colors">
               <div className="flex justify-between items-start">
                 <div className="flex-1">

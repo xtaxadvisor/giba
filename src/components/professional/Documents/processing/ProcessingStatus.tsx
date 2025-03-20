@@ -1,8 +1,8 @@
 import React from "react";
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
-import { formatTimeAgo } from '../../../../utils/date';
-import { calculateProcessingTime } from '../../../../utils/documents/processing';
-import type { ProcessingStep } from '../../../../types/documents';
+import { formatTimeAgo } from '../../../../utils/date.js';
+import { calculateProcessingTime } from '../../../../utils/documents/processing.js';
+import type { ProcessingStep } from '../../../../types/documents.js';
 
 interface ProcessingStatusProps {
   steps: ProcessingStep[];

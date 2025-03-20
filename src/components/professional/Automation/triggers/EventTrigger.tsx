@@ -1,8 +1,8 @@
 import React from 'react';
 import { Calendar, Clock, Bell } from 'lucide-react';
-import { Select } from '../../../ui/Select';
-import type { TriggerConfig } from '../../../../types/automation';
-import { Input } from '@/components/ui/Input';
+import { Select } from '../../../ui/Select.js';
+import type { TriggerConfig } from '../../../../types/automation.js';
+import { Input } from '@/components/ui/Input.js';
 
 interface EventTriggerProps {
   config: TriggerConfig;

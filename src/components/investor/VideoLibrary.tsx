@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Filter, Play, Clock, DollarSign, Tag } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
 
 interface VideoClass {
   id: string;

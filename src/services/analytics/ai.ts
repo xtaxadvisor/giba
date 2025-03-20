@@ -1,5 +1,4 @@
-```typescript
-import type { AIAnalytics, AIMetrics } from '../../types/analytics';
+import type { AIMetrics } from '../../types/analytics.ts';
 
 export class AIAnalyticsService {
   private static instance: AIAnalyticsService;
@@ -37,13 +36,19 @@ export class AIAnalyticsService {
     this.metrics.satisfactionRate = (currentTotal + rating) / this.metrics.totalInteractions;
   }
 
-  public getMetrics(): AIAnalytics {
+  public getMetrics(): { 
+    totalInteractions: number; 
+    averageResponseTime: number; 
+    satisfactionRate: number; 
+    topQuestions: [string, number][]; 
+    errorRate: number; 
+  } {
     return {
       totalInteractions: this.metrics.totalInteractions,
       averageResponseTime: this.metrics.averageResponseTime,
       satisfactionRate: this.metrics.satisfactionRate,
       topQuestions: Array.from(this.metrics.topQuestions.entries())
-        .sort((a, b) => b[1] - a[1])
+        .sort((a: [string, number], b: [string, number]) => b[1] - a[1])
         .slice(0, 10),
       errorRate: this.metrics.errorRate
     };
@@ -66,4 +71,4 @@ export class AIAnalyticsService {
 }
 
 export const aiAnalytics = AIAnalyticsService.getInstance();
-```
+//   }

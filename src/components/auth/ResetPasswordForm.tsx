@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { useSupabase } from '../../contexts/SupabaseContext';
-import { useNotificationStore } from '../../lib/store';
-import { validatePassword } from '../../utils/validation';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { useSupabase } from '../../contexts/SupabaseContext.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { validatePassword } from '../../utils/validation.js';
 
 export function ResetPasswordForm() {
   const [password, setPassword] = useState('');

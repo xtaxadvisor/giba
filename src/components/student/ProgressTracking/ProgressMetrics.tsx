@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, TrendingUp, BookOpen, CheckCircle } from 'lucide-react';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
 
 export function ProgressMetrics() {
   return (

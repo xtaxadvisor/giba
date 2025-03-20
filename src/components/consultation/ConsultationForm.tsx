@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, FileText, Video } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { Select } from '../ui/Select';
-import { useAuth } from '../../contexts/AuthContext';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { Select } from '../ui/Select.js';
+import { useAuth } from '../../contexts/AuthContext.js';
 
 interface ConsultationFormProps {
   onSubmit: (data: any) => void;

@@ -1,7 +1,7 @@
 import React from "react";
 import { AlertTriangle } from 'lucide-react';
-import { identifyAnomalies } from '../../../../utils/analytics/insights';
-import { formatDate } from '../../../../utils/date';
+import { identifyAnomalies } from '../../../../utils/analytics/insights.js';
+import { formatDate } from '../../../../utils/date.js';
 
 interface AnomalyDetectionProps {
   data: Array<{ date: string; value: number }>;

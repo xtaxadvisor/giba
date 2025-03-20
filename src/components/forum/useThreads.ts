@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "../../lib/supabase/client"; // Ensure correct import
+import { supabase } from "../../lib/supabase/client.js"; // Ensure correct import
 
 // ✅ Define Type for a Single Thread
 interface Thread {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, FileText, Mail } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 interface ReportExportProps {
   onExport: (format: 'pdf' | 'csv' | 'email') => void;

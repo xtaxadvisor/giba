@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { billingService } from '../services/api/billing';
-import { useNotificationStore } from '../lib/store';
+import { billingService } from '../services/api/billing.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function usePayments(clientId?: string) {
   const queryClient = useQueryClient();

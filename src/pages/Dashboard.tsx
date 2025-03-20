@@ -1,13 +1,13 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { DashboardHome } from "../components/dashboard/DashboardHome";
-import { Messages } from "../components/dashboard/Messages";
-import Documents from "../components/dashboard/Documents";
-import { Calendar } from "../components/dashboard/Calendar";
-import { Settings } from "../components/dashboard/Settings";
-import { DashboardLayout } from "../components/dashboard/DashboardLayout";
-import { RevenueChart } from "@/components/professional/charts/RevenueChart";
-import { ConsultationList } from "@/components/consultation/ConsultationList";
+import React from "react.js";
+import { Routes, Route } from "react-router-dom.js";
+import { DashboardHome } from "../components/dashboard/DashboardHome.js";
+import { Messages } from "../components/dashboard/Messages.js";
+import Documents from "../components/dashboard/Documents.js";
+import { Calendar } from "../components/dashboard/Calendar.js";
+import { Settings } from "../components/dashboard/Settings.js";
+import { DashboardLayout } from "../components/dashboard/DashboardLayout.js";
+import { RevenueChart } from "@/components/professional/charts/RevenueChart.js";
+import { ConsultationList } from "@/components/consultation/ConsultationList.js";
 
 // ✅ Revenue data for the chart
 const revenueData = {

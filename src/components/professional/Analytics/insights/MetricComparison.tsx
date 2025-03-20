@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, ArrowDown } from 'lucide-react';
-import { formatPercentage } from '../../../../utils/analytics/metrics';
+import { formatPercentage } from '../../../../utils/analytics/metrics.js';
 
 interface ComparisonMetric {
   label: string;

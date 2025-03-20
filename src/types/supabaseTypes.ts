@@ -5,6 +5,7 @@ export type Json =
   | null
   | { [key: string]: Json | undefined }
   | Json[]
+
 export type auth  = {
   email: string;
   password: string;
@@ -26,7 +27,15 @@ export type SomeOtherType = {
 };
 // Ensure this file exports the MenuItem type
 // Removed duplicate MenuItem interface
-
+export interface User {
+  avatarUrl?: string;
+  displayName: string;
+}
+export type TimeSlot = {
+  startTime: string;
+  endTime: string;
+  available: boolean;
+};
 export type MenuItem = {
   title: string;
   href: string;

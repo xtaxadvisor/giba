@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { VideoCard } from '../../components/video/VideoCard';
-import { VideoFilters } from '../../components/video/VideoFilters';
-import { videoClasses } from '../../data/videoData';
-import { Button } from '../../components/ui/Button';
+import { VideoCard } from '../../components/video/VideoCard.js';
+import { VideoFilters } from '../../components/video/VideoFilters.js';
+import { videoClasses } from '../../data/videoData.js';
+import { Button } from '../../components/ui/Button.js';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

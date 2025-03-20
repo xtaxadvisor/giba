@@ -1,4 +1,4 @@
-import type { AIContext } from '../../types/ai';
+import type { AIContext } from '../../types/ai.js';
 
 export function formatResponse(response: string, context: string): string {
   // Add bullet points for lists
@@ -45,7 +45,7 @@ export function extractActionItems(response: string): string[] {
 export function generateFollowUpQuestions(context: AIContext): string[] {
   const questions: string[] = [];
   
-  switch (context) {
+  switch (context.name) {
     case 'tax':
       questions.push(
         'Would you like to learn more about specific deductions?',

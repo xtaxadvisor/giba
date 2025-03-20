@@ -1,6 +1,6 @@
 import React from "react";
-import { ConsultationCard } from '../ConsultationCard';
-import type { Consultation } from '../../../services/api/consultation';
+import { ConsultationCard } from '../ConsultationCard.js';
+import type { Consultation } from '../../../services/api/consultation.js';
 
 interface ConsultationGroupProps {
   title: string;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Bell, Shield } from "lucide-react";
-import type { User } from "../../../types";
+import { Database, User } from "@/types/supabaseTypes.js";  // ✅ Correct file
 
 interface AdminHeaderProps {
   user: User | null;

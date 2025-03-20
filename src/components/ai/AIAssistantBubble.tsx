@@ -1,6 +1,6 @@
 import React from "react";
 import { Bot } from "lucide-react";
-import { Button } from "../ui/Button";
+import { Button } from "../ui/Button.js";
 
 interface AIAssistantBubbleProps {
   onOpen: () => void;

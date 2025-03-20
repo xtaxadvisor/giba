@@ -1,6 +1,6 @@
 import React from "react";
 import { FileText, Download } from 'lucide-react';
-import { formatTimeAgo } from '../../utils/date';
+import { formatTimeAgo } from '../../utils/date.js';
 interface Message {
   senderId: string;
   timestamp: string | Date;

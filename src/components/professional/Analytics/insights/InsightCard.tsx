@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
-import type { AnalyticsInsight } from '../../../../types/analytics';
+import type { AnalyticsInsight } from '../../../../types/analytics.js';
 
 interface InsightCardProps {
   insight: AnalyticsInsight;

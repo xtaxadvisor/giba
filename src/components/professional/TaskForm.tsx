@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { Select } from '../ui/Select';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { Select } from '../ui/Select.js';
 
 interface TaskFormProps {
   onSubmit: (data: {

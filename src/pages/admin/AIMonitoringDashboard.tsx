@@ -1,7 +1,7 @@
 import React from "react";
-import { AIMonitor } from '../../components/ai/AIMonitor';
-import { useAIMonitoring } from '../../hooks/useAIMonitoring';
-import { Button } from '../../components/ui/Button';
+import { AIMonitor } from '../../components/ai/AIMonitor.js';
+import { useAIMonitoring } from '../../hooks/useAIMonitoring.js'
+import { Button } from '../../components/ui/Button.js';
 import { Bug, Trash2 } from 'lucide-react';
 
 export default function AIMonitoringDashboard() {

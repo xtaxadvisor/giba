@@ -1,4 +1,4 @@
-import type { QueuedDocument } from '../../types/documents';
+import type { QueuedDocument } from '../../types/documents.js';
 
 export function calculateQueueMetrics(documents: QueuedDocument[]) {
   return {

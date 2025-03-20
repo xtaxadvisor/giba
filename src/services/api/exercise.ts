@@ -1,6 +1,11 @@
 import { api } from '../api.js';
 import type { Exercise as StudentExercise } from '../../types/student.js';
 export type Exercise = {
+  difficulty: string;
+  duration: number;
+  description: string;
+  title: string;
+  points: number;
   id: string;
   name: string;
   // other fields

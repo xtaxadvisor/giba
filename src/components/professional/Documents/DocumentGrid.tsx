@@ -8,8 +8,8 @@ import {
   MoreVertical,
   Clock
 } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { Button } from '../../ui/Button.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 interface Document {
   id: string;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Clock, Video } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import { useConsultation } from '../../hooks/useConsultation';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { Select } from '../ui/Select.js';
+import { useConsultation } from '../../hooks/useConsultation.js';
 
 export function BookConsultation() {
   const navigate = useNavigate();

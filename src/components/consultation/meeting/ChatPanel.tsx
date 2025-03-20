@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, AlertCircle, Check, CheckCheck } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
-import { formatTime } from '../../../utils/date';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
-import type { ChatMessage } from '../../../services/api/chat';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
+import { formatTime } from '../../../utils/date.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
+import type { ChatMessage } from '../../../services/api/chat.js';
 
 interface ChatPanelProps {
   messages: ChatMessage[];

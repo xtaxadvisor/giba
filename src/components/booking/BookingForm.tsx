@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import { useAuth } from '../../contexts/AuthContext';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { Select } from '../ui/Select.js';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 interface BookingFormProps {
   serviceType: string;

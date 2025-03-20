@@ -1,4 +1,4 @@
-import type { AIMessage } from '../../../types/ai';
+import type { AIMessage } from '../../../types/ai.js';
 
 export class AIHistoryManager {
   private history: AIMessage[] = [];

@@ -1,7 +1,7 @@
-import type { FindingsData } from '@/utils/documents/processing'; // Update this path to the correct one
+import type { FindingsData } from '@/utils/documents/processing.js'; // Update this path to the correct one
 // If the path is incorrect, update it to the correct path where DocumentProcessing is located
-import { Finding, Recommendation } from "@/components/professional/Documents/analysis/DocumentRecommendations";
-import { AnalyticsMetrics as ImportedAnalyticsMetrics } from "./processing";
+import { Finding, Recommendation } from "@/components/professional/Documents/analysis/DocumentRecommendations.js";
+import { AnalyticsMetrics as ImportedAnalyticsMetrics } from "./processing.js";
 import { number } from "zod";
 
 // ✅ Corrected useAnalytics function

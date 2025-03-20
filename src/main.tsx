@@ -3,11 +3,13 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
-import { AuthProvider } from "./contexts/AuthProvider"; // ✅ Ensure the correct path
-import { App } from "./App";
+import { AuthProvider } from "./contexts/AuthProvider.js"; // ✅ Ensure the correct path
+import { App } from "./App.js";
 import "./index.css";
 
-// Initialize Sentry
+/**
+ * Initializes Sentry for error tracking and performance monitoring.
+ */
 Sentry.init({
   dsn: "https://80cda50e3cf066a524158b31ca370667@o4508848989929472.ingest.us.sentry.io/4508848996155392",
   integrations: [new BrowserTracing()],
@@ -15,13 +17,25 @@ Sentry.init({
   environment: import.meta.env.MODE,
 });
 
+/**
+ * Gets the root element from the DOM.
+ * @returns {HTMLElement} The root element.
+ * @throws {Error} If the root element is not found.
+ */
+function getRootElement() {
+  const rootElement = document.getElementById("root");
+  if (!rootElement) throw new Error("Root element not found");
+  return rootElement;
+}
+
 // Get the root element
-const rootElement = document.getElementById("root");
-if (!rootElement) throw new Error("Root element not found");
+// Get the root element
+const rootElement = getRootElement();
+const root = ReactDOM.createRoot(rootElement); // ✅ Create a root using ReactDOM.createRoot
 
-// ✅ Ensure only ONE root is created
-const root = ReactDOM.createRoot(rootElement);
-
+/**
+ * Renders the React application.
+ */
 root.render(
   <React.StrictMode>
     <Sentry.ErrorBoundary

@@ -11,8 +11,8 @@ import {
   User,
   Video
 } from 'lucide-react';
-import { AuthContext } from '../../contexts/AuthContext';
-import { Button } from '../ui/Button';
+import { AuthContext } from '../../contexts/AuthContext.js';
+import { Button } from '../ui/Button.js';
 
 interface MenuItem {
   title: string;
@@ -34,7 +34,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   if (!auth) {
     throw new Error("AuthContext is undefined");
   }
-  const { user, logout } = auth;
+  const { user, logout } = auth as { user: { email: string } | null; logout: () => Promise<void> };
   const navigate = useNavigate();
   const location = useLocation();
 

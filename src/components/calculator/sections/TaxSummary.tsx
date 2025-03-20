@@ -1,6 +1,6 @@
 import React from "react";
 import { DollarSign, TrendingUp, ArrowUp, ArrowDown } from 'lucide-react';
-import { formatCurrency } from '../../../utils/format';
+import { formatCurrency } from '../../../utils/format.js';
 
 interface TaxSummaryProps {
   income: number;

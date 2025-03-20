@@ -1,5 +1,5 @@
 import { Handler } from '@netlify/functions';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js/dist/module';
 import { handleCors, getCorsHeaders } from './utils/cors';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
 // Removed duplicate testConnection function

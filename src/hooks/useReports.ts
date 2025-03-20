@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { analyticsService } from '../services/api/analytics';
-import { useNotificationStore } from '../lib/store';
+import { analyticsService } from '../services/api/analytics.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useReports() {
   const [dateRange, setDateRange] = useState('month');

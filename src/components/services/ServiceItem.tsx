@@ -2,10 +2,10 @@ import React from "react";
 // Note: Service Item Component
 import { useNavigate } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useAuth } from '../../contexts/AuthContext';
-import { consultationService } from '../../services/api/consultation';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../ui/Button.js';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { consultationService } from '../../services/api/consultation.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 interface ServiceItemProps {
   title: string;

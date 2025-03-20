@@ -1,6 +1,6 @@
 import React from 'react';
 import { Shield, Award, Users, Target, BookOpen, Briefcase } from 'lucide-react';
-import { TeamGrid } from '../team/TeamGrid';
+import { TeamGrid } from '../team/TeamGrid.js';
 
 export function AboutUs() {
   const stats = [

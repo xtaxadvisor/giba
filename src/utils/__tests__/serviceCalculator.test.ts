@@ -3,7 +3,7 @@ import {
   calculateServicesCost,
   ServiceTypes,
   type ServiceRequest
-} from '../serviceCalculator';
+} from '../serviceCalculator.js';
 
 describe('serviceCalculator', () => {
   it('calculates basic service cost correctly', () => {

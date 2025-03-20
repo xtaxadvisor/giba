@@ -1,6 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import { formatPercentage } from '../../../../utils/analytics/metrics';
+import { formatPercentage } from '../../../../utils/analytics/metrics.js';
 
 interface MetricBreakdownProps {
   data: Array<{

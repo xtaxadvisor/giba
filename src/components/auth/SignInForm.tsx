@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, ArrowLeft } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { AuthService } from '../../services/auth/authService';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { AuthService } from '../../services/auth/authService.js';
 
 export function SignInForm() {
   const [formData, setFormData] = useState({

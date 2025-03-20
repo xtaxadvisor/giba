@@ -1,14 +1,16 @@
-"use strict";
-`` `typescript
-
 import { Calculator, Calendar, FileText, HelpCircle } from 'lucide-react';
 import { AIFeatureCard } from './AIFeatureCard';
 
-interface AISmartSuggestionsProps {
-  onSelect: (prompt: string) => void;
-}
+/**
+ * @typedef {Object} AISmartSuggestionsProps
+ * @property {(prompt: string) => void} onSelect - Callback function when a suggestion is selected.
+ */
 
-export function AISmartSuggestions({ onSelect }: AISmartSuggestionsProps) {
+/**
+ * @param {AISmartSuggestionsProps} props
+ * @returns {JSX.Element}
+ */
+export function AISmartSuggestions({ onSelect }) {
   const suggestions = [
     {
       icon: Calculator,
@@ -53,4 +55,3 @@ export function AISmartSuggestions({ onSelect }: AISmartSuggestionsProps) {
     </div>
   );
 }
-` ``;

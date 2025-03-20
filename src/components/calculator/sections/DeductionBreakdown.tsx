@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from 'react-chartjs-2';
-import { formatCurrency } from '../../../utils/format';
+import { formatCurrency } from '../../../utils/format.js';
 // Removed import for PieChart from 'lucide-react'
 
 interface DeductionBreakdownProps {

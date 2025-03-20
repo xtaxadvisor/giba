@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import type { MenuItem } from '../../../types/index';
+import type { MenuItem } from '../../../types/index.js';
 
 interface AdminSidebarProps {
   menuItems: MenuItem[];

@@ -1,4 +1,4 @@
-import { api } from '../api';
+import { api } from '../api.js';
 // Define CreateTaskDTO if it does not exist in '../../types'
 export interface CreateTaskDTO {
   title: string;

@@ -1,7 +1,7 @@
-export * from './contextDetection';
-export * from './responseFormatting';
-export * from './storage';
-export * from './history';
+export * from './contextDetection.js';
+export * from './responseFormatting.js';
+export * from './storage.js';
+export * from './history.js';
 // export * from './request';
 // content of contextDetection.ts
 

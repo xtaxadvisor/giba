@@ -1,5 +1,5 @@
 import React from 'react';
-import { useExercises } from '../../../hooks/useExercises';
+import { useExercises } from '../../../hooks/useExercises.js';
 
 export function ExerciseHeader() {
   const { totalPoints } = useExercises();

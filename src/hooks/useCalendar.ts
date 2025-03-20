@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { calendarService } from '../services/api/calendar';
-import { useNotificationStore } from '../lib/store';
+import { calendarService } from '../services/api/calendar.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useCalendar() {
   const queryClient = useQueryClient();

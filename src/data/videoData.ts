@@ -1,4 +1,4 @@
-import type { VideoClass } from '../types/video';
+import type { VideoClass } from '../types/video.js';
 
 export const videoClasses: VideoClass[] = [
   {

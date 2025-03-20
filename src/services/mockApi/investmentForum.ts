@@ -1,5 +1,5 @@
-import { mockThreads } from '../../data/mockForumData';
-import type { InvestmentThread } from '../api/investmentForum';
+import { mockThreads } from '../../data/mockForumData.js';
+import type { InvestmentThread } from '../api/investmentForum.js';
 
 export const mockInvestmentForumService = {
   getThreads: async (category?: string) => {

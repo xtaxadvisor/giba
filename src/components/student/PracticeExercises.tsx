@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookOpen, Award, Clock } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 export function PracticeExercises() {
   const exercises = [

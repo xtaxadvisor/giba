@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase/client';
-import { protaxChannel } from '@/components/client/protaxChannel';
-import { realtimeService } from '../services/realtime/realtimeService';
-import { useNotificationStore } from '../lib/store';
+import { supabase } from '../lib/supabase/client.js';
+import { protaxChannel } from '@/components/client/protaxChannel.js';
+import { realtimeService } from '../services/realtime/realtimeService.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useRealtime() {
   const [presence, setPresence] = useState<any>({});

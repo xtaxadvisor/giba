@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { teamService } from '../services/api/team';
-import { useNotificationStore } from '../lib/store';
+import { teamService } from '../services/api/team.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useTeamMembers() {
   const queryClient = useQueryClient();

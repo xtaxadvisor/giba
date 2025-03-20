@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calculator, Book, Video, FileText, CheckCircle } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 export function TaxCalculationBasics() {
   const sections = [

@@ -1,7 +1,16 @@
-import type { User } from "../../../types";
-interface AdminHeaderProps {
-    user: User | null;
-    onLogout: () => void;
+import React from 'react';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
 }
-export declare function AdminHeader({ user, onLogout }: AdminHeaderProps): any;
-export {};
+
+export interface AdminHeaderProps {
+  user: User | null;
+  onLogout: () => void;
+}
+
+export declare function AdminHeader(props: AdminHeaderProps): JSX.Element;
+
+export default AdminHeader;

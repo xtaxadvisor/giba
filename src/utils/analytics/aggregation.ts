@@ -1,5 +1,5 @@
 import { startOfDay, endOfDay, eachDayOfInterval } from 'date-fns';
-import type { TimeSeriesData } from '../../types/analytics';
+import type { TimeSeriesData } from '../../types/analytics.js';
 
 export function aggregateTimeSeries(
   data: Array<{ date: string; value: number }>,

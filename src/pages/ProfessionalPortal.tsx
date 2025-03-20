@@ -1,16 +1,16 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
-import { ProfessionalDashboard } from '../components/professional/ProfessionalDashboard';
-import { ClientList } from '../components/professional/ClientList';
-import { Analytics } from '../components/professional/Analytics';
-import { TaskManager } from '../components/professional/TaskManager';
-import { Reports } from '../components/professional/Reports';
-import { Billing } from '../components/professional/Billing';
-import { Messages } from '../components/dashboard/Messages';
-import Documents from '../components/dashboard/Documents';
-import { Calendar } from '../components/dashboard/Calendar';
-import { Settings } from '../components/dashboard/Settings';
-import { ProfessionalLayout } from '../components/professional/ProfessionalLayout';
+import { ProfessionalDashboard } from '../components/professional/ProfessionalDashboard.js';
+import { ClientList } from '../components/professional/ClientList.js';
+import { Analytics } from '../components/professional/Analytics.js';
+import { TaskManager } from '../components/professional/TaskManager.js';
+import { Reports } from '../components/professional/Reports.js';
+import { Billing } from '../components/professional/Billing.js';
+import { Messages } from '../components/dashboard/Messages.js';
+import Documents from '../components/dashboard/Documents.js';
+import { Calendar } from '../components/dashboard/Calendar.js';
+import { Settings } from '../components/dashboard/Settings.js';
+import { ProfessionalLayout } from '../components/professional/ProfessionalLayout.js';
 
 export default function ProfessionalPortal() {
   return (

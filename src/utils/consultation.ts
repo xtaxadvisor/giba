@@ -1,4 +1,4 @@
-import type { Consultation } from '../services/api/consultation';
+import type { Consultation } from '../services/api/consultation.js';
 
 export function filterConsultations(consultations: Consultation[]) {
   const now = new Date();

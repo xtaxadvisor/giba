@@ -1,9 +1,8 @@
 import React from "react";
-
 import { Brain, Lightbulb, Target, BookOpen } from 'lucide-react';
-import { useAI } from '../../hooks/useAI';
-import { Button } from '../ui/Button';
-import type { VideoClass } from '../../types/video';
+import { useAI } from '../../hooks/useAI.js';
+import { Button } from '../ui/Button.js';
+import type { VideoClass } from '../../types/video.js';
 
 interface VideoAnalysisProps {
   video: VideoClass;
@@ -48,18 +47,18 @@ export function VideoAnalysis({ video }: VideoAnalysisProps) {
 
       {messages.length > 0 && (
         <div className="space-y-4">
-          {messages.map((message, index) => (
+          {messages.map((message: { role: string; content: string }, index: number) => (
             message.role === 'assistant' && (
               <div key={index} className="prose max-w-none">
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <div className="flex items-center mb-3">
-                    <Target className="h-5 w-5 text-blue-600 mr-2" />
-                    <h4 className="text-sm font-medium text-blue-900">Learning Insights</h4>
-                  </div>
-                  <div className="text-sm text-blue-800 whitespace-pre-wrap">
-                    {message.content}
-                  </div>
-                </div>
+          <div className="bg-blue-50 rounded-lg p-4">
+            <div className="flex items-center mb-3">
+              <Target className="h-5 w-5 text-blue-600 mr-2" />
+              <h4 className="text-sm font-medium text-blue-900">Learning Insights</h4>
+            </div>
+            <div className="text-sm text-blue-800 whitespace-pre-wrap">
+              {message.content}
+            </div>
+          </div>
               </div>
             )
           ))}

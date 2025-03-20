@@ -1,4 +1,4 @@
-import { supabase } from '../../lib/supabase/client';
+import supabase from '../../lib/supabase/client.js';
 import type { AuthError, User } from '@supabase/supabase-js';
 
 export const supabaseAuth = {

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useSupabase } from "../contexts/SupabaseContext";
+import { useSupabase } from "../contexts/SupabaseContext.js";
 
 interface AuthContextType {
   user: any;
@@ -20,7 +20,7 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const { user, loading, signIn, signUp, signOut } = useSupabase();
 
   const authContextValue: AuthContextType = {

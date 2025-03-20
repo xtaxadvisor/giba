@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Calculator, DollarSign, Clock, Plus, Trash2 } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import { calculateServicesCost, ServiceTypes, type ServiceRequest } from '../../utils/serviceCalculator';
-import { formatCurrency } from '../../utils/format';
-import { useNotificationStore } from '../../lib/store';
+import { Button } from '../ui/Button.js';
+import { Input } from '../ui/Input.js';
+import { Select } from '../ui/Select.js';
+import { calculateServicesCost, ServiceTypes, type ServiceRequest } from '../../utils/serviceCalculator.js';
+import { formatCurrency } from '../../utils/format.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export function ServiceCalculator() {
   const [services, setServices] = useState<ServiceRequest[]>([{

@@ -1,4 +1,4 @@
-import { api } from '../api';
+import { api } from '../api.js';
 
 export interface AnalyticsMetrics {
   revenue: { value: number; change: number };

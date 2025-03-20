@@ -1,5 +1,5 @@
 import React from 'react';
-import { PortalAccess } from '../navigation/PortalAccess';
+import { PortalAccess } from '../navigation/PortalAccess.js';
 
 export function Features() {
   return (

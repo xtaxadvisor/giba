@@ -1,4 +1,4 @@
-import { supabase } from './client.js';
+import supabase from './client.js';
 import { useNotificationStore } from '../store.js';
 
 class DatabaseConnectionManager {

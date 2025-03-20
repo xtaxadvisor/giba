@@ -1,6 +1,6 @@
 import React from "react";
 import { Calendar, Clock } from 'lucide-react';
-import { Input } from '../../ui/Input';
+import { Input } from '../../ui/Input.js';
 
 interface DateTimeSelectProps {
   date: string;

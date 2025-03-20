@@ -5,7 +5,18 @@ interface DateRange {
   end: Date;
 }
 
-interface CalendarProps {
+
+// Add the 'icon' prop to the Card component
+function Card({ icon: Icon, title, value, description }: { icon?: React.ComponentType; title: string; value: string; description: string }) {
+  return (
+    <div>
+      {Icon && <Icon />}
+      <h2>{title}</h2>
+      <p>{value}</p>
+      <p>{description}</p>
+    </div>
+  );
+}interface CalendarProps {
   /** Selection mode: "single" (one date) or "range" (start + end) */
   mode?: 'single' | 'range';
   /** Initially selected date (for single mode) */

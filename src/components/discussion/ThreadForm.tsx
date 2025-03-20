@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Tag, X } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import type { ThreadCategory } from '../../types/discussion';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import type { ThreadCategory } from '../../types/discussion.js';
 
 interface ThreadFormProps {
   onSubmit: (data: {
@@ -69,7 +69,7 @@ export function ThreadForm({ onSubmit, onCancel, isSubmitting }: ThreadFormProps
       <Input
         label="Title"
         value={formData.title}
-        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        onChange={(e: { target: { value: any; }; }) => setFormData({ ...formData, title: e.target.value })}
         placeholder="What's your question or topic?"
         required
       />

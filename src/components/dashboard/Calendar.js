@@ -2,6 +2,18 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Plus, Clock, Users, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
+
+// Updated Calendar.js code to include the 'icon' prop
+export default function Card({ icon: Icon, title, value, description }) {
+    return (
+      <div>
+        {Icon && <Icon />}
+        <h2>{title}</h2>
+        <p>{value}</p>
+        <p>{description}</p>
+      </div>
+    );
+  }
 export function Calendar() {
     const [currentDate] = useState(new Date());
     const [events, setEvents] = useState([]);

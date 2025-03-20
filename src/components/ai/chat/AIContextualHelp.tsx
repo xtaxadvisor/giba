@@ -1,5 +1,4 @@
 import React from "react";
-```typescript
 
 import { Lightbulb } from 'lucide-react';
 
@@ -32,4 +31,3 @@ export function AIContextualHelp({ context, suggestions, onSelect }: AIContextua
     </div>
   );
 }
-```

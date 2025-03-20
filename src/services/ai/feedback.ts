@@ -1,5 +1,4 @@
-```typescript
-import type { AIFeedback } from '../../types/ai';
+import type { AIFeedback } from '../../types/ai.js';
 
 export async function processFeedback(feedback: AIFeedback): Promise<void> {
   // Store feedback for analysis
@@ -25,4 +24,3 @@ async function updateMetrics(feedback: AIFeedback): Promise<void> {
 async function triggerLearning(feedback: AIFeedback): Promise<void> {
   // Implementation for triggering learning pipeline
 }
-```

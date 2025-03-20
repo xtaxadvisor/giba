@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { settingsService } from '../services/api/settings';
-import { useNotificationStore } from '../lib/store';
+import { settingsService } from '../services/api/settings.js';
+import { useNotificationStore } from '../lib/store.js';
 
 export function useSettings() {
   const queryClient = useQueryClient();

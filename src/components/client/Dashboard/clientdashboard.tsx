@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
 
 // ✅ Define the type for documents
 interface Document {

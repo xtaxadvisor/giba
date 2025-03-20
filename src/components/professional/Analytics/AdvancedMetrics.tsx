@@ -1,7 +1,7 @@
 import React from 'react';
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
-import { LineChart } from '../charts/LineChart';
-import Card from "@/components/ui/Card"; // ✅ Absolute Import
+import { LineChart } from '../charts/LineChart.js';
+import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
 
 export function AdvancedMetrics() {
   return (

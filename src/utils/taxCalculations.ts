@@ -1,4 +1,4 @@
-import type { TaxData, TaxResults } from '../types/calculator';
+import type { TaxData, TaxResults } from '../types/calculator.js';
 
 export function calculateTaxes(data: TaxData): TaxResults {
   // Calculate total income

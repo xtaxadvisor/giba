@@ -1,6 +1,6 @@
 import React from "react";
 import { Info } from 'lucide-react';
-import { formatCurrency } from '../../../utils/format';
+import { formatCurrency } from '../../../utils/format.js';
 
 interface TaxBracket {
   rate: number;

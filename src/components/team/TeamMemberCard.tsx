@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Mail, Linkedin, ExternalLink } from 'lucide-react';
-import { Button } from '../ui/Button';
-import type { TeamMember } from '../../types/team';
+import { Button } from '../ui/Button.js';
+import type { TeamMember } from '../../types/team.js';
 
 interface TeamMemberCardProps extends TeamMember {
   className?: string;

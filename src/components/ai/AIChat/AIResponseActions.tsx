@@ -1,8 +1,6 @@
 import React from "react";
-```typescript
-
 import { Copy, ThumbsUp, ThumbsDown } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 interface AIResponseActionsProps {
   onCopy: () => void;
@@ -27,17 +25,14 @@ export function AIResponseActions({ onCopy, onFeedback }: AIResponseActionsProps
           size="sm"
           icon={ThumbsUp}
           onClick={() => onFeedback(true)}
-          className="text-gray-500 hover:text-green-600"
-        />
+          className="text-gray-500 hover:text-green-600" children={undefined}        />
         <Button
           variant="ghost"
           size="sm"
           icon={ThumbsDown}
           onClick={() => onFeedback(false)}
-          className="text-gray-500 hover:text-red-600"
-        />
+          className="text-gray-500 hover:text-red-600" children={undefined}        />
       </div>
     </div>
   );
 }
-```

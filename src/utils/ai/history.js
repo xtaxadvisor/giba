@@ -1,12 +1,21 @@
-"use strict";
-`` `typescript
-import type { AIMessage } from '../../types/ai';
-import { aiStorage } from './storage';
+import { aiStorage } from './storage.js';
 
 const HISTORY_KEY = 'ai_chat_history';
 const MAX_HISTORY_LENGTH = 100;
 
-export function saveMessageToHistory(message: AIMessage): void {
+/**
+ * @typedef {Object} AIMessage
+ * @property {'user' | 'assistant' | 'system'} role - The role of the message sender.
+ * @property {string} content - The content of the message.
+ * @property {string} [timestamp] - The timestamp of the message (optional).
+ */
+
+/**
+ * Saves a message to the chat history.
+ *
+ * @param {AIMessage} message - The message to save.
+ */
+export function saveMessageToHistory(message) {
   const history = getMessageHistory();
   history.push({
     ...message,
@@ -21,17 +30,30 @@ export function saveMessageToHistory(message: AIMessage): void {
   aiStorage.set(HISTORY_KEY, history);
 }
 
-export function getMessageHistory(): AIMessage[] {
-  return aiStorage.get<AIMessage[]>(HISTORY_KEY) || [];
+/**
+ * Retrieves the chat message history.
+ *
+ * @returns {AIMessage[]} - The array of chat messages.
+ */
+export function getMessageHistory() {
+  return aiStorage.get(HISTORY_KEY) || [];
 }
 
-export function clearMessageHistory(): void {
+/**
+ * Clears the chat message history.
+ */
+export function clearMessageHistory() {
   aiStorage.delete(HISTORY_KEY);
 }
 
-export function getRecentTopics(): string[] {
+/**
+ * Retrieves the most recent topics from the chat history.
+ *
+ * @returns {string[]} - An array of recent topics.
+ */
+export function getRecentTopics() {
   const history = getMessageHistory();
-  const topics = new Set<string>();
+  const topics = new Set();
 
   history.forEach(message => {
     if (message.role === 'user') {
@@ -46,4 +68,3 @@ export function getRecentTopics(): string[] {
 
   return Array.from(topics).slice(-5);
 }
-` ``;

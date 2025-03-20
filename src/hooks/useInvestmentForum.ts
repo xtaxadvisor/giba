@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { mockInvestmentForumService } from '../services/mockApi/investmentForum';
-import { useNotificationStore } from '../lib/store';
-import type { InvestmentThread } from '../services/api/investmentForum';
+import { mockInvestmentForumService } from '../services/mockApi/investmentForum.js';
+import { useNotificationStore } from '../lib/store.js';
+import type { InvestmentThread } from '../services/api/investmentForum.js';
 
 export function useInvestmentForum(category?: string) {
   const queryClient = useQueryClient();

@@ -1,9 +1,9 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { consultationService } from '../services/api/consultation';
-import { useNotificationStore } from '../lib/store';
-import { useAuth } from '../contexts/AuthContext';
+import { consultationService } from '../services/api/consultation.js';
+import { useNotificationStore } from '../lib/store.js';
+import { useAuth } from '../contexts/AuthContext.js';
 // import type { UpdateConsultationDTO } from '../services/api/consultation';
-import type { ScheduleConsultationDTO } from '../services/api/consultation'; // Correct import path
+import type { ScheduleConsultationDTO } from '../services/api/consultation.js'; // Correct import path
 // other imports and code
 
 export type UpdateConsultationDTO = {

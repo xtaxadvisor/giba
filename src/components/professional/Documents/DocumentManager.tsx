@@ -98,7 +98,7 @@ export function DocumentManager() {
       ) : (
         <DocumentList
           documents={documents as unknown as ProfessionalDocument[]}
-          onDelete={(document) => deleteDocument(document as unknown as ProfessionalDocument)}
+          onDelete={(document: unknown) => deleteDocument(document as unknown as ProfessionalDocument)}
           onView={function (): void {
             throw new Error('Function not implemented.');
           }}

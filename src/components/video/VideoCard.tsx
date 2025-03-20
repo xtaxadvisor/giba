@@ -1,7 +1,7 @@
 import React from "react";
 import { Play, Clock, Tag } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import type { VideoClass } from '../../types/video';
+import type { VideoClass } from '../../types/video.js';
 
 interface VideoCardProps {
   video: VideoClass;

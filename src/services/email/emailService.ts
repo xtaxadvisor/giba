@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { useNotificationStore } from '../../lib/store';
+import { useNotificationStore } from '../../lib/store.js';
 
 class EmailService {
   private static instance: EmailService;

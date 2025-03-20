@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import React, { Suspense } from "react.js";
+import { Routes, Route, Navigate } from "react-router-dom.js";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute.js";
+import { LoadingSpinner } from "@/components/ui/LoadingSpinner.js";
 
 // ✅ Lazy-load portal components properly
 const AdminPortal = React.lazy(() => import("@/pages/admin/AdminPortal"));

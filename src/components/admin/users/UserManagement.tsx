@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { User, Search, Filter, Plus, Edit2, Trash2 } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
-import { Select } from '../../ui/Select';
-import { useUsers } from '../../../hooks/useUsers';
-import { LoadingSpinner } from '../../ui/LoadingSpinner';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
+import { Select } from '../../ui/Select.js';
+import { useUsers } from '../../../hooks/useUsers.js';
+import { LoadingSpinner } from '../../ui/LoadingSpinner.js';
 
 export function UserManagement() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +15,7 @@ export function UserManagement() {
     return <LoadingSpinner />;
   }
 
-  const filteredUsers = users?.filter(user => {
+  const filteredUsers = users?.filter((user: { name: string; email: string; role: string; }) => {
     const matchesSearch = 
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.email.toLowerCase().includes(searchTerm.toLowerCase());
@@ -82,7 +82,7 @@ export function UserManagement() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredUsers?.map((user) => (
+                {filteredUsers?.map((user: { id: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; email: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; role: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
                   <tr key={user.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">

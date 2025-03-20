@@ -1,6 +1,6 @@
 import React from "react";
 import { FileText, AlertTriangle, CheckCircle } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 export function AIDocumentAnalysis() {
   return (

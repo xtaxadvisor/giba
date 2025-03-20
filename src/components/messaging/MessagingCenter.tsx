@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import { MessageList } from "./MessageList";
-import { MessageInput } from "./MessageInput";
-import { useMessages } from "../../hooks/useMessages";
+import { MessageList } from "./MessageList.js";
+import { MessageInput } from "./MessageInput.js";
+import { useMessages } from "../../hooks/useMessages.js";
 
 const MessagingCenter: React.FC = () => {
   const { sendMessage, isSendingMessage } = useMessages();

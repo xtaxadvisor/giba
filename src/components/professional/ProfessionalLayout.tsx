@@ -16,9 +16,9 @@ import {
   BarChart,
   DollarSign
 } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
-import { Button } from '../ui/Button';
-import type { MenuItem } from '../../types';
+import { useAuth } from '../../contexts/AuthContext.js';
+import { Button } from '../ui/Button.js';
+import type { MenuItem } from '../../lib/auth/types.js';
 import { useTheme } from 'styled-components';
 const menuItems: MenuItem[] = [
   { title: 'Dashboard', href: '/professional', icon: Home },
@@ -110,7 +110,7 @@ export function ProfessionalLayout({ children }: { children: React.ReactNode }) 
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                     }`}
                 >
-                  <item.icon className={`mr-4 h-6 w-6 ${isActive ? 'text-blue-600' : 'text-gray-400'}`} />
+                  {React.createElement(item.icon, { className: `mr-4 h-6 w-6 ${isActive ? 'text-blue-600' : 'text-gray-400'}` } as any)}
                   {item.title}
                 </Link>
               );

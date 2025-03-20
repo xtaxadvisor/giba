@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../services/api';
-import { useNotificationStore } from '../lib/store';
+import { api } from '../services/api.js';
+import { useNotificationStore } from '../lib/store.js';
 
 interface CreateUserDTO {
   name: string;

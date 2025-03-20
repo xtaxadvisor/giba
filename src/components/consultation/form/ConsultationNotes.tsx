@@ -1,6 +1,6 @@
 import React from "react";
 import { FileText } from 'lucide-react';
-import { Input } from '../../ui/Input';
+import { Input } from '../../ui/Input.js';
 
 interface ConsultationNotesProps {
   value: string;

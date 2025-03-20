@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, User, Building, ArrowLeft } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { Select } from '../ui/Select';
-import { useSupabase } from '../../contexts/SupabaseContext';
-import { useNotificationStore } from '../../lib/store';
-import { validatePassword } from '../../utils/validation';
+import { Input } from '../ui/Input.js';
+import { Button } from '../ui/Button.js';
+import { Select } from '../ui/Select.js';
+import { useSupabase } from '../../contexts/SupabaseContext.js';
+import { useNotificationStore } from '../../lib/store.js';
+import { validatePassword } from '../../utils/validation.js';
 
 export function RegisterForm() {
   const [formData, setFormData] = useState({

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Input } from '../../ui/Input';
-import { Button } from '../../ui/Button';
-import { useNotificationStore } from '../../../lib/store';
+import { Input } from '../../ui/Input.js';
+import { Button } from '../../ui/Button.js';
+import { useNotificationStore } from '../../../lib/store.js';
 
 interface TeamMemberFormProps {
   initialData?: {

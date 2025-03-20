@@ -1,5 +1,5 @@
 import React from "react";
-import MessagingCenter from '../messaging/MessagingCenter';
+import MessagingCenter from '../messaging/MessagingCenter.js';
 
 export function Messages() {
   return (

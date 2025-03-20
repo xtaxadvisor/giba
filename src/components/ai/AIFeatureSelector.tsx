@@ -1,7 +1,7 @@
 import React from "react";
 
-import { AI_FEATURES } from '../../services/ai/features';
-import { Button } from '../ui/Button';
+import { AI_FEATURES } from '../../services/ai/features.js';
+import { Button } from '../ui/Button.js';
 
 interface AIFeatureSelectorProps {
   context: string;

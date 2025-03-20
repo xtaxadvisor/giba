@@ -1,7 +1,7 @@
 import React from "react";
 import { Clock, CheckCircle, AlertCircle } from 'lucide-react';
-import { formatTimeAgo } from '../../../../utils/date';
-import type { QueuedDocument } from '../../../../types/documents';
+import { formatTimeAgo } from '../../../../utils/date.js';
+import type { QueuedDocument } from '../../../../types/documents.js';
 
 interface DocumentQueueProps {
   documents: QueuedDocument[];

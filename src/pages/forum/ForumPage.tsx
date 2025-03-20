@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
-import { ForumLayout } from '../../components/forum/ForumLayout';
-import { ThreadList } from '../../components/forum/ThreadList';
-import { ThreadDetail } from '../../components/forum/ThreadDetail';
+import { ForumLayout } from '../../components/forum/ForumLayout.js';
+import { ThreadList } from '../../components/forum/ThreadList.js';
+import { ThreadDetail } from '../../components/forum/ThreadDetail.js';
 
 export default function ForumPage() {
   return (

@@ -1,4 +1,4 @@
-import type { AIFeature } from '../../types/ai';
+import type { AIFeature } from '../../types/ai.js';
 
 export const AI_FEATURES: Record<string, AIFeature[]> = {
   admin: [

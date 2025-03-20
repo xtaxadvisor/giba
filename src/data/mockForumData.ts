@@ -1,4 +1,4 @@
-import type { InvestmentThread } from '../services/api/investmentForum';
+import type { InvestmentThread } from '../services/api/investmentForum.js';
 
 export const mockThreads: InvestmentThread[] = [
   {

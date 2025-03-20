@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Bot, X } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button.js';
 
 interface AIHeaderProps {
   onClose: () => void;
@@ -25,8 +25,7 @@ export function AIHeader({ onClose, title = 'GRAKON AI' }: AIHeaderProps) {
         size="sm"
         onClick={onClose}
         icon={X}
-        className="text-gray-500 hover:text-gray-700"
-      />
+        className="text-gray-500 hover:text-gray-700" children={undefined}      />
     </div>
   );
 }

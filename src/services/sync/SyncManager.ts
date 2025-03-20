@@ -1,5 +1,5 @@
-import { supabase } from '../../lib/supabase/client';
-import { useNotificationStore } from '../../lib/store';
+import supabase from '../../lib/supabase/client.js';
+import { useNotificationStore } from '../../lib/store.js';
 
 export class SyncManager {
   private static instance: SyncManager;

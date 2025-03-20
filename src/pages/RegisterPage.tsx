@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, User, Building, ArrowLeft } from 'lucide-react';
-import { Input } from '../components/ui/Input';
-import { Button } from '../components/ui/Button';
-import { Select } from '../components/ui/Select';
-import { useNotificationStore } from '../lib/store';
-import { mockRegister } from '../lib/mockAuth';
+import { Input } from '../components/ui/Input.js';
+import { Button } from '../components/ui/Button.js';
+import { Select } from '../components/ui/Select.js';
+import { useNotificationStore } from '../lib/store.js';
+import { mockRegister } from '../lib/mockAuth.js';
 
 export default function RegisterPage() {
   const navigate = useNavigate();

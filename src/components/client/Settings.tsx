@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TeamSettings from "../professional/Settings/TeamSettings";
-import SecuritySettings from "../professional/Settings/SecuritySettings";
-import ProfileSettings from "../professional/Settings/ProfileSettings";
+import TeamSettings from "../professional/Settings/TeamSettings.js";
+import SecuritySettings from "../professional/Settings/SecuritySettings.js";
+import ProfileSettings from "../professional/Settings/ProfileSettings.js";
 
 export default function SettingsPage() {
   // ✅ User settings states

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Book, Video, Award, FileText } from 'lucide-react';
-import { formatTimeAgo } from '../../../utils/date';
+import { formatTimeAgo } from '../../../utils/date.js';
 
 export function RecentActivities() {
   const activities = [

@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from 'react';
-import { useNotificationStore } from '../../lib/store';
+import { useNotificationStore } from '../../lib/store.js';
 import { X } from 'lucide-react';
 
 export function Notifications() {

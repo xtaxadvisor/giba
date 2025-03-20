@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart2, BookOpen, Video, FileText, CheckCircle } from 'lucide-react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button.js';
 
 export function FinancialStatementAnalysis() {
   const sections = [

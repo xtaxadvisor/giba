@@ -1,62 +1,80 @@
+/**
+ * @typedef {'tax' | 'financial' | 'service' | 'general'} AIContext
+ */
+
+/**
+ * @typedef {Object} AIContextDetails
+ * @property {string} id - The unique identifier for the context.
+ * @property {string} name - The name of the context.
+ * @property {string} description - A brief description of the context.
+ * @property {string} systemPrompt - The system prompt for the AI assistant.
+ * @property {string[]} suggestedQuestions - A list of suggested questions for the context.
+ */
+
+/** @type {Record<AIContext, AIContextDetails>} */
 export const AI_CONTEXTS = {
-    tax: {
-        id: 'tax',
-        name: 'Tax Assistance',
-        description: 'Get help with tax-related questions',
-        systemPrompt: `You are a knowledgeable tax assistant. Focus on:
+  tax: {
+    id: 'tax',
+    name: 'Tax Assistance',
+    description: 'Get help with tax-related questions',
+    systemPrompt: `You are a knowledgeable tax assistant. Focus on:
 - Explaining tax concepts in simple terms
 - Providing general tax guidance
 - Helping with tax planning
 - Clarifying tax documentation requirements
 Note: Always mention that this is general information and specific tax advice requires consultation.`,
-        suggestedQuestions: [
-            'What tax deductions am I eligible for?',
-            'How do I prepare for tax season?',
-            'What documents do I need for filing taxes?',
-            'How does self-employment tax work?'
-        ]
-    },
-    financial: {
-        id: 'financial',
-        name: 'Financial Planning',
-        description: 'Get help with financial planning',
-        systemPrompt: `You are a financial planning assistant. Focus on:
+    suggestedQuestions: [
+      'What tax deductions am I eligible for?',
+      'How do I prepare for tax season?',
+      'What documents do I need for filing taxes?',
+      'How does self-employment tax work?'
+    ]
+  },
+  financial: {
+    id: 'financial',
+    name: 'Financial Planning',
+    description: 'Get help with financial planning',
+    systemPrompt: `You are a financial planning assistant. Focus on:
 - Basic financial planning concepts
 - Investment fundamentals
 - Retirement planning basics
 - Budgeting and saving strategies
 Note: Always clarify that specific financial advice requires professional consultation.`,
-        suggestedQuestions: [
-            'How should I start planning for retirement?',
-            'What are the basics of investment?',
-            'How can I create a budget?',
-            'What are the best ways to save money?'
-        ]
-    },
-    service: {
-        id: 'service',
-        name: 'Service Information',
-        description: 'Learn about our services',
-        systemPrompt: `You are a service information assistant. Focus on:
+    suggestedQuestions: [
+      'How should I start planning for retirement?',
+      'What are the basics of investment?',
+      'How can I create a budget?',
+      'What are the best ways to save money?'
+    ]
+  },
+  service: {
+    id: 'service',
+    name: 'Service Information',
+    description: 'Learn about our services',
+    systemPrompt: `You are a service information assistant. Focus on:
 - Explaining available services
 - Providing pricing information
 - Describing service processes
 - Helping with scheduling
 Note: Be clear about service scope and limitations.`,
-        suggestedQuestions: [
-            'What services do you offer?',
-            'How much do your services cost?',
-            'How can I schedule a consultation?',
-            'What is your process for new clients?'
-        ]
-    }
+    suggestedQuestions: [
+      'What services do you offer?',
+      'How much do your services cost?',
+      'How can I schedule a consultation?',
+      'What is your process for new clients?'
+    ]
+  }
 };
+
+/**
+ * Determines the AI context based on the given path.
+ *
+ * @param {string} path - The URL path to analyze.
+ * @returns {AIContext} - The detected AI context ('tax', 'financial', 'service', or 'general').
+ */
 export function getContextFromPath(path) {
-    if (path.includes('/tax'))
-        return 'tax';
-    if (path.includes('/financial'))
-        return 'financial';
-    if (path.includes('/services'))
-        return 'service';
-    return 'general';
+  if (path.includes('/tax')) return 'tax';
+  if (path.includes('/financial')) return 'financial';
+  if (path.includes('/services')) return 'service';
+  return 'general';
 }

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Upload, X, File, Plus } from 'lucide-react';
-import { Button } from '../../ui/Button';
-import { Input } from '../../ui/Input';
-import { useNotificationStore } from '../../../lib/store';
+import { Button } from '../../ui/Button.js';
+import { Input } from '../../ui/Input.js';
+import { useNotificationStore } from '../../../lib/store.js';
 
 interface DocumentUploadProps {
   onUpload: (files: FileList) => void;

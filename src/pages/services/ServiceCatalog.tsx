@@ -1,13 +1,13 @@
 import React from "react";
-import { ServiceCategory } from '../../components/services/ServiceCategory';
-import { WhyChooseUs } from '../../components/services/WhyChooseUs';
+import { ServiceCategory } from '../../components/services/ServiceCategory.js';
+import { WhyChooseUs } from '../../components/services/WhyChooseUs.js';
 import { 
   Building2, 
   Calculator,
   MessageSquare,
   ArrowLeft 
 } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
+import { Button } from '../../components/ui/Button.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function ServiceCatalog() {

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, ReactNode } from "react";
-import { useSupabase } from "../contexts/SupabaseContext";
+import { useSupabase } from "../contexts/SupabaseContext.js";
 
 // Define the AuthContext type
 interface AuthContextType {
