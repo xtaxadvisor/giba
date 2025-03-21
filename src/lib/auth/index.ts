@@ -1,4 +1,4 @@
-export * from './types';
-export * from './storage';
-export * from './validation';
-export type { LocalUser as MockLocalUser } from './mockAuth';
+export * from './types.js';
+export * from './storage.js';
+export * from './validation.js';
+export type { LocalUser as MockLocalUser } from './mockAuth.js';

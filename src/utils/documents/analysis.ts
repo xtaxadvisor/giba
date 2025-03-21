@@ -1,19 +1,19 @@
-import react from 'react';
-import { AnalyticsMetrics } from './processing.js';
-import { Finding, Recommendation } from './DocumentRecommendations.js';
-import { number } from 'zod';
-import type { FindingsData } from '@/utils/documents/processing.js'; // Update this path to the correct one
+// Removed unused import of 'react'
+// Removed unused import of 'AnalyticsMetrics'
+// Removed duplicate import of 'Recommendation'
+// Removed duplicate import of 'Finding'
+// Removed unused and duplicate import of 'number' from 'zod'
+// Removed unused import of 'FindingsData'
 // If the path is incorrect, update it to the correct path where DocumentProcessing is located
 import { Finding, Recommendation } from "@/components/professional/Documents/analysis/DocumentRecommendations.js";
-import { AnalyticsMetrics as ImportedAnalyticsMetrics } from "./processing.js";
-import { number } from "zod";
+// Removed unused and duplicate import of 'number' from 'zod'
 
 // ✅ Corrected useAnalytics function
-export function useAnalytics({ timeRange }: { timeRange: string; }): {
+export function useAnalytics(): {
   metrics: LocalAnalyticsMetrics;
-  revenueData: any;
-  clientGrowth: any;
-  performanceMetrics: any;
+  revenueData: { total: number; breakdown: { [key: string]: number } } | null;
+  clientGrowth: { growthRate: number; newClients: number } | null;
+  performanceMetrics: { [key: string]: number } | null;
   isLoading: boolean;
   exportAnalytics: (format: "pdf" | "csv" | "excel") => Promise<void>;
 } {
@@ -41,7 +41,7 @@ export interface LocalAnalyticsMetrics {
   [key: string]: { number: number, change: number }; // Add this line to allow additional properties
 }
 // ✅ Corrected analyzeTaxForms function
-export function analyzeTaxForms(forms: any[]): Finding[] {
+export function analyzeTaxForms(forms: { someField: string }[]): Finding[] {
   const findings: Finding[] = [];
 
   forms.forEach((form) => {
@@ -72,7 +72,7 @@ export function generateRecommendations(findings: Finding[]): Recommendation[] {
 }
 
 // ✅ Corrected validateDocumentCompleteness function
-export function validateDocumentCompleteness(document: any): boolean {
+export function validateDocumentCompleteness(document: { id: string; title: string; type: string }): boolean {
   if (!document || !document.id || !document.title || !document.type) {
     return false;
   }

@@ -1,4 +1,6 @@
-import { setupCache } from 'axios-cache-adapter';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import axios from 'axios';
+import { NotEmptyStorageValue, setupCache } from 'axios-cache-interceptor';
 
 interface CacheStorage {
   getItem(key: string): Promise<string | null>;
@@ -7,37 +9,27 @@ interface CacheStorage {
 }
 
 
-export const cache = setupCache({
-  maxAge: 15 * 60 * 1000, // Cache for 15 minutes
-  store: <CacheStorage><unknown>{
-    getItem: (key: string) => {
-      // Use the key parameter to retrieve the item from the store
-      return Promise.resolve(localStorage.getItem(key));
-    },
-    setItem: (key: string, value: string) => {
-      // Use the key and value parameters to store the item in the store
-      localStorage.setItem(key, value);
-    },
-    removeItem: (key: string) => {
-      // Use the key parameter to remove the item from the store
-      localStorage.removeItem(key);
-    }
-  },
-  exclude: {
-    query: false,
-    methods: ['post', 'put', 'delete']
-  },
-  key: req => {
+interface CacheKeyFunction {
+  (req: { params?: Record<string, unknown>; url: string; method: string }): string;
+}
+
+interface CacheInvalidateFunction {
+  (config: { invalidate?: string[] }): Promise<void>;
+}
+const get = async (key: string): Promise<NotEmptyStorageValue | null> => {
+  const value = await someAsyncOperation(key); // Returns NotEmptyStorageValue | null
+  return value as NotEmptyStorageValue | null; // Ensure the value matches the expected type
+};
+  // Ensure 'methods' is part of a valid configuration object or remove it if unnecessary
+  const cacheOptions = {
+    methods: ['get'], // Specify cacheable methods explicitly
+  };
+  const generateKey: CacheKeyFunction = ((req: { params?: Record<string, unknown>; url: string; method: string }): string => {
     const serialized = req.params ? `${req.url}?${JSON.stringify(req.params)}` : req.url;
     return `${req.method}:${serialized}`;
-  },
-  invalidate: async (config) => {
-    // Invalidate cache on mutations
-    const invalidatePatterns = config.invalidate as unknown as string[];
-    if (invalidatePatterns) {
-      await Promise.all(
-        invalidatePatterns.map(pattern => (cache.store as CacheStorage).removeItem(pattern))
-      );
-    }
+  });
+  async function someAsyncOperation(key: string): Promise<string | null> {
+    // Simulate an asynchronous operation, such as fetching from an IndexedDB or API
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
   }
-});

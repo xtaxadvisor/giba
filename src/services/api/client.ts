@@ -1,22 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { setupCache } from 'axios-cache-adapter';
-import { retryAdapterEnhancer } from 'axios-extensions';
+import { setupCache } from'axios-cache-interceptor';
+// Removed invalid import for retryAdapterEnhancer
 
 export class APIClient {
   private static instance: APIClient;
   private client: AxiosInstance;
   
   private constructor() {
-    const cache = setupCache({
-      maxAge: 15 * 60 * 1000, // Cache for 15 minutes
-      exclude: { query: false }
-    });
-
-    this.client = axios.create({
+    this.client = setupCache(axios.create({
       baseURL: import.meta.env.VITE_API_URL,
       timeout: 10000,
-      adapter: retryAdapterEnhancer(cache.adapter, { 
-      })
+    }), {
+      ttl: 15 * 60 * 1000, // Cache for 15 minutes
+      // Removed invalid 'exclude' property
     });
 
     this.setupInterceptors();

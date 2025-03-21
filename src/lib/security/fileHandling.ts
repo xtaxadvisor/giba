@@ -1,4 +1,4 @@
-import { sanitizeInput } from './validation';
+import { sanitizeInput } from './validation.js';
 
 export const ALLOWED_FILE_TYPES = [
   'application/pdf',

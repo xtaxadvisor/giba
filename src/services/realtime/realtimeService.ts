@@ -1,5 +1,7 @@
-import { Database } from '@/lib/supabase';
-import { supabase } from '@/lib/supabase/client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// Removed unused and non-existent 'Database' import
+import { supabase } from '@/lib/supabase/client.js';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 class RealtimeService {

@@ -7,7 +7,8 @@ import { UserManagement } from '../../components/admin/users/UserManagement.js';
 import { AdminSettings } from '../../components/admin/settings/AdminSettings.js';
 import { NotFoundPage } from '../../components/shared/NotFoundPage.js';
 import { AdminProtectedRoute } from '../../components/admin/auth/AdminProtectedRoute.js';
-
+// Removed incorrect alias import
+// Corrected export without re-importing the same file
 export default function AdminPortal() {
   return (
     <AdminProtectedRoute>

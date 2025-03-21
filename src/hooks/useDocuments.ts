@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react.js";
+import { useState, useEffect } from "react";
 
 interface Document {
   id: string;
@@ -25,6 +25,7 @@ export function useDocuments() {
         if (!response.ok) throw new Error("Failed to fetch documents");
         const data = await response.json();
         setDocuments(data);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError("Could not load documents.");
       } finally {

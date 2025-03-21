@@ -47,3 +47,5 @@ export interface Document {
     status: 'pending' | 'approved' | 'rejected';
 }
 export type UserRole = 'client' | 'student' | 'investor' | 'professional' | 'admin';
+
+declare module 'some-library';

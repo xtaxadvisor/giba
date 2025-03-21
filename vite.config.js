@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
 
 export default defineConfig({
   plugins: [react()], // ✅ Only one "plugins" entry
@@ -9,7 +10,7 @@ export default defineConfig({
   },
   resolve: {  // ✅ Merged resolve objects
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "./src"),
     },
     extensions: [".tsx", ".ts", ".js", ".jsx"], // ✅ Ensure all file types are recognized
   },

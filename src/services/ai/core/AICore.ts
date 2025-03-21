@@ -1,5 +1,6 @@
 import OpenAIClient from "../client/OpenAIClient.js"; // ✅ Correct import pathimport { OPENAI_MODELS, MAX_TOKENS } from '../../../config/openai.js';
 import type { AIMessage } from '../../../types/ai.js';
+import { MAX_TOKENS, OPENAI_MODELS } from "@/config/openai.js";
 
 export const aiCoreConfig = {
   model: "gpt-4-turbo",

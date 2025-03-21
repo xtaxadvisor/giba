@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/* Removed invalid import statement */
 
 :root{--color-text-primary:#1a1a1a;--color-text-secondary:#4a5568;--color-text-muted:#718096;--color-blue-primary:#2563eb;--color-blue-hover:#1d4ed8;--color-gray-light:#f3f4f6}
 

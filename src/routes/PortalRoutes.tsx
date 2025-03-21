@@ -4,12 +4,12 @@ import { ProtectedRoute } from "@/components/auth/ProtectedRoute.js";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner.js";
 
 // ✅ Lazy-load portal components properly
-const AdminPortal = React.lazy(() => import("@/pages/admin/AdminPortal"));
-const ClientPortal = React.lazy(() => import("@/pages/ClientPortal"));
-const ProfessionalPortal = React.lazy(() => import("@/pages/ProfessionalPortal"));
-const InvestorPortal = React.lazy(() => import("@/pages/investor/InvestorPortal"));
-const StudentPortal = React.lazy(() => import("@/pages/student/StudentPortal"));
-const MessagingPortal = React.lazy(() => import("@/components/messaging/MessagingCenter"));
+const AdminPortal = React.lazy(() => import("@/pages/admin/AdminPortal.js"));
+const ClientPortal = React.lazy(() => import("@/pages/ClientPortal.js"));
+const ProfessionalPortal = React.lazy(() => import("@/pages/ProfessionalPortal.js"));
+const InvestorPortal = React.lazy(() => import("@/pages/investor/InvestorPortal.js"));
+const StudentPortal = React.lazy(() => import("@/pages/student/StudentPortal.js"));
+const MessagingPortal = React.lazy(() => import("@/components/messaging/MessagingCenter.js")); 
 
 export function PortalRoutes() {
   return (

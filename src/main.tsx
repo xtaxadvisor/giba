@@ -4,8 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 import { AuthProvider } from "./contexts/AuthProvider.js"; // ✅ Ensure the correct path
-import { App } from "./App";
-import "./index.css";
+import { App } from "./App.js";
+import './index.min.css'; 
 
 /**
  * Initializes Sentry for error tracking and performance monitoring.
