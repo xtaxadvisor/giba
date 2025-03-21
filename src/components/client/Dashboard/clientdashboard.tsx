@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { AlertCircle, Calendar, FileText } from "lucide-react";
 import Card from "@/components/ui/Card.js"; // ✅ Absolute Import

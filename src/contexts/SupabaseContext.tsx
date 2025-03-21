@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase/client.js';

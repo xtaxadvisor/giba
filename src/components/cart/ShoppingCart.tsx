@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ShoppingCart as CartIcon } from 'lucide-react';
 import { useMediaQuery } from '../../utils/hooks/index.js';
 

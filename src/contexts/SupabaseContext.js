@@ -1,4 +1,4 @@
-import react from 'react';
+// Removed unused 'react' import
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

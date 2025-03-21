@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
 import { AlertCircle, Calendar, FileText } from 'lucide-react';
-import { Card } from '../../ui/Card';
+import Card from "@/components/ui/Card.js"; 
 export function ClientDashboard() {
     const [documents, setDocuments] = useState([]);
     useEffect(() => {

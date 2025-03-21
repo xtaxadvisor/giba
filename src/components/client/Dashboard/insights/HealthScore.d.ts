@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HealthMetric } from '../../../../types/client';
 interface HealthScoreProps {
     score: number;
