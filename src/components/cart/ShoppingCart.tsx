@@ -1,4 +1,8 @@
-import React from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react';
+// Removed unused and unresolved 'useShoppingCart' import
+// Removed unused and unresolved 'useCart' import
+// Removed unused and unresolved 'useCartStore' import
 import { ShoppingCart as CartIcon } from 'lucide-react';
 import { useMediaQuery } from '../../utils/hooks/index.js';
 

@@ -2,7 +2,8 @@
 export default class OpenAIClient {
     chat = {
       completions: {
-        create: async (params: any) => {
+        create: async ({ messages }: { messages: { role: "system" | "user" | "assistant"; content: string; }[]; }) => {
+          console.log(messages); // Log messages to use the parameter
           return {
             choices: [
               {

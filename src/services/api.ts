@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
+const API_URL = import.meta.env["VITE_API_URL"] || '/.netlify/functions';
 
 export async function fetchApi<T>(
   endpoint: string,
@@ -23,14 +23,14 @@ export const api = {
   get: <T>(endpoint: string, options?: RequestInit) => 
     fetchApi<T>(endpoint, { ...options, method: 'GET' }),
     
-  post: <T>(endpoint: string, data?: any, options?: RequestInit) =>
+  post: <T>(endpoint: string, data?: unknown, options?: RequestInit) =>
     fetchApi<T>(endpoint, {
       ...options,
       method: 'POST',
       body: JSON.stringify(data),
     }),
 
-  put: <T>(endpoint: string, data?: any, options?: RequestInit) =>
+  put: <T, U = unknown>(endpoint: string, data?: U, options?: RequestInit) =>
     fetchApi<T>(endpoint, {
       ...options,
       method: 'PUT',

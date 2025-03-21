@@ -1,7 +1,7 @@
 import axios, { AxiosAdapter } from 'axios';
 const retryConfig = {
   retries: 3,
-  retryCondition: (error: any) => {
+  retryCondition: () => {
     // Retry condition logic
     return true;
   },
@@ -19,7 +19,7 @@ function retryAdapter(
   adapter: AxiosAdapter,
   retryConfig: {
     retries: number;
-    retryCondition: (error: any) => boolean;
+    retryCondition: (error: unknown) => boolean;
     retryDelay: (retryCount: number) => number;
   }
 ): AxiosAdapter {

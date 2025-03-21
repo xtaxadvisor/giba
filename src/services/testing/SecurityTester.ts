@@ -30,7 +30,7 @@ export class SecurityTester {
       }
 
       // Test sign in
-      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+      const { error: signInError } = await supabase.auth.signInWithPassword({
         email: 'test@protaxadvisors.tax',
         password: 'TestPassword123!'
       });

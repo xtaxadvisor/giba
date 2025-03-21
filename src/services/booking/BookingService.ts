@@ -1,4 +1,3 @@
-import react from 'react';
 import { supabase } from '../../lib/supabase.js';
 import { awsEmailService } from '../email/awsEmail.js';
 import { authorizeNetService } from '../payment/authorizeNet.js';

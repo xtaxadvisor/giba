@@ -6,7 +6,7 @@ import { useNotificationStore } from '../../lib/store.js';
 
 export function TestRunner() {
   const [isRunning, setIsRunning] = useState(false);
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState<Record<string, { success: boolean; error?: string }> | null>(null);
   const { addNotification } = useNotificationStore();
 
   const handleRunTests = async () => {
@@ -52,7 +52,7 @@ export function TestRunner() {
 
       {results && (
         <div className="space-y-4">
-          {Object.entries(results).map(([service, result]: [string, any]) => (
+          {Object.entries(results).map(([service, result]: [string, { success: boolean; error?: string }]) => (
             <div key={service} className="bg-white rounded-lg shadow p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-medium text-gray-900 capitalize">{service} Test</h3>

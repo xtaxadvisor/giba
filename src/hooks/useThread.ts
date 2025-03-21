@@ -33,9 +33,9 @@ export function useThreads() {
             tags: thread.tags ?? [],
             author: Array.isArray(thread.author) && thread.author.length > 0
               ? {
-                  avatarUrl: thread.author[0].avatar_url || "",
-                  displayName: thread.author[0].display_name || "Unknown",
-                  location: thread.author[0].location || "Unknown",
+                  avatarUrl: thread.author[0]?.avatar_url ?? "",
+                  displayName: thread.author[0]?.display_name || "Unknown",
+                  location: thread.author[0]?.location ?? "Unknown",
                 }
               : thread.author
               ? {

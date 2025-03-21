@@ -1,9 +1,9 @@
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, } from "react";
 import { useSupabase } from "../contexts/SupabaseContext.js";
 
 // Define the AuthContext type
 interface AuthContextType {
-  user: any;
+  user: { id: string; email: string } | null;
   loading: boolean;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;

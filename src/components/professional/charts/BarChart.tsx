@@ -32,15 +32,18 @@ export function BarChart() {
     ],
   };
 
+  const mode = 'nearest' as const;
+
   const options = {
     responsive: true,
     plugins: {
       legend: {
         display: false,
-      },
-      tooltip: {
-        mode: 'nearest' as 'nearest',
-        intersect: false,
+        mode: mode,
+        tooltip: {
+          mode: mode,
+          intersect: false,
+        },
       },
     },
     scales: {

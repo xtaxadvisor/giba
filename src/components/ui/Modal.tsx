@@ -4,9 +4,7 @@ import { Button } from "./Button.js";
 
 
 // Modal.tsx
-const ModalContent: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="p-6">{children}</div>
-);
+// Removed unused ModalContent component
 
 const ModalHeader: React.FC<{ title: string; onClose: () => void }> = ({ title, onClose }) => (
   <div className="flex items-center justify-between p-4 border-b">
@@ -22,9 +20,7 @@ const ModalHeader: React.FC<{ title: string; onClose: () => void }> = ({ title, 
   </div>
 );
 
-const ModalFooter: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="p-4 border-t">{children}</div>
-);
+// Removed unused ModalFooter component
 // Button.tsx (Button Component)  
 interface ModalProps {
   isOpen: boolean;
@@ -47,17 +43,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
       {/* Modal Container */}
       <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full">
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-lg font-medium text-gray-900">{title}</h3>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-500"
-          >
-            <X size={20} />
-          </Button>
-        </div>
+        <ModalHeader title={title} onClose={onClose} />
 
         {/* Modal Content */}
         <div className="p-6">{children}</div>

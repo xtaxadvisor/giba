@@ -14,18 +14,18 @@ export interface SendMessageDTO {
 }
 
 export const chatService = {
-  getMessages: (consultationId: string) => 
+  getMessages: () => 
     Promise.resolve([]), // Implement actual API call
 
-  sendMessage: (data: SendMessageDTO) => 
+  sendMessage: () => 
     Promise.resolve({} as ChatMessage), // Implement actual API call
 
-  deleteMessage: (messageId: string) => 
+  deleteMessage: () => 
     Promise.resolve(), // Implement actual API call
 
-  retryMessage: (messageId: string) =>
+  retryMessage: () =>
     Promise.resolve({} as ChatMessage), // Implement actual API call
 
-  markAsDelivered: (messageId: string) =>
+  markAsDelivered: () =>
     Promise.resolve() // Implement actual API call
 };

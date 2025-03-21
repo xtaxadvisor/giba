@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
-import { Bell, Mail, MessageSquare, Calendar } from 'lucide-react';
+import { Bell, Mail } from 'lucide-react';
 import { Button } from '../../ui/Button.js';
-import Card from "@/components/ui/Card.js"; // ✅ Absolute Import
+// Removed unused Card import
 
 interface NotificationSettingsProps {
-  settings: any;
+  settings: {
+    email?: {
+      newClient?: boolean;
+      documentUploads?: boolean;
+      taskAssignments?: boolean;
+      appointments?: boolean;
+      billing?: boolean;
+    };
+    push?: {
+      newClient?: boolean;
+      documentUploads?: boolean;
+      taskAssignments?: boolean;
+      appointments?: boolean;
+      billing?: boolean;
+    };
+  };
   onSave: (data: any) => void;
   isLoading: boolean;
 }

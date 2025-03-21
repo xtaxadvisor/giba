@@ -10,6 +10,7 @@ export interface ChatMessage {
 }
 
 export interface SendMessageDTO {
+  tempMessage: any;
   consultationId: string;
   content: string;
   sender: string;

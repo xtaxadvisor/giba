@@ -4,10 +4,10 @@ import { useNotificationStore } from '../lib/store.js';
 import { AnalyticsMetrics } from '../components/admin/analytics/UserAnalytics.js';
 
 export function useAnalytics(timeRange: string): {
-  satisfaction: any;
-  responseTime: any;
-  clients: any;
-  revenue: any; metrics: AnalyticsMetrics, revenueData: any, clientGrowth: any, performanceMetrics: any, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> 
+  satisfaction: number | null; // Replace with the appropriate type based on your data
+  responseTime: number | null; // Replace with the appropriate type based on your data
+  clients: Record<string, unknown>; // Replace with the appropriate type based on your data
+  revenue: number | null; metrics: AnalyticsMetrics, revenueData: Record<string, unknown> | null, clientGrowth: Record<string, unknown> | null, performanceMetrics: Record<string, unknown> | null, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> 
 } {
   const { addNotification } = useNotificationStore();
 
@@ -27,7 +27,7 @@ export function useAnalytics(timeRange: string): {
     queryFn: () => analyticsService.getClientGrowth(timeRange)
   });
 
-  const performanceMetrics = undefined;
+  const performanceMetrics = null;
   const performanceLoading = false;
 
   const exportAnalytics = async (format: 'pdf' | 'csv' | 'excel') => {
@@ -47,23 +47,23 @@ export function useAnalytics(timeRange: string): {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
       addNotification('Analytics data exported successfully', 'success');
-    } catch (error) {
+    } catch {
       addNotification('Failed to export analytics data', 'error');
     }
   };
 
   return {
   metrics,
-  revenueData,
-  clientGrowth,
+  revenueData: revenueData ? Object.fromEntries(revenueData.map(item => [item.date, item.value])) : null,
+  clientGrowth: clientGrowth ? Object.fromEntries(clientGrowth.map(item => [item.date, item.value])) : null,
   performanceMetrics,
   isLoading: metricsLoading || revenueLoading || clientGrowthLoading || performanceLoading,
   exportAnalytics,
-  satisfaction: undefined,
-  responseTime: undefined,
-  clients: undefined,
-  revenue: undefined
+  satisfaction: null,
+  responseTime: null,
+  clients: {},
+  revenue: null
 };
 }
 
-export { AnalyticsMetrics };
+export type { AnalyticsMetrics };

@@ -15,7 +15,7 @@ const adminCredentialsSchema = z.object({
 
 export class AdminAuthService {
   private static instance: AdminAuthService;
-  private readonly API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
+  private readonly API_URL = import.meta.env['VITE_API_URL'] || '/.netlify/functions';
 
   private constructor() {}
 

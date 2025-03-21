@@ -4,18 +4,15 @@ import { WhyChooseUs } from './WhyChooseUs.js';
 import { ServiceCalculator } from './ServiceCalculator.js';
 import { 
   FileText, 
-  Building2, 
   FileCheck, 
   Globe, 
   Calculator,
   MessageSquare,
-  ArrowLeft 
 } from 'lucide-react';
 import { Button } from '../ui/Button.js';
-import { useNavigate } from 'react-router-dom';
 
 export default function ServiceCatalog() {
-  const navigate = useNavigate();
+  // Removed unused navigate variable
   const [showCalculator, setShowCalculator] = useState(false);
 
   const categories = [

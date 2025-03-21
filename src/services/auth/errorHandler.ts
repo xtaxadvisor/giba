@@ -1,7 +1,7 @@
 import type { AuthError } from '@supabase/supabase-js';
 import { useNotificationStore } from '../../lib/store.js';
 
-export function handleAuthError(error: AuthError, ApiError: any): string {
+export function handleAuthError(error: AuthError): string {
   // Map specific error codes to user-friendly messages
   const errorMessages: Record<string, string> = {
     'invalid_credentials': 'Invalid email or password. Please check your credentials and try again.',
@@ -19,6 +19,6 @@ export function handleAuthError(error: AuthError, ApiError: any): string {
   return message;
 }
 
-export function isAuthError(error: any): error is AuthError {
-  return error && typeof error === 'object' && '__isAuthError' in error;
+export function isAuthError(error: unknown): error is AuthError {
+  return error !== null && typeof error === 'object' && '__isAuthError' in error;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, Play, Download, BookOpen } from 'lucide-react';
+import { Search, Play, BookOpen } from 'lucide-react';
 import { Input } from '../ui/Input.js';
 import { Select } from '../ui/Select.js';
 import { Button } from '../ui/Button.js';

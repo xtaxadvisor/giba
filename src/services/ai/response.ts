@@ -16,10 +16,14 @@ export async function generateStructuredResponse(
   const analysis = await analyzeText(content);
   
   // Format the response based on context and analysis
-  const response = await generateContextualResponse(content, context, analysis);
+  const response = await generateContextualResponse(content, context, {
+    intent: analysis.intent, // Ensure intent is mapped correctly
+    confidence: analysis.confidence,
+    sources: analysis.sources || []
+  });
 
   return {
-    text: formatResponse(response, context),
+    text: formatResponse(response),
     confidence: analysis.confidence,
     sources: analysis.sources || []
   };
@@ -28,22 +32,21 @@ export async function generateStructuredResponse(
 async function generateContextualResponse(
   content: string,
   context: string,
-  analysis: any
+  analysis: { intent: string; confidence: number; sources?: string[] }
 ): Promise<string> {
   switch (analysis.intent) {
     case 'question':
-      return generateAnswerResponse(content, context, analysis);
+      return generateAnswerResponse(content, context);
     case 'task':
-      return generateActionResponse(content, context, analysis);
+      return generateActionResponse(content, context);
     default:
-      return generateInformationalResponse(content, context, analysis);
+      return generateInformationalResponse(content, context);
   }
 }
 
 async function generateAnswerResponse(
   content: string,
-  context: string,
-  analysis: any
+  context: string
 ): Promise<string> {
   const response = await aiCore.getCompletion([
     { role: 'system', content: `You are answering a question in the context of ${context}` },
@@ -55,8 +58,7 @@ async function generateAnswerResponse(
 
 async function generateActionResponse(
   content: string,
-  context: string,
-  analysis: any
+  context: string
 ): Promise<string> {
   const response = await aiCore.getCompletion([
     { role: 'system', content: `You are helping with a task in the context of ${context}` },
@@ -67,10 +69,7 @@ async function generateActionResponse(
 }
 
 async function generateInformationalResponse(
-  content: string,
-  context: string,
-  analysis: any
-): Promise<string> {
+content: string, context: string): Promise<string> {
   const response = await aiCore.getCompletion([
     { role: 'system', content: `You are providing information in the context of ${context}` },
     { role: 'user', content }

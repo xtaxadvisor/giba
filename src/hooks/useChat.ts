@@ -37,16 +37,16 @@ export function useChat(consultationId: string) {
 
       return { tempMessage };
     },
-    onSuccess: (response, variables, context) => {
+    onSuccess: (response, context) => {
       // Replace temp message with real one
       queryClient.setQueryData<ChatMessage[]>(
         ['chat-messages', consultationId],
-        (old = []) => old.map(msg => 
+        (old = []) => old.map(msg =>
           msg.id === context?.tempMessage.id ? response : msg
         )
       );
     },
-    onError: (error, variables, context) => {
+    onError: (_error, _variables, context) => {
       // Mark message as failed
       queryClient.setQueryData<ChatMessage[]>(
         ['chat-messages', consultationId],
@@ -107,6 +107,8 @@ export function useChat(consultationId: string) {
         consultationId,
         content,
         sender: 'You' // Replace with actual user name/id
+        ,
+        tempMessage: undefined
       });
     } finally {
       setIsSending(false);

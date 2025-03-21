@@ -28,33 +28,11 @@ interface DocumentGridProps {
   onShare: (id: string) => void;
 }
 
-// Assuming these are your types
-type DocumentGridDocument = {
-  id: string;
-  title: string;
-  type: string;
-  uploadedAt: string | Date;
-  status: string;
-  tags?: string[];
-};
+// Removed unused type 'DocumentGridDocument'
 
-const transformToDocument = (docGridDoc: DocumentGridDocument): Document => {
-  return {
-    id: docGridDoc.id,
-    title: docGridDoc.title,
-    type: docGridDoc.type,
-    uploadedAt: docGridDoc.uploadedAt,
-    status: docGridDoc.status,
-    tags: docGridDoc.tags,
-  };
-};
+// Example usage (removed unused variable)
 
-// Example usage
-const documentGridDocuments: DocumentGridDocument[] = [
-  // your DocumentGridDocument objects here
-];
-
-const documents: Document[] = documentGridDocuments.map(transformToDocument);
+// Removed unused 'documents' variable
 export function DocumentGrid({ documents, isLoading, onDelete, onShare }: DocumentGridProps) {
   if (isLoading) {
     return <LoadingSpinner />;
@@ -91,7 +69,10 @@ export function DocumentGrid({ documents, isLoading, onDelete, onShare }: Docume
                   variant="ghost"
                   size="sm"
                   icon={MoreVertical}
-                  className="text-gray-400 hover:text-gray-500" children={undefined}                />
+                  className="text-gray-400 hover:text-gray-500"
+                >
+                  {/* Empty children */}
+                </Button>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
                   <div className="py-1">
                     <button className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">

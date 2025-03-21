@@ -6,7 +6,7 @@ export interface Consultation {
   status: string;
   type: ReactNode;
   startTime: string | number | Date;
-  [key: string]: any; // Allows for additional properties
+  [key: string]: unknown; // Allows for additional properties
 }
 
 export interface ScheduleConsultationDTO {
@@ -31,7 +31,7 @@ export const consultationService = {
   // ✅ Get a consultation by ID
   getById: async (id: string): Promise<Consultation> => {
     try {
-      const response = await api.get<Consultation>(`/consultations/${id}`);
+      const response = await api.get<{ data: Consultation }>(`/consultations/${id}`);
       return response.data;
     } catch (error) {
       console.error(`Error fetching consultation ${id}:`, error);
@@ -43,7 +43,7 @@ export const consultationService = {
   create: async (data: Omit<Consultation, 'id'>): Promise<Consultation> => {
     try {
       const response = await api.post<Consultation>('/consultations', data);
-      return response.data;
+      return response['data'] as Consultation;
     } catch (error) {
       console.error('Error creating consultation:', error);
       throw error;
@@ -53,7 +53,7 @@ export const consultationService = {
   // ✅ Update an existing consultation
   update: async (id: string, data: Partial<Consultation>): Promise<Consultation> => {
     try {
-      const response = await api.put<Consultation>(`/consultations/${id}`, data);
+      const response = await api.put<{ data: Consultation }>(`/consultations/${id}`, data);
       return response.data;
     } catch (error) {
       console.error(`Error updating consultation ${id}:`, error);
@@ -75,11 +75,13 @@ export const consultationService = {
   initiateConsultation: async (serviceType: string): Promise<string> => {
     try {
       const response = await api.post<{
-        data: any; redirectUrl: string 
+        data: {
+          [x: string]: string | PromiseLike<string>; sessionId: string; sessionToken: string 
+}; redirectUrl: string 
 }>('/consultations/initiate', {
         serviceType
       });
-      return response.data.redirectUrl;
+      return response.data['redirectUrl'] ?? '';
     } catch (error) {
       console.error('Failed to initiate consultation:', error);
       throw error;
@@ -87,7 +89,7 @@ export const consultationService = {
   },
 
   // ✅ Get availability for a professional
-  getAvailability: async (date: string, professionalId: string): Promise<any[]> => {
+  getAvailability: async (date: string, professionalId: string): Promise<{ time: string; available: boolean }[]> => {
       try {
         const response = await api.get<AvailabilityResponse>(`/consultations/availability?date=${date}&professionalId=${professionalId}`);
         return response.data || [];
@@ -101,5 +103,5 @@ export const consultationService = {
 // Interface declaration should be outside of the consultationService object
 
 interface AvailabilityResponse {
-  data: any[];
+  data: { time: string; available: boolean }[];
 }

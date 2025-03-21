@@ -11,11 +11,16 @@ export interface AIMetrics {
   errorRate: number;
 }
 export async function analyzeText(text: string): Promise<AIAnalysis> {
-  // Implement text analysis logic
+  // Implement text analysis logic using the input text
+  const sentiment = text.includes('good') ? 'positive' : 'neutral';
+  const topics = text.includes('tax') ? ['tax', 'finance'] : ['general'];
+  const entities = text.includes('business') ? ['business', 'investment'] : [];
+  
   return {
-    sentiment: 'positive',
-    topics: ['tax', 'finance'],
-    entities: ['business', 'investment'],
+    intent: 'general', // Add a default or derived intent value
+    sentiment,
+    topics,
+    entities,
     confidence: 0.95,
     sources: []
   };

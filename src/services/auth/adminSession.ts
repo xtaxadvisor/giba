@@ -22,7 +22,7 @@ export class AdminSessionManager {
 
   private constructor() {
     this.secretKey = new TextEncoder().encode(
-      import.meta.env.VITE_JWT_SECRET || 'default-secret-key'
+      import.meta.env['VITE_JWT_SECRET'] || 'default-secret-key'
     );
   }
 
@@ -68,7 +68,7 @@ export class AdminSessionManager {
       // Update last active timestamp
       await this.refreshSession(token);
       return session;
-    } catch (error) {
+    } catch {
       this.clearSession();
       return null;
     }

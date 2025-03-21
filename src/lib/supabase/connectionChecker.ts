@@ -49,8 +49,8 @@ export async function checkSupabaseConnection() {
 }
 
 export function validateSupabaseConfig() {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  const url = import.meta.env['VITE_SUPABASE_URL'];
+  const key = import.meta.env['VITE_SUPABASE_ANON_KEY'];
 
   if (!url || !key) {
     console.error('Missing Supabase configuration');

@@ -57,9 +57,10 @@ export function DocumentUpload({ onUpload, onClose }: DocumentUploadProps) {
 
     try {
       // Handle file upload
+      onUpload(new DataTransfer().files); // Pass the selected files to the parent component
       onClose();
       addNotification('Files uploaded successfully', 'success');
-    } catch (error) {
+    } catch {
       addNotification('Error uploading files', 'error');
     }
   };

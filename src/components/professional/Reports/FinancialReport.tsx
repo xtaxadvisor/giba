@@ -8,7 +8,7 @@ interface FinancialReportProps {
   isLoading: boolean;
 }
 
-export function FinancialReport({ dateRange, isLoading }: FinancialReportProps) {
+export function FinancialReport({ isLoading }: FinancialReportProps) {
   if (isLoading) {
     return <LoadingSpinner />;
   }

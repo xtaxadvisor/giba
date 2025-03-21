@@ -6,7 +6,7 @@ export interface User {
   role: string;
 }
 
-const DEV_AUTH_ENABLED = import.meta.env.DEV && import.meta.env.VITE_DEV_BYPASS_AUTH === 'true';
+const DEV_AUTH_ENABLED = import.meta.env.DEV && import.meta.env['VITE_DEV_BYPASS_AUTH'] === 'true';
 
 const DEV_USERS: Record<string, User> = {
   admin: {

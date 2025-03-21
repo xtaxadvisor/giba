@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { Download, Filter, Calendar } from 'lucide-react';
-import { Button } from '../../ui/Button.js';
-import { Select } from '../../ui/Select.js';
+import React from 'react';
+// Removed unused imports from 'lucide-react'
 import { FinancialReport } from './FinancialReport.js';
 import { ClientReport } from './ClientReport.js';
 import { PerformanceReport } from '../../client/PerformanceReport.js';
@@ -15,7 +13,6 @@ export function ReportDashboard() {
     setDateRange,
     reportType,
     setReportType,
-    metrics,
     isLoading,
     exportReport
   } = useReports();

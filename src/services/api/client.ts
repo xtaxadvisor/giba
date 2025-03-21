@@ -9,7 +9,7 @@ export class APIClient {
   
   private constructor() {
     this.client = setupCache(axios.create({
-      baseURL: import.meta.env.VITE_API_URL,
+      baseURL: import.meta.env['VITE_API_URL'],
       timeout: 10000,
     }), {
       ttl: 15 * 60 * 1000, // Cache for 15 minutes

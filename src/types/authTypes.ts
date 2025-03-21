@@ -1,5 +1,4 @@
 import React from "react";
-import { AppUser } from "@/components/admin/AdminLayout.js";
 
 export interface AuthCredentials {
   email: string;
@@ -25,7 +24,7 @@ export interface AIMetrics {
   errorRate: number;
 }
 
-export function useAnalytics(timeRange: string): { metrics: AnalyticsMetrics, revenueData: any, clientGrowth: any, performanceMetrics: any, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> } {
+export function useAnalytics(): { metrics: AnalyticsMetrics, revenueData: unknown, clientGrowth: unknown, performanceMetrics: unknown, isLoading: boolean, exportAnalytics: (format: 'pdf' | 'csv' | 'excel') => Promise<void> } {
   return {
     metrics: {
       revenue: { change: 0 },
@@ -37,7 +36,7 @@ export function useAnalytics(timeRange: string): { metrics: AnalyticsMetrics, re
     clientGrowth: null,
     performanceMetrics: null,
     isLoading: false,
-    exportAnalytics: async (format: 'pdf' | 'csv' | 'excel') => {
+    exportAnalytics: async () => {
       // Dummy export function
     }
   };
@@ -53,7 +52,7 @@ export interface AuthResponse {
   token: string;
 }
 
-export { RegisterData, UserRole };
+export type { RegisterData, UserRole };
 // ✅ User Types
 // ==============================
 
@@ -129,11 +128,9 @@ export interface AuthError {
 // ✅ Utility Types
 // ==============================
 
-export type SomeOtherType = {
-  // Define the properties of SomeOtherType here
-};
+export type SomeOtherType = unknown; // Allows any value
 
 // Define other types as necessary
 
 // ✅ Declare function for useAuth Hook (if applicable)
-declare function useAuth(): { user: LocalAppUser | null };
+// Removed unused declaration to resolve the error

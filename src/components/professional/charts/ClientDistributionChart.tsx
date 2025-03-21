@@ -3,7 +3,8 @@ import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
-  Legend
+  Legend,
+  TooltipItem
 } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
@@ -40,7 +41,7 @@ export function ClientDistributionChart() {
       },
       tooltip: {
         callbacks: {
-          label: function(context: any) {
+          label: function(context: TooltipItem<'pie'>) {
             const label = context.label || '';
             const value = context.parsed || 0;
             return `${label}: ${value}%`;

@@ -19,7 +19,7 @@ export function ProfessionalSettings() {
     { id: 'security', label: 'Security', icon: Lock },
   ];
 
-  const handleSave = async (sectionData: any) => {
+  const handleSave = async (sectionData: Record<string, unknown>) => {
     await updateSettings({ section: activeSection, data: sectionData });
   };
 

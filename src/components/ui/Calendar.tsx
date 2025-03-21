@@ -90,7 +90,9 @@ const Calendar: React.FC<CalendarProps> = ({
 
     if (mode === 'single') {
       setSelectedDate(date);
-      onDateSelect && onDateSelect(date);  // callback to parent
+      if (onDateSelect) {
+        onDateSelect(date);  // callback to parent
+      }
     } else if (mode === 'range') {
       if (!rangeStart || (rangeStart && rangeEnd)) {
         // no range start set, or a full range already selected – start new range
@@ -103,7 +105,9 @@ const Calendar: React.FC<CalendarProps> = ({
           setRangeStart(date);
         } else if (date >= rangeStart) {
           setRangeEnd(date);
-          onRangeSelect && onRangeSelect({ start: rangeStart, end: date });
+          if (onRangeSelect) {
+            onRangeSelect({ start: rangeStart, end: date });
+          }
         }
       }
     }
@@ -148,16 +152,14 @@ const Calendar: React.FC<CalendarProps> = ({
           const dayNum = date.getDate();
           const isDisabled = disabledDates.some(dis => isSameDay(dis, date));
           // Determine selection status for styling
-          let isSelected = false, isStart = false, isEnd = false, isInRange = false;
+          let isSelected = false, isInRange = false;
           if (mode === 'single') {
             isSelected = selectedDate !== null && isSameDay(date, selectedDate);
           } else if (mode === 'range') {
             if (rangeStart && isSameDay(date, rangeStart)) {
-              isStart = true;
               isSelected = true;
             }
             if (rangeEnd && isSameDay(date, rangeEnd)) {
-              isEnd = true;
               isSelected = true;
             }
             if (rangeStart && rangeEnd && date > rangeStart && date < rangeEnd) {
@@ -191,5 +193,13 @@ const Calendar: React.FC<CalendarProps> = ({
     </div>
   );
 };
+
+// Example usage of the Card component
+<Card 
+  title="Example Card" 
+  value="42" 
+  description="This is a sample card." 
+  icon={() => <span>🌟</span>} 
+/>
 
 export default Calendar;

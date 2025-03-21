@@ -8,23 +8,21 @@ import { useNavigate } from "react-router-dom";
 interface User {
   email: string;
 }
+// Removed duplicate implementation of useAuth
+
 const LoginPage = () => { // This is the login page component code    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth()!; // ✅ Fixed Typo
-  const navigate = useNavigate();
+  const { login, setUser } = useAuth()!; // ✅ Removed unused 'user' from destructuring
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // Removed unused 'user' state
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
     const authenticatedUser = await login(email, password);
     if (authenticatedUser) {
-      setUser(authenticatedUser);
-      setIsAuthenticated(true);
-    } else {
+      setUser(authenticatedUser); // ✅ Set the authenticated user
       setError("Invalid email or password");
     }
     setLoading(false);
@@ -60,6 +58,7 @@ interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<User | null>;
   logout: () => void;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>; // Added setUser
 }
 
 // Create AuthContext
@@ -73,7 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     console.log("Auth State Updated:", user);
   }, [user]); // ✅ Logs when `user` state changes
 
-  const login = async (email: string, _password: string) => {
+  const login = async (email: string) => {
     try {
       console.log("Attempting login...");
       const authenticatedUser = { email }; // ✅ Simulated authentication
@@ -92,7 +91,7 @@ const logout = () => {
 };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );

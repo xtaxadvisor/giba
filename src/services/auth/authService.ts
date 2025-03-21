@@ -1,4 +1,3 @@
-import react from 'react';
 import { supabase } from '../../lib/supabase/client.js';
 import { useNotificationStore } from '../../lib/store.js';
 import { validatePassword } from './validation.js';
@@ -13,7 +12,7 @@ export class AuthService {
       const normalizedEmail = email.toLowerCase().trim();
       
       // Development mode mock credentials
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env['NODE_ENV'] === 'development') {
         const mockCredentials = [
           { email: 'admin@protaxadvisors.tax', password: 'Admin123!@#', role: 'admin' },
           { email: 'client@example.com', password: 'Client123!@#', role: 'client' },

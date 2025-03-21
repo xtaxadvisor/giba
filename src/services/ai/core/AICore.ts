@@ -1,6 +1,6 @@
 import OpenAIClient from "../client/OpenAIClient.js"; // ✅ Correct import pathimport { OPENAI_MODELS, MAX_TOKENS } from '../../../config/openai.js';
 import type { AIMessage } from '../../../types/ai.js';
-import { MAX_TOKENS, OPENAI_MODELS } from "@/config/openai.js";
+import { MAX_TOKENS } from "@/config/openai.js";
 
 export const aiCoreConfig = {
   model: "gpt-4-turbo",
@@ -28,7 +28,7 @@ class AICore {
 
     try {
       const completion = await this.openaiClient.chat.completions.create({
-        model: OPENAI_MODELS.DEFAULT,
+        model: aiCoreConfig.model,
         messages: messages.map(msg => ({
           role: msg.role,
           content: msg.content

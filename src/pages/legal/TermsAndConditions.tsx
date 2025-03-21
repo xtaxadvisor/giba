@@ -41,7 +41,7 @@ export default function TermsAndConditions() {
             <p>We may contact you via email, phone, or SMS. By using our services, you consent to receive communications from us.</p>
 
             <h2>7. Online Services</h2>
-            <p>Our online platform is provided "as is." We strive to maintain availability but cannot guarantee uninterrupted access.</p>
+            <p>Our online platform is provided &quot;as is.&quot; We strive to maintain availability but cannot guarantee uninterrupted access.</p>
 
             <h2>8. Liability</h2>
             <p>Our liability is limited to the extent permitted by law and our professional obligations.</p>

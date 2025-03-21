@@ -25,7 +25,7 @@ export class SyncManager {
         schema: 'public',
         table: 'consultations'
       }, payload => {
-        this.handleBookingChange(payload);
+        this.handleBookingChange(payload as unknown as { eventType: string; new?: { id: string; date: string; customerName: string }; old?: { id: string; date: string; customerName: string } });
       })
       .subscribe();
 
@@ -37,19 +37,21 @@ export class SyncManager {
         schema: 'public',
         table: 'payments'
       }, payload => {
-        this.handlePaymentChange(payload);
+        return this.handlePaymentChange(payload as unknown as { eventType: string; new?: { id: string; status: string; bookingId: string } });
       })
       .subscribe();
 
     this.subscriptions.push(bookingSubscription, paymentSubscription);
   }
 
-  private handleBookingChange(payload: any) {
+  private handleBookingChange(payload: { eventType: string; new?: { id: string; date: string; customerName: string }; old?: { id: string; date: string; customerName: string } }) {
     const { eventType, new: newRecord, old: oldRecord } = payload;
     
     switch (eventType) {
       case 'INSERT':
-        this.syncNewBooking(newRecord);
+        if (newRecord) {
+          this.syncNewBooking(newRecord);
+        }
         break;
       case 'UPDATE':
         this.syncBookingUpdate(newRecord, oldRecord);
@@ -60,15 +62,15 @@ export class SyncManager {
     }
   }
 
-  private handlePaymentChange(payload: any) {
+  private handlePaymentChange(payload: { eventType: string; new?: { id: string; status: string; bookingId: string } }) {
     const { eventType, new: newRecord } = payload;
     
-    if (eventType === 'UPDATE' && newRecord.status === 'succeeded') {
+    if (eventType === 'UPDATE' && newRecord?.status === 'succeeded') {
       this.syncPaymentConfirmation(newRecord);
     }
   }
 
-  private async syncNewBooking(booking: any) {
+  private async syncNewBooking(booking: { id: string; date: string; customerName: string }) {
     try {
       // Sync with calendar
       await this.syncWithCalendar(booking);
@@ -89,7 +91,7 @@ export class SyncManager {
     }
   }
 
-  private async syncBookingUpdate(newBooking: any, oldBooking: any) {
+  private async syncBookingUpdate(newBooking: unknown, oldBooking: unknown) {
     try {
       // Update calendar event
       await this.updateCalendarEvent(newBooking);
@@ -101,7 +103,7 @@ export class SyncManager {
     }
   }
 
-  private async syncBookingDeletion(booking: any) {
+  private async syncBookingDeletion(booking: unknown) {
     try {
       // Remove from calendar
       await this.removeFromCalendar(booking);
@@ -113,19 +115,21 @@ export class SyncManager {
     }
   }
 
-  private async syncPaymentConfirmation(payment: any) {
+  private async syncPaymentConfirmation(payment: unknown) {
     try {
       // Update booking status
-      await this.updateBookingStatus(payment.bookingId, 'confirmed');
+      const typedPayment = payment as { id: string; status: string; bookingId: string };
+      await this.updateBookingStatus(typedPayment.bookingId, 'confirmed');
       
       // Send payment confirmation
-      await this.sendPaymentConfirmation(payment);
+      await this.sendPaymentConfirmation(payment as { id: string; status: string; bookingId: string });
     } catch (error) {
       console.error('Payment sync failed:', error);
     }
   }
 
-  private async syncWithCalendar(booking: any) { // eslint-disable-line @typescript-eslint/no-empty-function 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private async syncWithCalendar(_booking: { id: string; date: string; customerName: string; }) { // eslint-disable-line @typescript-eslint/no-empty-function 
     try { // eslint-disable-line @typescript-eslint/no-empty-function  
       // Implementation for calendar sync
     } catch (error) {
@@ -133,28 +137,33 @@ export class SyncManager {
     }
   }
 
-  private async updateCalendarEvent(_booking: any) {
+  private async updateCalendarEvent(newBooking: unknown) {
     // Implementation for calendar event update
+    console.log('Updating calendar event for:', newBooking);
   }
 
-  private async removeFromCalendar(_booking: any) {
+  private async removeFromCalendar(booking: unknown) {
     // Implementation for calendar event removal
+    console.log('Removing booking from calendar:', booking);
   }
 
-  private async sendBookingNotifications(_booking: any) {
-    // Implementation for booking notifications
+  private async sendBookingNotifications(booking: { id: string; date: string; customerName: string }) {
+    console.log('Sending booking notifications for:', booking);
+    // Add actual implementation for booking notifications here
   }
 
-  private async sendUpdateNotifications(_newBooking: any, _oldBooking: any) {
-    // Implementation for update notifications
+  private async sendUpdateNotifications(newBooking: unknown, oldBooking: unknown) {
+    console.log('Sending update notifications for:', newBooking, 'Previous booking:', oldBooking);
+    // Add actual implementation for update notifications here
   }
 
   private async sendCancellationNotifications() {
     // Implementation for cancellation notifications
   }
 
-  private async sendPaymentConfirmation(_payment: any) {
-    // Implementation for payment confirmation
+  private async sendPaymentConfirmation(payment: { id: string; status: string; bookingId: string }) {
+    console.log(`Sending payment confirmation for payment ID: ${payment.id}`);
+    // Add actual implementation for payment confirmation here
   }
 
   private async updateBookingStatus(bookingId: string, status: string) {

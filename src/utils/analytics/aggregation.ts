@@ -1,5 +1,4 @@
-import { startOfDay, endOfDay, eachDayOfInterval } from 'date-fns';
-import type { TimeSeriesData } from '../../types/analytics.js';
+import { startOfDay, eachDayOfInterval } from 'date-fns';
 
 export function aggregateTimeSeries(
   data: Array<{ date: string; value: number }>,
@@ -10,10 +9,8 @@ export function aggregateTimeSeries(
     return acc;
   }, {} as Record<string, number>);
 
-  // Fill gaps
-  const start = startOfDay(new Date(data[0].date));
-  const end = endOfDay(new Date(data[data.length - 1].date));
-
+  const end = startOfDay(new Date());
+  const start = startOfDay(new Date(data[0]?.date || new Date()));
   const allDays = eachDayOfInterval({ start, end });
   
   return {

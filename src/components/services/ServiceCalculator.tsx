@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, DollarSign, Clock, Plus, Trash2 } from 'lucide-react';
+import { Calculator, Clock, Plus, Trash2 } from 'lucide-react';
 import { Button } from '../ui/Button.js';
 import { Input } from '../ui/Input.js';
 import { Select } from '../ui/Select.js';

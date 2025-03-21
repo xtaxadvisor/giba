@@ -1,5 +1,4 @@
 import supabase from '../../lib/supabase/client.js';
-import { useNotificationStore } from '../../lib/store.js';
 
 export class InfrastructureTester {
   private static instance: InfrastructureTester;
@@ -33,7 +32,7 @@ export class InfrastructureTester {
 
   private async testDatabaseConnection() {
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('public_data')
         .select('count')
         .limit(1)
@@ -57,7 +56,7 @@ export class InfrastructureTester {
 
   private async testRLSPolicies() {
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('public_data')
         .select('count')
         .limit(1)

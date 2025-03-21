@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 import { Button } from '../ui/Button.js';
-import testConnection from '../../lib/supabase/client.js';
 import { useNotificationStore } from '../../lib/store.js';
 
 export async function localTestConnection(): Promise<boolean> {

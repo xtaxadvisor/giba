@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // Removed unused and non-existent 'Database' import
+import { PresenceData } from '@/hooks/useRealtime.js';
 import { supabase } from '@/lib/supabase/client.js';
 import { SupabaseClient } from '@supabase/supabase-js';
 
@@ -11,10 +12,11 @@ class RealtimeService {
     this.supabase = supabase;
   }
   async sendMessage(message: string, data: any = {}) {
+    console.log(`Sending message: ${message}`, data);
     // implementation
   }
 
-  async updatePresence(data: any) {
+  async updatePresence(data: PresenceData) {
     // implementation
   }
 

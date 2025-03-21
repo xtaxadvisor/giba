@@ -11,8 +11,8 @@ class EmailService {
       port: 465,
       secure: true,
       auth: {
-        user: import.meta.env.VITE_AWS_SMTP_USERNAME || "gilberto27601@protaxadvisors.tax",
-        pass: import.meta.env.VITE_AWS_SMTP_PASSWORD || "Travelhere2024$"
+        user: import.meta.env['VITE_AWS_SMTP_USERNAME'] || "gilberto27601@protaxadvisors.tax",
+        pass: import.meta.env['VITE_AWS_SMTP_PASSWORD'] || "Travelhere2024$"
       }
     });
   }
@@ -31,7 +31,7 @@ class EmailService {
   } = {}) {
     try {
       const info = await this.transporter.sendMail({
-        from: import.meta.env.VITE_AWS_SMTP_FROM || 'info@protaxadvisors.tax',
+        from: import.meta.env['VITE_AWS_SMTP_FROM'] || 'info@protaxadvisors.tax',
         to,
         subject,
         text: body,

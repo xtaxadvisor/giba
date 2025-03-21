@@ -62,7 +62,7 @@ export class AuthorizeNetService {
     let isEven = false;
     
     for (let i = cardNumber.length - 1; i >= 0; i--) {
-      let digit = parseInt(cardNumber[i]);
+      let digit = parseInt(cardNumber[i] || '0');
       
       if (isEven) {
         digit *= 2;

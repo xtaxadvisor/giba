@@ -32,7 +32,9 @@ export function useVideoStream(consultationId: string) {
 
     pc.ontrack = event => {
       if (videoRef.current) {
-        videoRef.current.srcObject = event.streams[0];
+        if (event.streams[0]) {
+          videoRef.current.srcObject = event.streams[0];
+        }
       }
     };
 

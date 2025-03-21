@@ -3,7 +3,7 @@ import { useNotificationStore } from '../../lib/store.js';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: import.meta.env['VITE_OPENAI_API_KEY'],
   dangerouslyAllowBrowser: true
 });
 
@@ -40,7 +40,7 @@ export const grakonAI = {
 export default class OpenAIClient {
   chat = {
     completions: {
-      create: async (params: any) => {
+      create: async () => {
         return {
           choices: [
             {

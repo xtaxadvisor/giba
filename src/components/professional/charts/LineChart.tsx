@@ -38,14 +38,14 @@ export function LineChart() {
     ],
   };
 
-  const options = {
+  const options: import('chart.js').ChartOptions<'line'> = {
     responsive: true,
     plugins: {
       legend: {
         display: false,
       },
       tooltip: {
-        mode: 'nearest' as const,
+        mode: 'nearest',
         intersect: false,
       },
     },
@@ -56,7 +56,12 @@ export function LineChart() {
           color: 'rgba(0, 0, 0, 0.05)',
         },
         ticks: {
-          callback: (value: number) => `$${value.toLocaleString()}`,
+          callback: function (tickValue) {
+            if (typeof tickValue === 'number') {
+              return `$${tickValue.toLocaleString()}`;
+            }
+            return tickValue;
+          },
         },
       },
       x: {
@@ -74,7 +79,7 @@ export function LineChart() {
 
   return (
     <div className="w-full h-[300px]">
-      <Line data={data} options={options as any} />
+      <Line data={data} options={options} />
     </div>
   );
 }

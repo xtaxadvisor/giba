@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, AlertCircle } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { Button } from '../../ui/Button.js';
 
 export function UpcomingAssignments() {

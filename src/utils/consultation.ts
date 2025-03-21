@@ -22,7 +22,7 @@ export function canJoinConsultation(consultation: Consultation): boolean {
   return (
     consultation.status === 'scheduled' &&
     Math.abs(timeUntilStart) <= 5 * 60 * 1000 && // 5 minutes before
-    !!consultation.meetingLink
+    !!consultation['meetingLink']
   );
 }
 

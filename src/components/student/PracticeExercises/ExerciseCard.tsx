@@ -1,7 +1,6 @@
 import React from 'react';
 import { BookOpen, Award, Clock } from 'lucide-react';
 import { Button } from '../../ui/Button.js';
-import type { Exercise } from '../../../types/student.js';
 
 interface LocalExercise {
   id: string;

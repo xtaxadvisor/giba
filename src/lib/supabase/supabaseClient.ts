@@ -1,11 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
-import type { Database as ExternalDatabase } from "./types.js";
-import { useNotificationStore } from "../store.js";
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query"; // Removed as it is unused
 
 // Ensure environment variables are properly set
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const SUPABASE_URL = import.meta.env['VITE_SUPABASE_URL'];
+const SUPABASE_ANON_KEY = import.meta.env['VITE_SUPABASE_ANON_KEY'];
 
 if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
   throw new Error("❌ Missing Supabase environment variables. Check .env file.");
@@ -17,8 +15,8 @@ export type Database = {
   public: {
       Tables: {
           [key: string]: {
-              Insert: any;
-              Update: any;
+              Insert: Record<string, unknown>;
+              Update: Record<string, unknown>;
           };
       };
   };
@@ -52,8 +50,8 @@ export type LocalDatabaseType = {
   public: {
       Tables: {
           [key: string]: {
-              Insert: any;
-              Update: any;
+              Insert: Record<string, unknown>;
+              Update: Record<string, unknown>;
           };
       };
   };

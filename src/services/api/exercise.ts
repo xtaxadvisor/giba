@@ -1,5 +1,4 @@
 import { api } from '../api.js';
-import type { Exercise as StudentExercise } from '../../types/student.js';
 export type Exercise = {
   difficulty: string;
   duration: number;
@@ -23,7 +22,7 @@ export const exerciseService = {
   startExercise: (id: string) => 
     api.post<{ sessionId: string }>(`/exercises/${id}/start`),
 
-  submitExercise: (id: string, answers: Record<string, any>) => 
+  submitExercise: (id: string, answers: Record<string, string | number | boolean>) => 
     api.post<{ score: number; feedback: string[] }>(`/exercises/${id}/submit`, answers),
 
   getProgress: () => 

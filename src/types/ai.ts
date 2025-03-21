@@ -12,6 +12,7 @@ export interface AIResponse {
 }
 
 export interface AIAnalysis {
+  intent: string;
   sources: never[];
   sentiment: 'positive' | 'negative' | 'neutral';
   topics: string[];

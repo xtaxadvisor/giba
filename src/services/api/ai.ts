@@ -1,9 +1,8 @@
 import OpenAI from 'openai';
-import { useNotificationStore } from '../../lib/store.js';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-  apiKey: process.env.VITE_OPENAI_API_KEY,
+  apiKey: process.env['VITE_OPENAI_API_KEY'],
   dangerouslyAllowBrowser: true // Only for development
 });
 

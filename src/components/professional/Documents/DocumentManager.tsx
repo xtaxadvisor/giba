@@ -1,13 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { 
   FileText, 
   Upload, 
-  Filter, 
-  Search, 
-  FolderPlus,
-  History,
-  Share2,
-  Tag
 } from 'lucide-react';
 import { Button } from '../../ui/Button.js';
 import { DocumentGrid } from './DocumentGrid.js';
@@ -31,34 +25,32 @@ interface ProfessionalDocument {
   size: string;
 }
 
-interface CustomDocument extends ProfessionalDocument {
-  // Add any additional properties if needed
-}
+// Removed unused CustomDocument interface
 
-interface CustomDocumentType extends ProfessionalDocument {
-  // Add any additional properties if needed
-}
 
 export function DocumentManager() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const {
     documents,
-    filterStatus,
-    setFilterStatus,
+    // setFilterStatus, // Removed as it is not used
   } = useDocuments();
 
-  function setFilters(filters: any): void {
-    throw new Error('Function not implemented.');
+  function setFilters(filters: { status: string; type: string; searchQuery: string }): void {
+    console.log('Filters applied:', filters);
   }
 
   function uploadDocument(files: FileList): void {
-    throw new Error('Function not implemented.');
+    Array.from(files).forEach((file) => {
+      console.log(`Uploading file: ${file.name}`);
+      // Add your file upload logic here
+    });
   }
 
   function deleteDocument(document: ProfessionalDocument): void {
-    throw new Error('Function not implemented.');
+    console.log(`Deleting document with ID: ${document.id}`);
+    // Add your document deletion logic here
   }
 
   return (
@@ -92,7 +84,7 @@ export function DocumentManager() {
         <DocumentGrid
           documents={documents as unknown as DocumentGridDocument[]}
           isLoading={loading}
-          onDelete={(document) => deleteDocument(document as unknown as ProfessionalDocument)} onShare={function (id: string): void {
+          onDelete={(document) => deleteDocument(document as unknown as ProfessionalDocument)} onShare={function (): void {
             throw new Error('Function not implemented.');
           } }        />
       ) : (
